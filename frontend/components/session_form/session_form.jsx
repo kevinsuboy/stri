@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
     }
 
     handleForm(){
-        debugger
+        // debugger
         let msg = this.props.formType;
         let sessionClass = "session-login"
         let footer = <p className="session-footer session-disclaimer">By signing up for Stri, you agree to the Terms of Service. View our Privacy Policy.</p>
