@@ -4,13 +4,16 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            username: '',
             email: '',
-            password: ''
+            password: '',
+            rmb: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(field) {
+        // debugger
         return e => this.setState({
             [field]: e.currentTarget.value
         });
@@ -19,29 +22,61 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        debugger
-        this.props.action(user);
+        // debugger
+        if (!this.state.rmb) { // want to forget
+            window.addEventListener('beforeunload', (ev) => {
+                this.props.logout();
+                ev.preventDefault();
+                return ev.returnValue = 'Are you sure you want to close?';
+            });
+        }
+        this.props.action(user)
+            .then(() => this.props.history.push('/dashboard'));
     }
 
-    render() {
+    handleForm(){
+        debugger
         let msg = this.props.formType;
         let sessionClass = "session-login"
         let footer = <p className="session-footer session-disclaimer">By signing up for Stri, you agree to the Terms of Service. View our Privacy Policy.</p>
         let rmb = undefined
-        if(this.props.formType === "Sign Up"){
+        let uname = undefined
+        if (this.props.formType === "Sign Up") {
             msg = <p className="session-msg">Join Stri today, it's Free</p>
             sessionClass = "session-signup"
-        }else{
+            uname = < input type = "text"
+                    value = { this.state.username }
+                    onChange = { this.handleChange('username') }
+                    className = "session-input"
+                    placeholder = "Username"
+                />
+        } else {
             msg = <p className="session-msg">Log In</p>
             footer = <p className="session-footer session-forgot-password">Forgot Username or Password?</p>
             rmb = <label className="session-form-label">
-                <input type="checkbox" name="Remember Me" className="session-radio" value="on" />
+                <input type="checkbox"
+                    name="Remember Me"
+                    className="session-radio"
+                    value="on" 
+                    onChange={this.handleChange('rmb')}/>
                     Remember Me</label>
         }
+        return{
+            msg,
+            sessionClass,
+            footer,
+            rmb,
+            uname
+        }
+    }
+
+    render() {
+        const { msg,sessionClass,footer,rmb,uname} = this.handleForm();
         return (
             <div className="session-form-container container">
                 {msg}
                 <form onSubmit={this.handleSubmit} className="session-form">
+                    {uname}
                     <input type="text"
                         value={this.state.email}
                         onChange={this.handleChange('email')}

@@ -3,12 +3,14 @@ import {
     Route,
     Switch,
     Link,
+    Redirect
 } from 'react-router-dom';
 
 import NavBarContainer from './navbar/navbar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-// import SearchContainer from './search/search_container';
+// import SplashContainer from './splash/splash_container';
+// import DashboardContainer from './dashboard/dashboard_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -19,9 +21,11 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
-            <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
-            {/* <Route exact path="/" component={SearchContainer} /> */}
+            {/* <Route exact path="/" component={SplashContainer} /> */}
+            {/* <ProtectedRoute path="/dashboard" component={DashboardContainer} /> */}
+            {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
+            {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
+            <Route path="" render={() => (<Redirect to="/dashboard" />)} />
         </Switch>
     </div>
 );

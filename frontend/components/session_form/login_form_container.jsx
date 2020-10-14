@@ -15,6 +15,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
     return {
         action: (user) => dispatch(login(user)),
+        logout: () => dispatch(logout()),
     };
 };
 

@@ -4,6 +4,7 @@ import configureStore from "./store/store";
 import Root from './components/root';
 import { login, logout } from "./actions/session_actions";
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     let preloadedState = undefined;
@@ -13,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 users: { [window.currentUser.id]: window.currentUser }
             },
             session: {
-                currentUserId: window.currentUser.id
+                id: window.currentUser.id,
+                rmb: window.rmb
             }
         };
         delete window.currentUser;

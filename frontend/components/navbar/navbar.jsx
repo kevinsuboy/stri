@@ -5,10 +5,13 @@ class NavBar extends React.Component {
     constructor(props){
         super(props)
     }
+    componentWillUnmount(){
+    }
     handleLoggedIn(){
-        const {currentUserId} = this.props;
+        const {id} = this.props;
         const {pathname} = this.props.location;
-        if(!currentUserId){ // not logged in
+        // debugger
+        if(!id){ // not logged in
             let navBarClass = "nav-bar-login";
             let btnText = "Log In"
             let newPathName = "/login"
