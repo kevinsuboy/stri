@@ -1,4 +1,4 @@
 node_modules/
 *bundle.js*
-app/assets/images
+public/assets
 tmp/
