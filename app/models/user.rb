@@ -25,8 +25,9 @@ class User < ApplicationRecord
     has_many :activities
     after_initialize :ensure_session_token
     #! SPIRE
-    def self.find_by_credentials(uname,pw)
-        user = User.find_by(username: uname)
+    def self.find_by_credentials(email,pw)
+        # debugger
+        user = User.find_by(email: email)
         user && user.is_password?(pw) ? user : nil
     end
     def password=(pw)
