@@ -72,6 +72,9 @@ class SessionForm extends React.Component {
 
     render() {
         const { msg,sessionClass,footer,rmb,uname} = this.handleForm();
+        const body = document.getElementsByTagName("body");
+        // debugger
+        body[0].className = "background-1";
         return (
             <div className="session-form-container container">
                 {msg}

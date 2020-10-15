@@ -1,0 +1,66 @@
+@import 'partials/_base.scss';
+
+//?
+.nav-bar {
+    height: 55px;
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar-login {
+    background-color: #fff;
+    color: black;
+    border: lightgray 1px solid;
+}
+.nav-bar-login:hover {
+    background-color: $secondary-gray-hover;
+}
+.nav-bar-signup {
+    background-color: $primary-orange;
+    color: white;
+}
+.nav-bar-signup:hover {
+    background-color: $primary-orange-hover;
+}
+.nav-bar-content{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+//? user-nav
+.nav-group{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    // justify-content: space-between;
+}
+.nav-item {
+    font-size: 15px;
+    color: $secondary-gray;
+    cursor: pointer;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff
+}
+.nav-item:hover {
+    color: $primary-orange;
+    border-left: 1px solid #dfdfe8;
+    border-right: 1px solid #dfdfe8
+}
+.nav-profile .dropdown-content{
+    left: -70px;
+}
+.notifications {
+    width: 55px;
+    font-size: 20px;
+}
+.notifications:hover {
+    color: #777777;
+}

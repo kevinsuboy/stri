@@ -1,0 +1,53 @@
+@import 'partials/_base.scss';
+
+//! Session
+.session-submit {
+    background-color: $primary-orange;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 16px;
+}
+.session-submit:hover {
+    background-color: #d94f16;
+    cursor: pointer;
+}
+.session-form-container {
+    width: 350px;
+    flex-direction: column;
+    margin-top: 50px;
+    background-color: black;
+    border-radius: 5px;
+}
+.session-msg {
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.session-form {
+    display: inline-block;
+    margin: 10px auto;
+    width: 300px;
+}
+.session-input {
+    margin-top: 10px;
+    height: 20px;
+    padding: 10px 16px;
+    width: calc(100% - 36px);
+    border-radius: 5px;
+}
+.session-footer {
+    color: grey;
+    padding: 10px 16px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.session-form-label {
+    color: white;
+}
+.session-radio {
+    margin: 20px 0;
+}
