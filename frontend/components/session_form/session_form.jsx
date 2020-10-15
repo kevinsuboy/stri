@@ -11,7 +11,14 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    componentDidMount(){
+        const body = document.getElementsByTagName("body")[0];
+        body.className = `session-img background-${Math.floor(Math.random() * 26) + 1}`;
+    }
+    componentWillUnmount(){
+        const body = document.getElementsByTagName("body")[0];
+        body.className = ``;
+    }
     handleChange(field) {
         // debugger
         return e => this.setState({
@@ -42,7 +49,7 @@ class SessionForm extends React.Component {
         let rmb = undefined
         let uname = undefined
         if (this.props.formType === "Sign Up") {
-            msg = <p className="session-msg">Join Stri today, it's Free</p>
+            msg = <h3 className="session-msg">Join Stri today, it's Free</h3>
             sessionClass = "session-signup"
             uname = < input type = "text"
                     value = { this.state.username }
@@ -51,15 +58,15 @@ class SessionForm extends React.Component {
                     placeholder = "Username"
                 />
         } else {
-            msg = <p className="session-msg">Log In</p>
+            msg = <h3 className="session-msg">Log In</h3>
             footer = <p className="session-footer session-forgot-password">Forgot Username or Password?</p>
             rmb = <label className="session-form-label">
                 <input type="checkbox"
                     name="Remember Me"
                     className="session-radio"
                     value="on" 
-                    onChange={this.handleChange('rmb')}/>
-                    Remember Me</label>
+                    onChange={this.handleChange('rmb')}/> Remember Me
+                </label>
         }
         return{
             msg,
@@ -72,9 +79,6 @@ class SessionForm extends React.Component {
 
     render() {
         const { msg,sessionClass,footer,rmb,uname} = this.handleForm();
-        const body = document.getElementsByTagName("body");
-        // debugger
-        body[0].className = "background-1";
         return (
             <div className="session-form-container container">
                 {msg}

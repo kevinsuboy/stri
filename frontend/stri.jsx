@@ -6,6 +6,8 @@ import { login, logout } from "./actions/session_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
+    const body = document.getElementsByTagName("body")[0];
+    body.className = "background-splash";
     let preloadedState = undefined;
     if (window.currentUser) {
         preloadedState = {

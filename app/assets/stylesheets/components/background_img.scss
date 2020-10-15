@@ -1,0 +1,18 @@
+.session-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // height: 100%;
+    margin: 0;
+}
+/* warning: this is generally a bad idea */
+@for $i from 1 through 9 {
+    .background-#{$i} {
+        background-image: url("stock/000#{$i}.jpg");
+    }
+}
+@for $i from 10 through 26 {
+    .background-#{$i} {
+        background-image: url("stock/00#{$i}.jpg");
+    }
+}

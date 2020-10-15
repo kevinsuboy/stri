@@ -1,0 +1,35 @@
+@import 'partials/_base.scss';
+
+.hr {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-top: 1px solid $primary-gray;
+    height: 1px;
+    width: 100%;
+}
+.hr-text {
+    background-color: #fff;
+    color: $secondary-gray;
+    display: inline-block;
+    padding: 0 12px;
+    -webkit-transform: translateY(-60%);
+    transform: translateY(-60%);
+}
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+.splash-session {
+    background-color: #fff;
+    color: black;
+    border: 1px solid $primary-gray;
+    border-radius: 0;
+    width: 100%;
+    padding: 10px 16px;
+}
+.splash-session:hover{
+    background-color: $secondary-gray-hover;
+}

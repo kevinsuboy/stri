@@ -9,7 +9,7 @@ import {
 import NavBarContainer from './navbar/navbar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-// import SplashContainer from './splash/splash_container';
+import SplashContainer from './splash/splash_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -21,7 +21,7 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            {/* <Route exact path="/" component={SplashContainer} /> */}
+            <AuthRoute exact path="/" component={SplashContainer} />
             <ProtectedRoute path="/dashboard" component={DashboardContainer} />
             {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}

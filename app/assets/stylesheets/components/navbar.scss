@@ -51,8 +51,8 @@
 }
 .nav-item:hover {
     color: $primary-orange;
-    border-left: 1px solid #dfdfe8;
-    border-right: 1px solid #dfdfe8
+    border-left: 1px solid $primary-gray;
+    border-right: 1px solid $primary-gray
 }
 .nav-profile .dropdown-content{
     left: -70px;
