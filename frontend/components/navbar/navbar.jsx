@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GlobalNav from './globalnav'
+import UserNav from './usernav'
 
 class NavBar extends React.Component {
     constructor(props){
@@ -8,7 +10,8 @@ class NavBar extends React.Component {
     componentWillUnmount(){
     }
     handleLoggedIn(){
-        const {id} = this.props;
+        const {id,currentUser,logout} = this.props;
+        debugger
         const {pathname} = this.props.location;
         // debugger
         if(!id){ // not logged in
@@ -20,7 +23,20 @@ class NavBar extends React.Component {
                 btnText = "Sign Up";
                 newPathName = "/signup"
             }
-            return <Link to={newPathName} className={`${navBarClass} session-link link`}><p>{btnText}</p></Link>
+            return (
+                <div className="nav-bar-content">
+                    <div></div>
+                    <Link to={newPathName} className={`${navBarClass} session-link link`}><p>{btnText}</p></Link>
+                </div>
+            )
+        }else{
+            const username = currentUser[id].username;
+            return (
+                <div className="nav-bar-content">
+                    <GlobalNav />
+                    <UserNav username={username} logout={logout}/>
+                </div>
+            )
         }
     }
     render(){
@@ -31,10 +47,7 @@ class NavBar extends React.Component {
                         <p className="link-text">STRI</p>
                     </Link>
                 </div>
-                <div className="nav-bar-content">
                 {this.handleLoggedIn()}
-                {/* {logoutButton} */}
-                </div>
             </nav>
         )
     }

@@ -4,11 +4,12 @@ import { logout } from '../../actions/session_actions';
 import NavBar from './navbar'
 
 const mSTP = state => {
-    // debugger
+    debugger
     return {
-    id: state.session.id, rmb: state.session.rmb
+    id: state.session.id, rmb: state.session.rmb,
+    currentUser: state.entities.users
 }}
 const mDTP = dispatch => ({
-    logout: () => dispatch(logout)
+    logout: () => dispatch(logout())
 })
 export default connect(mSTP,mDTP)(NavBar)
