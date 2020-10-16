@@ -1,4 +1,5 @@
 import React from 'react';
+import SessionErrorContainer from './session_error_container'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -43,14 +44,9 @@ class SessionForm extends React.Component {
 
     handleForm(){
         // debugger
-        let msg = this.props.formType;
-        let sessionClass = "session-login"
-        let footer = <p className="session-footer session-disclaimer">By signing up for Stri, you agree to the Terms of Service. View our Privacy Policy.</p>
         let rmb = undefined
         let uname = undefined
         if (this.props.formType === "Sign Up") {
-            msg = <h3 className="session-msg">Join Stri today, it's Free</h3>
-            sessionClass = "session-signup"
             uname = < input type = "text"
                     value = { this.state.username }
                     onChange = { this.handleChange('username') }
@@ -58,8 +54,6 @@ class SessionForm extends React.Component {
                     placeholder = "Username"
                 />
         } else {
-            msg = <h3 className="session-msg">Log In</h3>
-            footer = <p className="session-footer session-forgot-password">Forgot Username or Password?</p>
             rmb = <label className="session-form-label">
                 <input type="checkbox"
                     name="Remember Me"
@@ -69,20 +63,20 @@ class SessionForm extends React.Component {
                 </label>
         }
         return{
-            msg,
-            sessionClass,
-            footer,
             rmb,
             uname
         }
     }
 
     render() {
-        const { msg,sessionClass,footer,rmb,uname} = this.handleForm();
+        const { rmb,uname} = this.handleForm();
+        const {msg, sessionClass,footer} = this.props;
+        // debugger
         return (
             <div className="session-form-container container">
                 {msg}
                 <form onSubmit={this.handleSubmit} className="session-form">
+                    <SessionErrorContainer />
                     {uname}
                     <input type="text"
                         value={this.state.email}

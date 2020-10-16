@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default ({username, logout}) => {
     const inits = username.split(" ").map((word) => word[0]).join("");
-    debugger
+    // debugger
     return (
     <ul className="user-nav nav-group">
         <li className="nav-item notifications"><i className="far fa-bell"></i></li>

@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = (state) => {
     return {
-        errors: errors.session,
         formType: 'Sign Up',
-        navLink: <Link to="/login">Log In</Link>,
+        sessionClass: "session-login",
+        footer: <p className="session-footer session-disclaimer">By signing up for Stri, you agree to the Terms of Service. View our Privacy Policy.</p>,
+        msg: <h3 className="session-msg">Join Stri today, it's Free</h3>
     };
 };
 

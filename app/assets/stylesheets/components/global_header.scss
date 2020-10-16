@@ -23,7 +23,7 @@
     background-size: cover;
     background-position: left top;
     background-repeat: no-repeat;
-    overflow: hidden;
+    // overflow: hidden;
     height: 90%;
     display: inline-block;
 }
@@ -45,12 +45,14 @@
     text-align: center;
     font-weight: bold;
     transition: background-color 0.25s linear;
+    transition: border 0.25s linear;
     width: 80px;
     height: 60%;
     border-radius: 5px;
 }
 .session-link:hover{
     transition: background-color 0.25s linear;
+    transition: border 0.25s linear;
 }
 .session-link p {
     margin: 5px 0;

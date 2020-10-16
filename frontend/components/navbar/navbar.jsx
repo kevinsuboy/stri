@@ -11,7 +11,7 @@ class NavBar extends React.Component {
     }
     handleLoggedIn(){
         const {id,currentUser,logout} = this.props;
-        debugger
+        // debugger
         const {pathname} = this.props.location;
         // debugger
         if(!id){ // not logged in

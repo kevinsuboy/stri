@@ -10,7 +10,7 @@
     width: 100%;
 }
 .hr-text {
-    background-color: #fff;
+    background-color: $background-color;
     color: $secondary-gray;
     display: inline-block;
     padding: 0 12px;
@@ -18,18 +18,67 @@
     transform: translateY(-60%);
 }
 .splash-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    // border: 1px solid red;
+}
+.splash-container h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 20px;
+}
+.splash-group {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.splash-session-group{
     display: flex;
     flex-direction: column;
-    width: 350px;
+    align-items: center;
+    width: 40%;
+    // margin: 0 20px;
+    // border: 1px solid red;
+    min-width: 300px;
+}
+.splash-container-img {
+    content: url("devices-header-edited.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin: 0;
+    margin-bottom: 50px;
+    max-height: auto;
+    // width: auto;
+    
+    // border: 1px solid red;
 }
 .splash-session {
     background-color: #fff;
     color: black;
     border: 1px solid $primary-gray;
     border-radius: 0;
-    width: 100%;
+    width: 80%;
     padding: 10px 16px;
+    font-size: 150%;
+    font-weight: lighter;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.splash-session i {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
 }
 .splash-session:hover{
     background-color: $secondary-gray-hover;
+    border: 1px solid $secondary-gray;
 }
