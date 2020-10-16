@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import NavBar from './navbar'
 
+import selector from '../selectors/navbar_selector'
+
 const mSTP = state => {
-    // debugger
     return {
     id: state.session.id, rmb: state.session.rmb,
-    currentUser: state.entities.users,
+    username: selector(state),
     header: true
 }}
 const mDTP = dispatch => ({

@@ -5,10 +5,11 @@ import UserNav from './usernav'
 
 class NavBar extends React.Component {
     constructor(props){
+        debugger
         super(props)
     }
     handleLoggedIn(){
-        const {id,currentUser,logout} = this.props;
+        const {id,username,logout} = this.props;
         // debugger
         const {pathname} = this.props.location;
         // debugger
@@ -28,7 +29,7 @@ class NavBar extends React.Component {
                 </div>
             )
         }else{
-            const username = currentUser[id].username;
+            // const username = currentUser[id].username;
             return (
                 <div className="nav-bar-content">
                     <GlobalNav />
