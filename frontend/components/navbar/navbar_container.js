@@ -7,7 +7,6 @@ import selector from '../selectors/navbar_selector'
 
 const mSTP = state => {
     return {
-    id: state.session.id, rmb: state.session.rmb,
     username: selector(state),
     header: true
 }}

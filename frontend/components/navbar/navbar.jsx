@@ -5,15 +5,15 @@ import UserNav from './usernav'
 
 class NavBar extends React.Component {
     constructor(props){
-        debugger
+        // debugger
         super(props)
     }
     handleLoggedIn(){
-        const {id,username,logout} = this.props;
+        const {username,logout} = this.props;
         // debugger
         const {pathname} = this.props.location;
         // debugger
-        if(!id){ // not logged in
+        if(!username){ // not logged in
             let navBarClass = "nav-bar-login";
             let btnText = "Log In"
             let newPathName = "/login"
