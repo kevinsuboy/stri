@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import NavBarContainer from './navbar/navbar_container';
+import FooterContainer from './navbar/footer_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SplashContainer from './splash/splash_container';
@@ -14,7 +15,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-    <div>
+    <div className="app-container">
         <header id="global-header">
             <Route path="/" component={NavBarContainer}/>
         </header>
@@ -27,6 +28,9 @@ const App = () => (
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
             <Route path="" render={() => (<Redirect to="/dashboard" />)} />
         </Switch>
+        <footer id="global-footer">
+            <Route path="/" component={FooterContainer} />
+        </footer>
     </div>
 );
 

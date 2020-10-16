@@ -8,8 +8,14 @@ export default (props) => (
         <div><img className="splash-container-img"></img></div>
         {/* <Link to="/login" className={`splash-login session-link link`}><p>Log In</p></Link> */}
         <div className="splash-session-group">
-                <Link to="/" className={`splash-session splash-demo session-link link`}>
-                    <i className="fas fa-laptop-code"></i><p>Demo User</p></Link>
+                {/* <Link to="/" className={`splash-session splash-demo session-link link`}>
+                    <i className="fas fa-laptop-code"></i><p>Demo User</p></Link> */}
+                <div className={`splash-session splash-demo session-link link`} onClick={() => props.login({
+                    email: "irunfast@goldmedal.com",
+                    password: "iamusain",
+                    rmb: "on"
+                })}>
+                    <i className="fas fa-laptop-code"></i><p>Demo User</p></div>
             <div className="hr"><div className="hr-text">or</div></div>
                 <Link to="/signup" className={`splash-session splash-signup session-link link`}>
                     <i className="far fa-envelope"></i><p>Sign Up</p></Link>

@@ -7,8 +7,6 @@ class NavBar extends React.Component {
     constructor(props){
         super(props)
     }
-    componentWillUnmount(){
-    }
     handleLoggedIn(){
         const {id,currentUser,logout} = this.props;
         // debugger
@@ -40,14 +38,26 @@ class NavBar extends React.Component {
         }
     }
     render(){
+        let header = undefined;
+        let footer = undefined;
+        let footerClassName = undefined;
+        if(this.props.header) header = this.handleLoggedIn();
+        else {
+            footerClassName = "logo-footer"
+            footer = <ul className="footer-links">
+                <li><a href="https://github.com/kevinsuboy"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/kevin-su-2700a859/"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        }
         return(
             <nav className="nav-bar container">
                 <div title="return to home" className="logo">
-                    <Link to="/" className="logo-content link">
+                    <Link to="/" className={`logo-content link ${footerClassName}`}>
                         <p className="link-text">STRI</p>
                     </Link>
                 </div>
-                {this.handleLoggedIn()}
+                {header}
+                {footer}
             </nav>
         )
     }

@@ -6,11 +6,10 @@ import NavBar from './navbar'
 const mSTP = state => {
     // debugger
     return {
-    id: state.session.id, rmb: state.session.rmb,
-    currentUser: state.entities.users,
-    header: true
-}}
+        header: false
+    }
+}
 const mDTP = dispatch => ({
-    logout: () => dispatch(logout())
+    
 })
-export default connect(mSTP,mDTP)(NavBar)
+export default connect(mSTP, mDTP)(NavBar)

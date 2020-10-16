@@ -6,7 +6,7 @@ import Splash from './splash'
 const mSTP = state => ({
 })
 const mDTP = dispatch => ({
-    login: () => dispatch(login()),
+    login: (user) => dispatch(login(user)),
     signup: () => dispatch(signup())
 })
 export default connect(mSTP, mDTP)(Splash)

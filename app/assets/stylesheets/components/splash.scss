@@ -19,8 +19,8 @@
 }
 .splash-container {
     max-width: 1000px;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin: 30px auto;
+    height: calc(100% - 110px);
     // border: 1px solid red;
 }
 .splash-container h1 {
@@ -81,4 +81,7 @@
 .splash-session:hover{
     background-color: $secondary-gray-hover;
     border: 1px solid $secondary-gray;
+}
+.splash-demo {
+    cursor: pointer;
 }
