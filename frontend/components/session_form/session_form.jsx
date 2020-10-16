@@ -53,15 +53,14 @@ class SessionForm extends React.Component {
                     className = "session-input"
                     placeholder = "Username"
                 />
-        } else {
-            rmb = <label className="session-form-label">
-                <input type="checkbox"
-                    name="Remember Me"
-                    className="session-radio"
-                    value="on" 
-                    onChange={this.handleChange('rmb')}/> Remember Me
-                </label>
         }
+        rmb = <label className="session-form-label">
+            <input type="checkbox"
+                name="Remember Me"
+                className="session-radio"
+                value="on" 
+                onChange={this.handleChange('rmb')}/> Remember Me
+            </label>
         return{
             rmb,
             uname
