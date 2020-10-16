@@ -73,16 +73,13 @@
     // margin: 5px;
     padding: 10px;
     width: 350px;
-    height: 10px;
-    top: 60px;
+    height: 15px;
+    top: 55px;
     left: 50%;
     transform: translate(-50%, 0%);
 }
 .session-errors i{
     font-size: 20px;
-}
-.session-errors p{
-    display: inline;
 }
 .session-errors-display {
     display: flex;
@@ -91,7 +88,7 @@
 .session-errors-arrow {
     position: absolute;
     left: 50px;
-    top: 30px;
+    top: 35px;
     // border: inherit;
 	border-left: solid transparent;
 	border-right: solid transparent;

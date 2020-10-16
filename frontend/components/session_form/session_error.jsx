@@ -16,28 +16,23 @@ class SessionError extends React.Component {
         }, time)
     }
     componentDidUpdate(prevProps){
-        debugger
-        this.msg = "";
-        this.state.errClass = ""
-        if(this.props.errors.length > 0){ // still have errors
-            if(!this.show){
-                this.setState({ errClass: "session-errors-display" });
-                this.msg = this.props.errors.shift();
-            }else{
-                this.setTimer("session-errors-display");
-                this.msg = this.props.errors.shift();
+        // debugger
+        this.msg = [];
+        if(this.props.errors.length > 0){ // errors to display
+            while(this.props.errors.length > 0){
+                this.msg.push(<li>{this.props.errors.shift()}</li> )
             }
-            this.show = true;
-        }else if(this.show){
-            this.setTimer("");
-            this.show = false;
+            this.setState({ errClass: "session-errors-display" });
+            clearTimeout(this.timerId); //! gets rid of potentially stale timeouts upon new-errors
+        }else{
+            this.setTimer("",5000);
         }
     }
     render () {
-        debugger
+        // debugger
         // this.state.errClass = "session-errors-display"
         return <div className={`session-errors ${this.state.errClass}`}>
-            <i className="fas fa-info-circle"></i><p>{this.msg}</p>
+            <i className="fas fa-info-circle"></i><ul>{this.msg}</ul>
             <div className="session-errors-arrow"></div>
             </div>
     };
