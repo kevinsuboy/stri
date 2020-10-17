@@ -26,6 +26,30 @@ r1 = Route.create!(
     distance: 100.00,
     user_id: u1.id
 )
+r1_1 = Route.create!(
+    name: 'Morning Jog 1',
+    description: 'Very easy',
+    distance: 100.06,
+    user_id: u1.id
+)
+r1_2 = Route.create!(
+    name: 'Morning Jog 2',
+    description: 'Very hard',
+    distance: 201.00,
+    user_id: u1.id
+)
+r1_3 = Route.create!(
+    name: 'Morning Jog 3',
+    description: 'Very medium',
+    distance: 300.30,
+    user_id: u1.id
+)
+r1_4 = Route.create!(
+    name: 'Morning Jog 3',
+    description: 'Very very very easy',
+    distance: 400.00,
+    user_id: u1.id
+)
 r2 = Route.create!(
     name: 'Afternoon Bike',
     description: 'Very hard',
@@ -35,12 +59,40 @@ r2 = Route.create!(
 a1 = Activity.create!(
     sport: 'Run',
     title: 'Semptember 7 Jog',
-    description: "finished it 10 minutes faster",
+    description: "finished it 1 minutes faster",
     distance: 120.00,
-    date: Date.new(2000,9,07),
+    date: Date.new(2000,9,7),
     duration: "00:56",
     user_id: u2.id,
     route_id: r1.id
+)
+a1_1 = Activity.create!(
+    sport: 'Hike',
+    title: 'Semptember 8 Jog',
+    description: "finished it 10 minutes faster",
+    distance: 120.00,
+    date: Date.new(2000,9,8),
+    duration: "10:56",
+    user_id: u1.id,
+    route_id: r1_3.id
+)
+a1_2 = Activity.create!(
+    sport: 'Ride',
+    title: 'Semptember 9 Jog',
+    description: "finished it 20 minutes faster",
+    distance: 2.22,
+    date: Date.new(2000,9,9),
+    duration: "20:56",
+    user_id: u1.id,
+)
+a1_3 = Activity.create!(
+    sport: 'Rock Climb',
+    title: 'Semptember 10 Jog',
+    distance: 3.33,
+    date: Date.new(2000,9,10),
+    duration: "10:08",
+    user_id: u1.id,
+    route_id: r2.id
 )
 a2 = Activity.create!(
     sport: 'Run',

@@ -20,7 +20,7 @@
 #  index_activities_on_user_id   (user_id)
 #
 class Activity < ApplicationRecord
-    validates :date, :distance, :duration,:sport,:title, presence: true
+    validates :user_id, :date, :distance, :duration,:sport,:title, presence: true
     validates :sport, inclusion: {in: ["Ride","Run","Swim","Hike","Walk","Alpine_Ski",
                                         "Backcountry Ski","Canoe","Crossfit","E-Bike Ride","Elliptical",
                                         "Handcycle","Ice Skate","Inline Skate","Kayaking","Kitesurf",
@@ -29,6 +29,6 @@ class Activity < ApplicationRecord
                                         "Virtual Ride","Virtual Run","Weight Training","Wheelchair","Windsurf",
                                         "Workout","Yoga","Other"
                                         ]}
-    belongs_to :route
+    # belongs_to :route
     belongs_to :user
 end

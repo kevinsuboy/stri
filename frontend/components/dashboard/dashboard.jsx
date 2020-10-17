@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
         return(
             <div className="dashboard-container container">
                 {/* <h1>I am the Dashboard</h1> */}
-                <Profile />
+                <Profile {...this.props}/>
                 <Feed />
                 <SideBar />
             </div>
