@@ -15,13 +15,18 @@ export default (props) => {
                 <p className="profile-username">{username}</p>
             </div>
             </div>
-            <div className="profile-stats">
-                <div className="stat-item">
+            <div className="profile-stats container">
+                <div className="stat-item item-left">
                     <p className="stat-title">Routes</p>
                     <p className="stat-value">{n_routes}</p>
+                </div>
+                <div className="stat-item item-right">
                     <p className="stat-title">Activities</p>
                     <p className="stat-value">{n_activities}</p>
                 </div>
+            </div>
+            <div className="profile-latest">
+
             </div>
             {/* <SportLogo sport="Run" /> */}
         </div>

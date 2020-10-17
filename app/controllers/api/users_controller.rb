@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
         @rmb = params[:user][:rmb]
         # debugger
         if @user.save
-            login!(@user,@rmb)
+            login!(@user)
             render "api/users/show"
         else
             render json: @user.errors.full_messages, status: 422

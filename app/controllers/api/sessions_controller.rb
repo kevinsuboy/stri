@@ -6,9 +6,7 @@ class Api::SessionsController < ApplicationController
         )
         @rmb = params[:user][:rmb]
         if @user
-            login!(@user,@rmb)
-            @latest = @user.activities.order("created_at").last
-            # debugger
+            login!(@user)
             render "api/users/show"
         else
             render json: ["Invalid username/password combination"], status: 401

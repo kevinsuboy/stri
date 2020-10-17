@@ -8,9 +8,14 @@ class ApplicationController < ActionController::Base
     def require_logged_in
         redirect_to new_session_url unless logged_in?
     end
-    def login!(user,rmb)
-        @rmb = rmb
+    def login!(user)
         session[:session_token] = user.reset_session_token!
+        #! custom
+        @latest = @user.activities.order("created_at").last
+        # debugger
+        if !@latest
+            @latest = {title:"",sport:"",date:""}
+        end
     end
     def logout!
         current_user.reset_session_token!
@@ -19,4 +24,5 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
+
 end
