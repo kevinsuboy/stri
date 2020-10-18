@@ -26,9 +26,9 @@ export default (props) => {
                 </div>
             </div>
             <div className="profile-latest">
+                {/* <SportLogo sport={latest.sport} /> */}
 
             </div>
-            {/* <SportLogo sport="Run" /> */}
         </div>
         </div>
     )

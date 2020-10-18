@@ -35,7 +35,8 @@ export default (props) => {
         "Windsurf":                 <i className="fas fa-water"></i>,
         "Workout":              <i className="fas fa-dumbbell"></i>,
         "Yoga":                 <i className="fas fa-jedi"></i>,
-        "Other":                <i className="fas fa-angle-double-up"></i>
+        "Other":                <i className="fas fa-angle-double-up"></i>,
+        "":                     <i className="fas fa-angle-double-up"></i>
     }
     return(
         bank[props.sport]

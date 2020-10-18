@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
     def login!(user)
         session[:session_token] = user.reset_session_token!
         #! custom
-        @latest = @user.activities.order("created_at").last
-        # debugger
-        if !@latest
-            @latest = {title:"",sport:"",date:""}
-        end
+        # @latest = @user.activities.order("created_at").last
+        # # debugger
+        # if !@latest
+        #     @latest = {title:"",sport:"",date:""}
+        # end
     end
     def logout!
         current_user.reset_session_token!
