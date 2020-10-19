@@ -41712,3 +41712,111 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 409ms (Views: 403.0ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for ::1 at 2020-10-19 15:28:30 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "routes"."id" FROM "routes" WHERE "routes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "activities"."id" FROM "activities" WHERE "activities"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:3
+  [1m[36mActivity Load (0.8ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."user_id" = $1 ORDER BY created_at DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:4
+  Rendered api/users/_user.json.jbuilder (7.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 66ms (Views: 60.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2020-10-19 15:29:12 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "routes"."id" FROM "routes" WHERE "routes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "activities"."id" FROM "activities" WHERE "activities"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:3
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."user_id" = $1 ORDER BY created_at DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:4
+  Rendered api/users/_user.json.jbuilder (6.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 342ms (Views: 337.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2020-10-19 15:29:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "routes"."id" FROM "routes" WHERE "routes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "activities"."id" FROM "activities" WHERE "activities"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:3
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."user_id" = $1 ORDER BY created_at DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:4
+  Rendered api/users/_user.json.jbuilder (4.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-10-19 15:30:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "routes"."id" FROM "routes" WHERE "routes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "activities"."id" FROM "activities" WHERE "activities"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:3
+  [1m[36mActivity Load (0.7ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."user_id" = $1 ORDER BY created_at DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:4
+  Rendered api/users/_user.json.jbuilder (4.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 276ms (Views: 272.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-10-19 15:30:24 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "routes"."id" FROM "routes" WHERE "routes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "activities"."id" FROM "activities" WHERE "activities"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:3
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."user_id" = $1 ORDER BY created_at DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:4
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 241ms (Views: 237.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-10-19 15:30:42 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pS7a1uHkXx0MeoURGPh_Kw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "routes"."id" FROM "routes" WHERE "routes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "activities"."id" FROM "activities" WHERE "activities"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:3
+  [1m[36mActivity Load (1.0ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."user_id" = $1 ORDER BY created_at DESC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:4
+  Rendered api/users/_user.json.jbuilder (6.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 278ms (Views: 273.3ms | ActiveRecord: 3.2ms)
+
+

@@ -17,7 +17,7 @@
     background-color: #fff;
     box-shadow: $my-box-shadow;
     padding: 0 0 0 0;
-    z-index: -100;
+    z-index: 1000;
 }
 .dropdown-content li{
     padding: 15px;
