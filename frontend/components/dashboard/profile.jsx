@@ -26,7 +26,11 @@ export default (props) => {
                 </div>
             </div>
             <div className="profile-latest">
-                {/* <SportLogo sport={latest.sport} /> */}
+                <p className="latest-header">Latest Activity</p>
+                <div className="latest-body">
+                    <SportLogo sport={latest.sport} />
+                    <Link to="api/"><span>{latest.title}</span> • {latest.date}</Link>
+                </div>
 
             </div>
         </div>

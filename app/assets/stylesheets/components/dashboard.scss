@@ -67,7 +67,7 @@
 }
 .profile-stats {
     margin-top: 50px;
-    margin-bottom: 30px;
+    // margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -94,3 +94,12 @@
     font-size: 20px;
 }
 
+.profile-latest {
+    padding: 20px;
+}
+.latest-header {
+    padding-bottom: 10px;
+}
+.latest-body span {
+    font-weight: bold;
+}
