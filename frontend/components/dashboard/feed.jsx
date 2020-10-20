@@ -11,15 +11,15 @@ class Feed extends React.Component {
             display: null
         }
         this.toggleFeed = this.toggleFeed.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
     handleClick(field){
         return () => {
             this.setState({display: field});
-            // this.props.
         }
     }
     toggleFeed(e){
-        // debugger
+        debugger
         if(!this.state.showFeed){
             this.setState({ showFeed: "feed-show" })
         }else{

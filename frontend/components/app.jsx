@@ -23,9 +23,7 @@ const App = () => (
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/" component={SplashContainer} />
-            <div id="global-dashboard">
-                <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-            </div>
+            <ProtectedRoute path="/dashboard" component={DashboardContainer} />
             {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
             <Route path="" render={() => (<Redirect to="/dashboard" />)} />

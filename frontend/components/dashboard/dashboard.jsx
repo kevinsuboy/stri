@@ -11,11 +11,13 @@ class Dashboard extends React.Component {
     }
     render(){
         return(
+            <div id="global-dashboard">
             <div className="dashboard-container container">
                 {/* <h1>I am the Dashboard</h1> */}
                 <Profile {...this.props}/>
                 <FeedContainer />
                 <SideBar />
+            </div>
             </div>
         )
     }
