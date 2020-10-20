@@ -14,8 +14,8 @@ class Feed extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
     componentDidMount(){
-        this.props.fetchUserActivities();
-        this.props.fetchUserRoutes();
+        this.props.fetchUserActivities(this.props.userId);
+        this.props.fetchUserRoutes(this.props.userId);
     }
     handleClick(field){
         return () => {
@@ -35,6 +35,7 @@ class Feed extends React.Component {
         return (
             <div className="dashboard-feed container">
                 {/* <h1>I am the feed</h1> */}
+                <div className="feed-header">
                 <ul className="feed-group nav-group">
                     <li className={`feed-drop ${this.state.showFeed ? this.state.showFeed : ""}`} onClick={this.toggleFeed}>
                         {!this.state.display ? "Feed" : this.state.display}
@@ -45,8 +46,13 @@ class Feed extends React.Component {
                         </ul>
                     </li>
                 </ul>
+                </div>
                 <Activities />
                 <Routes />
+                <br/>
+                <div className="feed-footer">
+                    <p>No more activity in the last 60 days.<br/>To see your full activity history, visit your Profile or Training page.</p>
+                </div>
             </div>
         )
     }

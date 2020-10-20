@@ -18,7 +18,7 @@
 .dashboard-profile {
     // min-width: 270px;
     width: 270px;
-    height: 270px;
+    height: 330px;
     border: 1px solid orange;
     display: flex;
     justify-content: center;
@@ -28,6 +28,8 @@
     max-width: 700px;
     border: 1px solid blue;
     margin-bottom: 40px;
+    flex-direction: column;
+    // justify-content: flex-start;
     // box-shadow: $my-box-shadow;
 }
 .dashboard-sidebar {
@@ -36,69 +38,6 @@
     border: 1px solid green;
     color: $secondary-gray;
     padding: 0px;
-}
-
-.feed-group * {
-    // height: 55px;
-    box-sizing: border-box;
-}
-.feed-drop {
-    background-color: rgba(0,0,0,0);
-    position: relative;
-    text-align: center;
-    z-index: 2;
-
-    border: 2px solid rgba(0, 0, 0, 0);
-    height: 40px;
-    width: 200px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    color: $secondary-gray;
-    cursor: pointer;
-    padding: 10px;
-
-    transition: all 0.25s linear;
-}
-.feed-drop:hover {
-    background-color: #fff;
-    box-shadow: $my-box-shadow;
-
-}
-.feed-show {
-    border: $secondary-blue-hover 2px solid;
-    box-shadow: $my-box-shadow;
-    background-color: #fff;
-}
-.feed-show .dropdown-content {
-    display: flex;
-    top: 38px;
-    width: 200px;
-}
-// .dropdown_menu-7{
-.feed-drop-content{
-    font-size: 15px;
-
-    animation: rotateMenu 400ms ease-in-out forwards;
-    transform-origin: top center;
-    
-@keyframes rotateMenu {
-    0% {
-        transform: rotateX(-90deg)
-    }
-    70% {
-        transform: rotateX(20deg) 
-    }
-    100% {
-        transform: rotateX(0deg) 
-    }
-}
-
-}
-.feed-drop-content li:hover{
-    color: $secondary-blue-hover
 }
 
 .sidebar-links {

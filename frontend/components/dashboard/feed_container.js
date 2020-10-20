@@ -5,7 +5,7 @@ import {fetchUserActivity, fetchUserActivities} from '../../actions/activity_act
 import { fetchUserRoutes, fetchUserRoute } from '../../actions/route_actions'
 
 const mSTP = state => ({
-
+    userId: state.session.id,
 })
 const mDTP = dispatch => ({
     fetchUserActivities: (userId) => dispatch(fetchUserActivities(userId)),
