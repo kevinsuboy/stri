@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import Activities from './activities_feed'
-import { activitySelector } from '../selectors/feed_selector'
-import { fetchUserActivity, fetchUserActivities } from '../../actions/activity_actions'
+import { activitySelector } from '../../selectors/feed_selector'
+import { fetchUserActivity, fetchUserActivities } from '../../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } }) => ({
-    userId: id,
     activities: activitySelector(users[id], activities)
 })
 const mDTP = dispatch => ({

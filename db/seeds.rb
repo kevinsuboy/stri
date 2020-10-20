@@ -61,7 +61,7 @@ a1 = Activity.create!(
     title: 'Semptember 7 Jog',
     description: "finished it 1 minutes faster",
     distance: 120.00,
-    date: Date.new(2000,9,7),
+    date: Date.new(2010,9,7),
     duration: "00:56",
     user_id: u2.id,
     route_id: r1.id
@@ -81,18 +81,9 @@ a1_2 = Activity.create!(
     title: 'Semptember 9 Jog',
     description: "finished it 20 minutes faster",
     distance: 2.22,
-    date: Date.new(2000,9,9),
+    date: Date.new(2020,9,9),
     duration: "20:56",
     user_id: u1.id,
-)
-a1_3 = Activity.create!(
-    sport: 'Rock Climb',
-    title: 'Semptember 10 Jog',
-    distance: 3.33,
-    date: Date.new(2000,9,10),
-    duration: "10:08",
-    user_id: u1.id,
-    route_id: r2.id
 )
 a2 = Activity.create!(
     sport: 'Run',
@@ -103,5 +94,14 @@ a2 = Activity.create!(
     duration: "10:34",
     user_id: u1.id,
     route_id: u2.id
+)
+a1_3 = Activity.create!(
+    sport: 'Rock Climb',
+    title: 'Semptember 10 Jog',
+    distance: 3.33,
+    date: Date.new(2000,9,10),
+    duration: "10:08",
+    user_id: u1.id,
+    route_id: r2.id
 )
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ActivitiesContainer from './activity_feed_container'
 import RoutesContainer from './route_feed_container'
 import { Link } from 'react-router-dom'
-import {ProtectedRoute} from '../../util/route_util'
+import {ProtectedRoute} from '../../../util/route_util'
 
 class Feed extends React.Component {
     constructor(props) {
@@ -46,7 +46,7 @@ class Feed extends React.Component {
                 this.display = null;
                 break;
         }
-        debugger
+        // debugger
         return (
             <div className="dashboard-feed container">
                 {/* <h1>I am the feed</h1> */}
@@ -62,8 +62,8 @@ class Feed extends React.Component {
                     </li>
                 </ul>
                 </div>
-                <ActivitiesContainer />
-                <RoutesContainer />
+                <ProtectedRoute exact path="/dashboard/activities" component={ActivitiesContainer} />
+                <ProtectedRoute exact path="/dashboard/routes" component={RoutesContainer} />
                 <br/>
                 <div className="feed-footer">
                     <p>No more activity in the last 60 days.<br/>To see your full activity history, visit your Profile or Training page.</p>

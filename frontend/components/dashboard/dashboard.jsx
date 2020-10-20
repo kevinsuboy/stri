@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Profile from './profile'
-import Feed from './feed'
+import Profile from './profile/profile'
 import SideBar from './sidebar'
-import FeedContainer from './feed_container'
+import FeedContainer from './feed/feed_container'
 
 class Dashboard extends React.Component {
     constructor(props) {

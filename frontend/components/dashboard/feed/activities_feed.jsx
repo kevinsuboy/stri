@@ -8,9 +8,10 @@ class Activities extends React.Component {
         this.props.fetchUserActivities(this.props.userId);
     }
     render() {
+        debugger
         return (
             <div className="feed-activities container">
-                {/* <h1>I am the activities</h1> */}
+                <h1>I am the activities</h1>
             </div>
         )
     }

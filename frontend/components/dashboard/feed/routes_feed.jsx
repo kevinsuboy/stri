@@ -10,7 +10,7 @@ class Routes extends React.Component {
     render() {
         return (
             <div className="feed-routes container">
-                {/* <h1>I am the routes</h1> */}
+                <h1>I am the routes</h1>
             </div>
         )
     }
