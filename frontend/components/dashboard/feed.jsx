@@ -1,14 +1,22 @@
 import React from 'react';
 import Activities from './activities_feed'
 import Routes from './routes_feed'
+import { Link } from 'react-router-dom'
 
 class Feed extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            showFeed: null
+            showFeed: null,
+            display: null
         }
         this.toggleFeed = this.toggleFeed.bind(this)
+    }
+    handleClick(field){
+        return () => {
+            this.setState({display: field});
+            // this.props.
+        }
     }
     toggleFeed(e){
         // debugger
@@ -24,10 +32,12 @@ class Feed extends React.Component {
             <div className="dashboard-feed container">
                 {/* <h1>I am the feed</h1> */}
                 <ul className="feed-group nav-group">
-                    <li className={`feed-drop ${this.state.showFeed ? this.state.showFeed : ""}`} onClick={this.toggleFeed}>Feed<i className="fas fa-angle-down"></i>
+                    <li className={`feed-drop ${this.state.showFeed ? this.state.showFeed : ""}`} onClick={this.toggleFeed}>
+                        {!this.state.display ? "Feed" : this.state.display}
+                        <i className="fas fa-angle-down"></i>
                         <ul className="feed-drop-content dropdown-content container">
-                            <li><p>Activity Feed</p></li>
-                            <li><p>Route Feed</p></li>
+                            <li onClick={this.handleClick('Activity Feed')}><p>Activity Feed</p></li>
+                            <li onClick={this.handleClick('Route Feed')}><p>Route Feed</p></li>
                         </ul>
                     </li>
                 </ul>

@@ -25,6 +25,10 @@
     display: flex;
     justify-content: left;
 }
+.dropdown-content li *{
+    text-decoration: none;
+    color: inherit;
+}
 .dropdown-content li:hover{
     background-color: $secondary-gray-hover;
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Profile from './profile'
 import Feed from './feed'
 import SideBar from './sidebar'
+import FeedContainer from './feed_container'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Dashboard extends React.Component {
             <div className="dashboard-container container">
                 {/* <h1>I am the Dashboard</h1> */}
                 <Profile {...this.props}/>
-                <Feed />
+                <FeedContainer />
                 <SideBar />
             </div>
         )

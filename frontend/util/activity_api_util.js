@@ -23,3 +23,15 @@ export const fetchUserActivity = (userId, id) => (
         url: `api/user/${userId}/activity/${id}`
     })
 );
+export const fetchUserRoutes = userId => (
+    $.ajax({
+        method: 'GET',
+        url: `api/user/${userId}/route`
+    })
+);
+export const fetchUserRoute = (userId, id) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/user/${userId}/route/${id}`
+    })
+);
