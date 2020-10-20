@@ -4,6 +4,9 @@ class Routes extends React.Component {
     constructor(props) {
         super(props)
     }
+    componentDidMount() {
+        this.props.fetchUserRoutes(this.props.userId);
+    }
     render() {
         return (
             <div className="feed-routes container">

@@ -4,6 +4,9 @@ class Activities extends React.Component {
     constructor(props) {
         super(props)
     }
+    componentDidMount() {
+        this.props.fetchUserActivities(this.props.userId);
+    }
     render() {
         return (
             <div className="feed-activities container">

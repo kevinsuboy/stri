@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logout } from '../../actions/session_actions';
-import Feed from './feed'
+import Activities from './activities_feed'
+import { activitySelector } from '../selectors/feed_selector'
+import { fetchUserActivity, fetchUserActivities } from '../../actions/activity_actions'
 
-const mSTP = state => ({
-
+const mSTP = ({ session: { id }, entities: { users, activities } }) => ({
+    userId: id,
+    activities: activitySelector(users[id], activities)
 })
 const mDTP = dispatch => ({
+    fetchUserActivities: (userId) => dispatch(fetchUserActivities(userId)),
+    fetchUserActivity: (userId, id) => dispatch(fetchUserActivity(userId, id)),
 })
-export default connect(mSTP, mDTP)(Feed)
+export default connect(mSTP, mDTP)(Activities)

@@ -1,11 +1,9 @@
-export default (state) => {
-    for(state.entities.user)
-        const user = state.entities.users[state.session.id];
-        return ({
-            username: user.username,
-            n_routes: user.routes.length,
-            n_activities: user.activities.length,
-            latest: user.latest
-        })
-    }
+export const routeSelector = (currentUser, allRoutes) => {
+    // debugger
+    return currentUser.routes.map(id => allRoutes[id])
 }
+export const activitySelector = (currentUser, allActivities) => {
+    // debugger
+    return currentUser.activities.map(id => allActivities[id])
+}
+

@@ -10,12 +10,13 @@ class Dashboard extends React.Component {
         super(props)
     }
     render(){
+        // debugger
         return(
             <div id="global-dashboard">
             <div className="dashboard-container container">
                 {/* <h1>I am the Dashboard</h1> */}
                 <Profile {...this.props}/>
-                <FeedContainer />
+                <FeedContainer {...this.props}/>
                 <SideBar />
             </div>
             </div>
