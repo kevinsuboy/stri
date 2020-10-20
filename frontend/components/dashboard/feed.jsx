@@ -13,6 +13,10 @@ class Feed extends React.Component {
         this.toggleFeed = this.toggleFeed.bind(this)
         this.handleClick = this.handleClick.bind(this)
     }
+    componentDidMount(){
+        this.props.fetchUserActivities();
+        this.props.fetchUserRoutes();
+    }
     handleClick(field){
         return () => {
             this.setState({display: field});

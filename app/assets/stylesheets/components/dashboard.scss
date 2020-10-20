@@ -16,7 +16,8 @@
     flex-wrap: wrap;
 }
 .dashboard-profile {
-    min-width: 270px;
+    // min-width: 270px;
+    width: 270px;
     height: 270px;
     border: 1px solid orange;
     display: flex;
@@ -29,7 +30,8 @@
     // box-shadow: $my-box-shadow;
 }
 .dashboard-sidebar {
-    max-width: 300px;
+    width: 250px;
+    // max-width: 300px;
     border: 1px solid green;
     color: $secondary-gray;
     padding: 0px;
@@ -183,8 +185,6 @@
     color: $secondary-blue-hover
 }
 
-.dashboard-sidebar {
-}
 .sidebar-links {
     color: $secondary-gray;
     // width: 100%;
@@ -195,7 +195,7 @@
     text-decoration: none;
 }
 .sidebar-item {
-    width: 95%;
+    width: 85%;
     background-color: #fff;
     margin: 0px auto;
     margin-bottom: 10px;

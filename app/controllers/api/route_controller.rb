@@ -1,6 +1,10 @@
 class Api::RouteController < ApplicationController
     def index
-        @routes = Route.where(user_id: params[:user_id])
+        if params[:user_id] != "undefined"
+            @routes = Route.where(user_id: params[:user_id])
+        else
+            @routes = Route.all
+        end
         # debugger
         render :index
     end
