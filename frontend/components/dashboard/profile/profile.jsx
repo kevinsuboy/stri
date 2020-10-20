@@ -1,5 +1,5 @@
 import React from 'react';
-import SportLogo from './sport_logo'
+import SportLogo from '../sport_logo'
 import { Link } from 'react-router-dom'
 
 export default (props) => {
