@@ -4,6 +4,7 @@ import configureStore from "./store/store";
 import Root from './components/root';
 import { login, logout } from "./actions/session_actions";
 import { fetchUserRoutes } from "./actions/route_actions"
+import { fetchUserActivities } from "./actions/activity_actions"
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -31,4 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.pS = preloadedState;
     window.logout = logout;
     window.fetchUserRoutes = fetchUserRoutes;
+    window.fetchUserActivities = fetchUserActivities;
 });

@@ -19,7 +19,7 @@ class Feed extends React.Component {
         }
     }
     toggleFeed(e){
-        debugger
+        // debugger
         if(!this.state.showFeed){
             this.setState({ showFeed: "feed-show" })
         }else{

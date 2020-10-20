@@ -13,7 +13,12 @@ export const receiveActivity = activity => ({
 })
 
 export const fetchUserActivity = (userId, id) => dispatch => (
-    APIUtil.fetchUserActivity(userId, id).then(route => (
-        dispatch(receiveActivity(route))
+    APIUtil.fetchUserActivity(userId, id).then(activity => (
+        dispatch(receiveActivity(activity))
+    ))
+);
+export const fetchUserActivities = (userId) => dispatch => (
+    APIUtil.fetchUserActivities(userId).then(activities => (
+        dispatch(receiveActivities(activities))
     ))
 );
