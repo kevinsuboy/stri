@@ -1,9 +1,11 @@
 export const routeSelector = (currentUser, allRoutes) => {
     // debugger
-    return currentUser.routes.map(id => allRoutes[id])
+    if (Object.keys(allRoutes).length !== 0) return currentUser.routes.map(id => allRoutes[id])
+    else return [];
 }
 export const activitySelector = (currentUser, allActivities) => {
-    // debugger
-    return currentUser.activities.map(id => allActivities[id])
+    debugger
+    if(Object.keys(allActivities).length!==0) return currentUser.activities.map(id => allActivities[id])
+    else return [];
 }
 

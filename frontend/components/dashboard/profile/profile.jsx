@@ -15,7 +15,7 @@ export default (props) => {
             <span>No Activity to Show</span>
         </div>;
     return (
-        <div className="dashboard-profile">
+        <div className="dashboard-profile container">
         <div className="profile-container">
             {/* <h1>I am the profile</h1> */}
             <div className="profile-icon-group">

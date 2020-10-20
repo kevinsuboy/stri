@@ -1,7 +1,7 @@
 @import 'partials/_base.scss';
 
 .feed-header {
-    border: 1px solid green;
+    //border: 1px solid green;
     width: 100%;
 }
 .feed-group * {
@@ -64,13 +64,27 @@
 
 }
 .feed-drop-content li:hover{
-    color: $secondary-blue-hover
+    color: $secondary-blue-hover;
 }
 .feed-footer {
     text-align: center;
     font-size: 15px;
-    border: 1px solid red;
+    //border: 1px solid red;
     line-height: 1.5;
     color: $secondary-gray;
     // width: 50%;
+}
+
+.feed-body-container {
+    //border: 1px solid orange;
+    margin: 9px auto;
+    background-color: #fff;
+    width: 95%;
+    box-shadow: $my-box-shadow;
+}
+.feed-list {
+    display: flex;
+    flex-direction: column;
+}
+.feed-item {
 }
