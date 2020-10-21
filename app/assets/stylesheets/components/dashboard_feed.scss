@@ -119,3 +119,31 @@
 .feed-item-header:hover .profile-username {
     color: $secondary-blue-hover;
 }
+.feed-item-title {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.feed-item-title:hover p {
+    color: $secondary-blue-hover;
+}
+.feed-item-title i {
+    font-size: 20px;
+    min-width: 30px;
+    text-align: center;
+    margin: 0;
+    margin-right: 10px;
+}
+.feed-stats {
+    margin-bottom: 10px;
+}
+.feed-stat-item {
+    margin: 5px 0;
+}
+.feed-stat-title {
+    padding-top: 0;
+}

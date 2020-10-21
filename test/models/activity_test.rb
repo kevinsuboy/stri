@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  date        :date             not null
 #  description :string
-#  distance    :integer          not null
+#  distance    :float            not null
 #  duration    :time             not null
 #  sport       :string           not null
 #  title       :string           not null

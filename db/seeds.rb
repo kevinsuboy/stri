@@ -85,6 +85,24 @@ a1_2 = Activity.create!(
     duration: "20:56",
     user_id: u1.id,
 )
+a1_3 = Activity.create!(
+    sport: 'Ice Skate',
+    title: 'March 19 Bloop',
+    description: "I am awesome",
+    distance: 32.33,
+    date: Date.new(2009,3,19),
+    duration: "2:33",
+    user_id: u1.id,
+)
+a1_4 = Activity.create!(
+    sport: 'Surfing',
+    title: 'May 14 Jog',
+    description: "I am groot",
+    distance: 44.444,
+    date: Date.new(2013,5,14),
+    duration: "5:46",
+    user_id: u1.id,
+)
 a2 = Activity.create!(
     sport: 'Run',
     title: 'October 31 Bike',
