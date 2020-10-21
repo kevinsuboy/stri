@@ -1,0 +1,25 @@
+import React from 'react';
+import FilterForm from '../search/filter_form'
+
+class Activities extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    componentDidMount() {
+        this.props.fetchUserActivities(this.props.userId);
+    }
+    render() {
+        // debugger
+        return (
+            <div id="global-index">
+            <div className="index-container container">
+                <h1>My Activities</h1>
+                <ul className="index-list">
+                    <FilterForm />
+                </ul>
+            </div>
+            </div>
+        )
+    }
+}
+export default Activities;

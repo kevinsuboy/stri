@@ -13,8 +13,8 @@ export default ({selected}) => {
             </li>
             <li className="nav-item dropdown-menu">Training<i className="fas fa-angle-down"></i>
                 <ul className="dropdown-content container">
-                    <li><p>My Activities</p></li>
-                    <li><p>My Routes</p></li>
+                    <li><Link to="/athlete/activities" className="link"><p>My Activities</p></Link></li>
+                    <li><Link to="/athlete/routes" className="link"><p>My Routes</p></Link></li>
                 </ul>
             </li>
             {/* <li className="nav-item dropdown-menu">Explore<i className="fas fa-angle-down"></i>

@@ -1,0 +1,15 @@
+@import 'partials/_base.scss';
+
+#global-index{
+    position: relative;
+}
+.index-container {
+    position: relative;
+    // max-width: 1200px;
+    width: 90%;
+    margin-top: 12px;
+    height: calc(100% - 110px);
+    border: 1px solid red;
+    font-size: 30px;
+    font-weight: bold;
+}

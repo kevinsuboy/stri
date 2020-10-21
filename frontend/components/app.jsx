@@ -12,6 +12,8 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SplashContainer from './splash/splash_container';
 import DashboardContainer from './dashboard/dashboard_container';
+import ActivitiesContainer from './index/activities_container'
+import RoutesContainer from './index/routes_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -24,6 +26,8 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/" component={SplashContainer} />
             <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+            <ProtectedRoute path="/athlete/activities" component={ActivitiesContainer} />
+            <ProtectedRoute path="/athlete/routes" component={RoutesContainer} />
             {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
             <Route path="" render={() => (<Redirect to="/dashboard" />)} />
