@@ -13,7 +13,7 @@ export default ({ route, username }) => {
         </div>
     const stats =
         <div className="feed-stats container">
-            <div className="feed-stat-item stat-item item-left">
+            <div className="feed-stat-item stat-item">
                 <p className="feed-stat-title stat-title">Distance</p>
                 <p className="feed-stat-value stat-value">{route.distance.toFixed(2)} mi</p>
             </div>

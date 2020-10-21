@@ -30,9 +30,14 @@ class NavBar extends React.Component {
             )
         }else{
             // const username = currentUser[id].username;
+            const selected = [
+                pathname === "/dashboard/activities" ? "nav-item-selected" : null,
+                pathname === "/dashboard/routes" ? "nav-item-selected" : null,
+            ]
+            // debugger
             return (
                 <div className="nav-bar-content">
-                    <GlobalNav />
+                    <GlobalNav selected={selected}/>
                     <UserNav username={username} logout={logout}/>
                 </div>
             )
