@@ -5,7 +5,7 @@ import SportLogo from '../sport_logo'
 export default ({ route, username }) => {
     const d = new Date(route.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     const date = <p className="feed-item-date">{d}</p>
-    debugger
+    // debugger
     const title =
         <div className="feed-item-title">
             <SportLogo sport={""} />
