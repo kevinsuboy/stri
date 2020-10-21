@@ -1,4 +1,5 @@
 import React from 'react';
+import RoutesFeedItem from './routes_feed_item'
 
 class Routes extends React.Component {
     constructor(props) {
@@ -8,9 +9,14 @@ class Routes extends React.Component {
         this.props.fetchUserRoutes(this.props.userId);
     }
     render() {
+        // debugger
+        const routeItems = this.props.routes.map(el => <RoutesFeedItem key={el.id} route={el} username={this.props.username} />);
         return (
-            <div className="feed-routes container">
-                <h1>I am the routes</h1>
+            <div className="feed-body-container">
+                {/* <h1>I am the activities</h1> */}
+                <ul className="feed-list">
+                    {routeItems}
+                </ul>
             </div>
         )
     }

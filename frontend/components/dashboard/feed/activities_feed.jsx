@@ -15,7 +15,7 @@ class Activities extends React.Component {
             <div className="feed-body-container">
                 {/* <h1>I am the activities</h1> */}
                 <ul className="feed-list">
-                {activityItems}
+                    {activityItems}
                 </ul>
             </div>
         )
