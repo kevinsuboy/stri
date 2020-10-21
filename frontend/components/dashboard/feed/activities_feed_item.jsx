@@ -16,6 +16,21 @@ export default ({activity,username}) => {
         minutes: Math.round((paceTime/60)%60),
         seconds: Math.round(paceTime%60),
     }
+    pace.seconds = pace.seconds.toString().padStart(2,'0');
+    pace.minutes = pace.minutes.toString().padStart(2,'0');
+    pace.hours = pace.hours.toString().padStart(2,'0');
+    //
+    pace.seconds = (pace.minutes === '00' && pace.hours === 0 && pace.seconds === '00') ? "":pace.seconds;
+    pace.minutes = (pace.minutes === '00' && pace.hours === 0) ? "":pace.minutes+":";
+    pace.hours = pace.hours === '00' ? "":pace.hours+":";
+    //
+    dur.seconds = dur.seconds.toString().padStart(2, '0');
+    dur.minutes = dur.minutes.toString().padStart(2, '0');
+    dur.hours = dur.hours.toString().padStart(2, '0');
+    //
+    dur.seconds = (dur.minutes === '00' && dur.hours === 0 && dur.seconds === '00') ? "" : dur.seconds + "s ";
+    dur.minutes = (dur.minutes === '00' && dur.hours === 0) ? "" : dur.minutes + "m ";
+    dur.hours = dur.hours === '00' ? "" : dur.hours + "h ";
     debugger
     return (
     <li className="feed-item">
@@ -31,17 +46,17 @@ export default ({activity,username}) => {
             <p>{activity.title}</p>
         </div>
         <div className="feed-stats container">
-            <div className="feed-stat-item stat-item">
+            <div className="feed-stat-item stat-item item-left">
                 <p className="feed-stat-title stat-title">Distance</p>
                 <p className="feed-stat-value stat-value">{activity.distance.toFixed(2)} mi</p>
             </div>
             <div className="feed-stat-item stat-item">
                 <p className="feed-stat-title stat-title">Pace</p>
-                <p className="feed-stat-value stat-value">{pace.hours}:{pace.minutes}:{pace.seconds} /mi</p>
+                <p className="feed-stat-value stat-value">{pace.hours}{pace.minutes}{pace.seconds} /mi</p>
             </div>
-            <div className="feed-stat-item stat-item">
+            <div className="feed-stat-item stat-item item-right">
                 <p className="feed-stat-title stat-title">Time</p>
-                <p className="feed-stat-value stat-value">{dur.hours}h {dur.minutes}m {dur.seconds}s</p>
+                <p className="feed-stat-value stat-value">{dur.hours}{dur.minutes}{dur.seconds}</p>
             </div>
         </div>
     </li>

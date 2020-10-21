@@ -100,7 +100,7 @@
 // }
 .feed-item-header {
     // border: 1px solid green;
-    // padding: 16px;
+    padding: 20px 30px;
     flex-direction: row;
     justify-content: flex-start;
 }
@@ -110,17 +110,17 @@
 .feed-username {
     font-size: 14px;
     text-align: left;
-    padding: 2px 10px;
+    padding: 2px 25px;
 }
 .feed-item-date {
-    padding: 2px 10px;
+    padding: 2px 25px;
     color: $secondary-gray;
 }
 .feed-item-header:hover .profile-username {
     color: $secondary-blue-hover;
 }
 .feed-item-title {
-    padding: 5px 10px;
+    padding: 5px 25px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -136,10 +136,12 @@
     min-width: 30px;
     text-align: center;
     margin: 0;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .feed-stats {
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 .feed-stat-item {
     margin: 5px 0;

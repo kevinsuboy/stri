@@ -62,17 +62,17 @@ a1 = Activity.create!(
     description: "finished it 1 minutes faster",
     distance: 120.00,
     date: Date.new(2010,9,7),
-    duration: "00:56",
+    duration: "00:56:01",
     user_id: u2.id,
     route_id: r1.id
 )
 a1_1 = Activity.create!(
     sport: 'Hike',
-    title: 'Semptember 8 Jog',
+    title: 'Semptember 8 Jog in my fancy new pikachu pajamas with a blueberry muffin and 20 cups of coffee',
     description: "finished it 10 minutes faster",
     distance: 120.00,
     date: Date.new(2000,9,8),
-    duration: "10:56",
+    duration: "00:56:01",
     user_id: u1.id,
     route_id: r1_3.id
 )
@@ -82,7 +82,7 @@ a1_2 = Activity.create!(
     description: "finished it 20 minutes faster",
     distance: 2.22,
     date: Date.new(2020,9,9),
-    duration: "20:56",
+    duration: "20:00:01",
     user_id: u1.id,
 )
 a1_3 = Activity.create!(
@@ -91,7 +91,7 @@ a1_3 = Activity.create!(
     description: "I am awesome",
     distance: 32.33,
     date: Date.new(2009,3,19),
-    duration: "2:33",
+    duration: "2:33:01",
     user_id: u1.id,
 )
 a1_4 = Activity.create!(
@@ -100,7 +100,7 @@ a1_4 = Activity.create!(
     description: "I am groot",
     distance: 44.444,
     date: Date.new(2013,5,14),
-    duration: "5:46",
+    duration: "5:46:01",
     user_id: u1.id,
 )
 a2 = Activity.create!(
@@ -109,7 +109,7 @@ a2 = Activity.create!(
     description: "finished it 10 minutes slower",
     distance: 420.00,
     date: Date.new(2020,10,31),
-    duration: "10:34",
+    duration: "10:34:01",
     user_id: u1.id,
     route_id: u2.id
 )
@@ -118,7 +118,7 @@ a1_3 = Activity.create!(
     title: 'Semptember 10 Jog',
     distance: 3.33,
     date: Date.new(2000,9,10),
-    duration: "10:08",
+    duration: "10:08:01",
     user_id: u1.id,
     route_id: r2.id
 )
