@@ -1,5 +1,11 @@
 export const calcTime = (activity) => {
-    let dur = new Date(activity.duration);
+    // debugger
+    let dur;
+    if(activity.duration){
+        dur = new Date(activity.duration)
+    }else{
+        dur = new Date(activity.estimated_duration)
+    }
     dur = {
         hours: dur.getUTCHours(),
         minutes: dur.getUTCMinutes(),

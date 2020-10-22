@@ -2,6 +2,7 @@ import { UPDATE_ROUTES_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
     recentDays: null,
+    keywords: null
 });
 
 const routesFilterReducer = (state = defaultFilters, action) => {

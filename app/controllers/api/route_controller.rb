@@ -11,6 +11,10 @@ class Api::RouteController < ApplicationController
             # debugger
             @routes = @routes.where("updated_at > (?)", start_date)
         end
+        # debugger
+        if params[:keywords] && params[:keywords] != ""
+            @routes = @routes.where("name ilike ?", "%#{params[:keywords]}%")
+        end
         render :index
     end
 end

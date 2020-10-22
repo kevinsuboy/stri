@@ -30,7 +30,8 @@ u1 = User.create!(
             name: Faker::Restaurant.name,
             description: Faker::Restaurant.description,
             distance: rand*1000,
-            user_id: u1.id
+            user_id: u1.id,
+            estimated_duration: "#{rand(23)}:#{rand(59)}:#{rand(59)}"
         )
     )
 end

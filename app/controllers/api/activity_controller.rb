@@ -16,7 +16,7 @@ class Api::ActivityController < ApplicationController
         end
         # debugger
         if params[:keywords] && params[:keywords] != ""
-            @activities = @activities.where("title like ?", "%#{params[:keywords]}%")
+            @activities = @activities.where("title ilike ?", "%#{params[:keywords]}%")
         end
         render :index
     end
