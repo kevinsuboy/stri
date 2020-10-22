@@ -5,6 +5,11 @@ class Api::ActivityController < ApplicationController
         else
             @activities = Activity.all
         end
+        if params[:recentDays] != ""
+            start_date = Date.today - params[:recentDays].to_i
+            # debugger
+            @activities = @activities.where("date > (?)", start_date)
+        end
         # debugger
         render :index
     end
