@@ -13,7 +13,7 @@ class ActivitiesTable extends React.Component {
             pace: true,
             distance: true,
         }
-        this.sortField = "date"; this.sorted = [];
+        this.sortField = ""; this.sorted = [];
         // this.handleClick = this.handleClick.bind(this)
     }
     handleClick(field){
@@ -31,8 +31,6 @@ class ActivitiesTable extends React.Component {
                 this.sortField = key;
             }
         }
-    }
-    render() {
         const aVal = this.state[this.sortField] ? 1 : -1;
         const bVal = -1*aVal;
         if(this.sortField !== "pace"){
@@ -46,6 +44,8 @@ class ActivitiesTable extends React.Component {
                 return pT_a < pT_b ? aVal : bVal;
             })
         }
+    }
+    render() {
         const selected = [
             this.sortField === "sport" ? "index-header-selected" : null,
             this.sortField === "date" ? "index-header-selected" : null,
