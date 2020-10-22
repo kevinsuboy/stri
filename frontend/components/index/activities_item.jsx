@@ -11,12 +11,12 @@ export default ({ activity}) => {
         <ul className={`index-item`}>
             <li className="index-item-1 feed-item-title"><SportLogo sport={activity.sport} /> {activity.sport}</li>
             <li className="index-item-2">{d}</li>
-            <Link className="index-link index-item-3"><li>{activity.title}</li></Link>
+            <Link to={`/activities/${activity.id}`} className="index-link index-item-3"><li>{activity.title}</li></Link>
             <li className="index-item-4">{dur.hours}{dur.minutes}{dur.seconds}</li>
             <li className="index-item-5">{pace.hours}{pace.minutes}{pace.seconds} /mi</li>
             <li className="index-item-6">{activity.distance.toFixed(2)} mi</li>
-            <Link className="index-link index-item-edit"><li>{`Edit`}</li></Link>
-            <Link className="index-link index-item-delete"><li>Delete</li></Link>
+            <Link to={`/activities/${activity.id}/edit`} className="index-link index-item-edit"><li>{`Edit`}</li></Link>
+            <Link to={`/activities/${activity.id}/edit`} className="index-link index-item-delete"><li>Delete</li></Link>
         </ul>
     )
 }

@@ -12,8 +12,8 @@ export const receiveRoute = route => ({
     route
 })
 
-export const fetchUserRoute = (userId, id) => dispatch => (
-    APIUtil.fetchUserRoute(userId, id).then(route => (
+export const fetchRoute = (id) => dispatch => (
+    APIUtil.fetchRoute(id).then(route => (
         dispatch(receiveRoute(route))
     ))
 );

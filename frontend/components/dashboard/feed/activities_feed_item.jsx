@@ -2,6 +2,7 @@ import React from 'react';
 import SportLogo from '../sport_logo'
 import FeedItem from './feed_item_skeleton'
 import {calcTime} from '../../../util/calc_util'
+import { Link } from 'react-router-dom';
 
 export default ({activity,username}) => {
     const d = new Date(activity.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -9,10 +10,12 @@ export default ({activity,username}) => {
     const {dur, pace} = calcTime(activity);
     const date = <p className="feed-item-date">{d}</p>
     const title =
+        <Link to={`/activities/${activity.id}`} className="feed-item-link">
         <div key={activity.id} className="feed-item-title">
             <SportLogo sport={activity.sport} />
             <p>{activity.title}</p>
         </div>
+        </Link>
     const stats =
         <div key={activity.id*2} className="feed-stats container">
             <div className="feed-stat-item stat-item item-left">

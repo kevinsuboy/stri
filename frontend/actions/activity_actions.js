@@ -12,8 +12,8 @@ export const receiveActivity = activity => ({
     activity
 })
 
-export const fetchUserActivity = (userId, id) => dispatch => (
-    APIUtil.fetchUserActivity(userId, id).then(activity => (
+export const fetchActivity = (id) => dispatch => (
+    APIUtil.fetchActivity(id).then(activity => (
         dispatch(receiveActivity(activity))
     ))
 );

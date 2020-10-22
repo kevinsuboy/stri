@@ -20,4 +20,9 @@ class Api::ActivityController < ApplicationController
         end
         render :index
     end
+    def show
+        # debugger
+        @activity = Activity.find(params[:id])
+        render :show
+    end
 end

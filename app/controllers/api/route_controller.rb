@@ -17,4 +17,9 @@ class Api::RouteController < ApplicationController
         end
         render :index
     end
+    def show
+        # debugger
+        @route = Route.find(params[:id])
+        render :show
+    end
 end

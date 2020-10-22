@@ -33,11 +33,11 @@ class RoutesTable extends React.Component {
         if (this.sortField !== "pace") {
             this.props.routes.sort((a, b) => (a[this.sortField] < b[this.sortField]) ? aVal : bVal)
         } else {
-            debugger
+            // debugger
             this.props.routes.sort((a, b) => {
                 const { paceTime: pT_a } = calcTime(a);
                 const { paceTime: pT_b } = calcTime(b);
-                debugger
+                // debugger
                 return pT_a < pT_b ? aVal : bVal;
             })
         }
@@ -57,7 +57,7 @@ class RoutesTable extends React.Component {
         const routeItems = this.props.routes.map(el => <RoutesItem key={el.id} route={el} />);
         return (
             <div className="table-container">
-                <h2>Activities Table</h2>
+                <h2>Routes Table</h2>
                 <ul className="index-table-header index-item">
                     {/* <li className="table-col index-item-1">Sport<i className="fas fa-angle-down"></i></li>
                     <li className="table-col index-item-2">Date<i className="fas fa-angle-down"></i></li> */}

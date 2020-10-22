@@ -11,6 +11,7 @@ const activitiesReducer = (state = {}, action) => {
             // debugger
             return action.activities;
         case RECEIVE_ACTIVITY:
+            // debugger
             return Object.assign({}, state, { [action.activity.id]: action.activity });
         default:
             return state;

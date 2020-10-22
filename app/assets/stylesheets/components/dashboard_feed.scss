@@ -98,6 +98,10 @@
 // .feed-item p {
 //     padding: 16px;
 // }
+.feed-item-link {
+    text-decoration: none;
+    color: inherit;
+}
 .feed-item-header {
     // border: 1px solid green;
     padding: 20px 30px;
@@ -113,6 +117,7 @@
     padding: 2px 25px;
 }
 .feed-item-date {
+    font-size: 12px;
     padding: 2px 25px;
     color: $secondary-gray;
 }
@@ -140,6 +145,7 @@
 }
 .feed-stats {
     // margin-bottom: 10px;
+    font-weight: normal;
     padding-top: 16px;
     padding-bottom: 16px;
 }

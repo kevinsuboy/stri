@@ -13,6 +13,5 @@ const mDTP = dispatch => ({
     changeActivitiesFilter: (filter, value) => dispatch(changeActivitiesFilter(filter, value)),
     fetchFilteredUserActivities: (userId) => dispatch(fetchFilteredUserActivities(userId)),
     fetchUserActivities: (userId) => dispatch(fetchUserActivities()(userId)),
-    fetchUserActivity: (userId, id) => dispatch(fetchUserActivity(userId, id)),
 })
 export default connect(mSTP, mDTP)(Activities)

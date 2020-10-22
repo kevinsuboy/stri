@@ -12,7 +12,6 @@ export const fetchRoute = id => (
     })
 );
 export const fetchUserRoutes = data => userId => {
-    // debugger
     return $.ajax({
         method: 'GET',
         url: `api/user/${userId}/route`,

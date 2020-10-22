@@ -36,11 +36,11 @@ class ActivitiesTable extends React.Component {
         if(this.sortField !== "pace"){
             this.props.activities.sort((a, b) => (a[this.sortField] < b[this.sortField]) ? aVal : bVal)
         }else{
-            debugger
+            // debugger
             this.props.activities.sort((a, b) => {
                 const { paceTime: pT_a } = calcTime(a);
                 const { paceTime: pT_b } = calcTime(b);
-                debugger
+                // debugger
                 return pT_a < pT_b ? aVal : bVal;
             })
         }
