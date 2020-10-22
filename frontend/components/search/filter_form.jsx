@@ -4,19 +4,25 @@ const handleChange = (filter, updateFilter) => e => (
     updateFilter(filter, parseInt(e.currentTarget.value))
 );
 
-const FilterForm = ({ minSeating, maxSeating, updateFilter }) => (
+const FilterForm = ({ }) => (
+    <div className="filter-container">
     <div className="filter-form">
+        <div className="filter-group filter-keyword">
         <label>Keywords</label>
         <input
             type="text"
-            value={minSeating}
+            // value={0}
             className="filter-input session-input"
+            placeholder="My Morning Workout"
             // onChange={handleChange('minSeating', updateFilter)}
             // onChange={}
         />
+        </div>
         <input className={`nav-bar-login link session-link filter-submit`} type="submit" value="Search" />
+        <div className="filter-group filter-sport">
         <label>Sport</label>
-        <select className="filter-sport session-input" name="sport">
+        <select className="filter-select session-input" name="sport">
+            <option value="All" defaultValue>All Sport Types</option>
             <option value="Ride">Ride</option>
             <option value="Run">Run</option>
             <option value="Swim">Swim</option>
@@ -52,6 +58,8 @@ const FilterForm = ({ minSeating, maxSeating, updateFilter }) => (
             <option value="Yoga">Yoga</option>
             <option value="Other">Other</option>
         </select>
+        </div>
+        </div>
     </div>
 );
 

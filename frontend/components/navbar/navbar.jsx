@@ -33,6 +33,8 @@ class NavBar extends React.Component {
             const selected = [
                 pathname === "/dashboard/activities" ? "nav-item-selected" : null,
                 pathname === "/dashboard/routes" ? "nav-item-selected" : null,
+                pathname === "/athlete/activities" ? "nav-item-selected" : null,
+                pathname === "/athlete/routes" ? "nav-item-selected" : null,
             ]
             // debugger
             return (

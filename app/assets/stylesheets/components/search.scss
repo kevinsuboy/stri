@@ -1,4 +1,46 @@
-.filter-sport:focus, .filter-input:focus{
+@import 'partials/_base.scss';
+
+.filter-input:focus, .filter-select:focus{
     box-shadow: 0 0 5px rgba(13,106,146, 1);
     border: 1px solid rgba(13,106,146, 1);
+}
+.filter-form {
+    border: 1px solid blue;
+    margin: 10px;
+    width: calc(100%-20px);
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+}
+.filter-submit {
+    margin-right: 40px;
+    // margin-left: 20px;
+    width: 20%;
+    margin-top: 35px;
+    height: 40px;
+}
+.filter-select {
+    height: 40px;
+    cursor: pointer;
+}
+.filter-input, .filter-select {
+    border: 1px solid $secondary-gray;
+}
+.filter-input {
+    // width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.filter-select {
+    width: 100%;
+}
+.filter-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid red;
+    padding: 10px;
+}
+.filter-keyword {
+    width: 70%;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterForm from '../search/filter_form'
+import ActivitiesTable from './activities_table'
 
 class Activities extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Activities extends React.Component {
                 <h1>My Activities</h1>
                 <ul className="index-list">
                     <FilterForm />
+                    <ActivitiesTable {...this.props}/>
                 </ul>
             </div>
             </div>
