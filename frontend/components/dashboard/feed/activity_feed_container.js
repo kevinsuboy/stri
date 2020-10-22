@@ -4,6 +4,7 @@ import { activitySelector } from '../../selectors/feed_selector'
 import { fetchUserActivity, fetchUserActivities } from '../../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } }) => ({
+    userId: id,
     username: users[id].username,
     activities: activitySelector(users[id], activities)
 })
