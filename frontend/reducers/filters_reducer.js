@@ -1,19 +1,9 @@
-import { UPDATE_FILTER } from '../actions/filter_actions';
+import { combineReducers } from 'redux';
 
-const defaultFilters = Object.freeze({
-    recentDays: null,
+import activity from './activities_filters_reducer';
+import route from './routes_filters_reducer';
+
+export default combineReducers({
+    route,
+    activity
 });
-
-const filtersReducer = (state = defaultFilters, action) => {
-    Object.freeze(state);
-    if (action.type === UPDATE_FILTER) {
-        const newFilter = {
-            [action.filter]: action.value
-        };
-        return Object.assign({}, state, newFilter);
-    } else {
-        return state;
-    }
-};
-
-export default filtersReducer;

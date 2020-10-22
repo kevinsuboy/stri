@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import Activities from './activities_feed'
 import { activitySelector } from '../../selectors/index_selector'
-// import { activitySelector } from '../../selectors/feed_selector'
 import { updateUserActivitiesFilter } from '../../../actions/filter_actions'
 import { fetchUserActivity } from '../../../actions/activity_actions'
 

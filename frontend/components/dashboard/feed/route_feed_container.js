@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Routes from './routes_feed'
-// import { routeSelector } from '../../selectors/feed_selector'
 import { routeSelector } from '../../selectors/index_selector'
 import { fetchUserRoute } from '../../../actions/route_actions'
 import { updateUserRoutesFilter } from '../../../actions/filter_actions'

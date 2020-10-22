@@ -1,27 +1,45 @@
 import React from 'react';
 
-const handleChange = (filter, updateFilter) => e => (
-    updateFilter(filter, parseInt(e.currentTarget.value))
-);
 
-const FilterForm = ({ }) => (
+class FilterForm extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            keywords: '',
+            sport: ''
+        }
+    }
+    handleSubmit(submitFilter) {
+        return e => {
+            e.preventDefault();
+            submitFilter(this.state, parseInt(e.currentTarget.value))
+        }
+    };
+    handleChange(filter) {
+        // debugger
+        return e => this.setState({
+            [filter]: e.currentTarget.value
+        });
+    }
+    render(){
+    return(
     <div className="filter-container">
-    <div className="filter-form">
+    <form className="filter-form" onSubmit={this.handleSubmit(this.props.submitFilter)}>
         <div className="filter-group filter-keyword">
         <label>Keywords</label>
         <input
             type="text"
-            // value={0}
             className="filter-input session-input"
             placeholder="My Morning Workout"
-            // onChange={handleChange('minSeating', updateFilter)}
-            // onChange={}
+            onChange={this.handleChange("keywords")}
         />
         </div>
         <input className={`nav-bar-login link session-link filter-submit`} type="submit" value="Search" />
         <div className="filter-group filter-sport">
         <label>Sport</label>
-        <select className="filter-select session-input" name="sport">
+        <select className="filter-select session-input" name="sport"
+            onChange={this.handleChange("sport")}
+        >
             <option value="All" defaultValue>All Sport Types</option>
             <option value="Ride">Ride</option>
             <option value="Run">Run</option>
@@ -59,8 +77,9 @@ const FilterForm = ({ }) => (
             <option value="Other">Other</option>
         </select>
         </div>
-        </div>
+        </form>
     </div>
-);
+    )}
+};
 
 export default FilterForm;
