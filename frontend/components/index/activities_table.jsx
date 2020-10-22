@@ -1,5 +1,6 @@
 import React from 'react';
 import ActivitiesItem from './activities_item'
+import { calcTime } from '../../util/calc_util'
 
 class ActivitiesTable extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class ActivitiesTable extends React.Component {
             sport: true,
             date: true,
             title: true,
-            time: true,
+            duration: true,
             pace: true,
             distance: true,
         }
@@ -34,7 +35,17 @@ class ActivitiesTable extends React.Component {
     render() {
         const aVal = this.state[this.sortField] ? 1 : -1;
         const bVal = -1*aVal;
-        this.props.activities.sort((a, b) => (a[this.sortField] < b[this.sortField]) ? aVal : bVal)
+        if(this.sortField !== "pace"){
+            this.props.activities.sort((a, b) => (a[this.sortField] < b[this.sortField]) ? aVal : bVal)
+        }else{
+            debugger
+            this.props.activities.sort((a, b) => {
+                const { paceTime: pT_a } = calcTime(a);
+                const { paceTime: pT_b } = calcTime(b);
+                debugger
+                return pT_a < pT_b ? aVal : bVal;
+            })
+        }
         const selected = [
             this.sortField === "sport" ? "index-header-selected" : null,
             this.sortField === "date" ? "index-header-selected" : null,
@@ -48,7 +59,7 @@ class ActivitiesTable extends React.Component {
             arrow[k] = v ? <i className="fas fa-angle-down"></i> : <i className="fas fa-angle-up"></i>
         }
         const activityItems = this.props.activities.map(el => <ActivitiesItem key={el.id} activity={el} />);
-        debugger
+        // debugger
         return (
             <div className="table-container">
                 <h2>Activities Table</h2>
@@ -57,8 +68,8 @@ class ActivitiesTable extends React.Component {
                     <li className={`table-col index-item-2 ${selected[1]}`} onClick={this.handleClick("date")}>Date{arrow["date"]}</li>
                     <li className={`table-col index-item-3 ${selected[2]}`} onClick={this.handleClick("title")}>Title{arrow["title"]}</li>
                     <li className={`table-col index-item-4 ${selected[3]}`} onClick={this.handleClick("duration")}>Time{arrow["duration"]}</li>
-                    <li className={`table-col index-item-5 ${selected[4]}`} onClick={this.handleClick()}>Pace{arrow["pace"]}</li>
-                    <li className={`table-col index-item-6 ${selected[5]}`} onClick={this.handleClick("distance")}>Distance{arrow["distanc"]}</li>
+                    <li className={`table-col index-item-5 ${selected[4]}`} onClick={this.handleClick("pace")}>Pace{arrow["pace"]}</li>
+                    <li className={`table-col index-item-6 ${selected[5]}`} onClick={this.handleClick("distance")}>Distance{arrow["distance"]}</li>
                     <li className="index-item-edit"></li>
                     <li className="index-item-delete"></li>
                 </ul>

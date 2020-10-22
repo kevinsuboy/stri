@@ -36,6 +36,7 @@ export const calcTime = (activity) => {
     dur.hours = dur.hours === '00' ? "" : dur.hours + "h ";
     return {
         dur,
+        paceTime,
         pace
     }
 }
