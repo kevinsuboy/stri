@@ -17,8 +17,8 @@ export const fetchUserRoute = (userId, id) => dispatch => (
         dispatch(receiveRoute(route))
     ))
 );
-export const fetchUserRoutes = (userId) => dispatch => (
-    APIUtil.fetchUserRoutes(userId).then(routes => (
+export const fetchUserRoutes = filters => (userId) => dispatch => (
+    APIUtil.fetchUserRoutes(filters)(userId).then(routes => (
         dispatch(receiveRoutes(routes))
     ))
 );

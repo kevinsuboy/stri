@@ -6,7 +6,9 @@ class Activities extends React.Component {
         super(props)
     }
     componentDidMount() {
-        this.props.fetchUserActivities(this.props.userId);
+        debugger
+        // this.props.fetchUserActivities(this.props.userId);
+        this.props.updateUserActivitiesFilter(this.props.userId);
     }
     render() {
         // debugger

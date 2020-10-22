@@ -1,32 +1,21 @@
-export const fetchActivities = data => (
+export const fetchRoutes = data => (
     $.ajax({
         method: 'GET',
-        url: 'api/activity',
+        url: 'api/route',
         data
     })
 );
-export const fetchActivity = id => (
+export const fetchRoute = id => (
     $.ajax({
         method: 'GET',
-        url: `api/activity/${id}`
+        url: `api/route/${id}`
     })
 );
-export const fetchUserActivities = userId => (
+export const fetchUserRoutes = data => userId => (
     $.ajax({
         method: 'GET',
-        url: `api/user/${userId}/activity`
-    })
-);
-export const fetchUserActivity = (userId, id) => (
-    $.ajax({
-        method: 'GET',
-        url: `api/user/${userId}/activity/${id}`
-    })
-);
-export const fetchUserRoutes = userId => (
-    $.ajax({
-        method: 'GET',
-        url: `api/user/${userId}/route`
+        url: `api/user/${userId}/route`,
+        data
     })
 );
 export const fetchUserRoute = (userId, id) => (

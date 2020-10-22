@@ -1,5 +1,5 @@
-import { fetchBenches } from './activity_actions'
-import { fetchBenches } from './route_actions'
+import { fetchUserActivities } from './activity_actions'
+import { fetchUserRoutes } from './route_actions'
 
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 
@@ -9,7 +9,12 @@ export const changeFilter = (filter, value) => ({
     value
 });
 
-export const updateFilter = (filter, value) => (dispatch, getState) => {
+export const updateUserRoutesFilter = (filter, value) => userId => (dispatch, getState) => {
     dispatch(changeFilter(filter, value));
-    return fetchBenches(getState().ui.filters)(dispatch);
+    return fetchUserRoutes(getState().ui.filters)(userId)(dispatch);
+};
+export const updateUserActivitiesFilter = (filter, value) => userId => (dispatch, getState) => {
+    dispatch(changeFilter(filter, value));
+    debugger
+    return fetchUserActivities(getState().ui.filters)(userId)(dispatch);
 };

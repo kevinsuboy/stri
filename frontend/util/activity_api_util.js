@@ -11,27 +11,16 @@ export const fetchActivity = id => (
         url: `api/activity/${id}`
     })
 );
-export const fetchUserActivities = userId => (
+export const fetchUserActivities = (data) => (userId) => (
     $.ajax({
         method: 'GET',
-        url: `api/user/${userId}/activity`
+        url: `api/user/${userId}/activity`,
+        data
     })
 );
 export const fetchUserActivity = (userId, id) => (
     $.ajax({
         method: 'GET',
         url: `api/user/${userId}/activity/${id}`
-    })
-);
-export const fetchUserRoutes = userId => (
-    $.ajax({
-        method: 'GET',
-        url: `api/user/${userId}/route`
-    })
-);
-export const fetchUserRoute = (userId, id) => (
-    $.ajax({
-        method: 'GET',
-        url: `api/user/${userId}/route/${id}`
     })
 );
