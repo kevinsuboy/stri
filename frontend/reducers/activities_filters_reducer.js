@@ -2,6 +2,7 @@ import { UPDATE_ACTIVITIES_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
     recentDays: null,
+    keywords: null,
     sport: null
 });
 

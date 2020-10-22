@@ -5,26 +5,28 @@ class FilterForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            recentDays: null,
             keywords: '',
             sport: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleSubmit(submitFilter) {
-        return e => {
-            e.preventDefault();
-            submitFilter(this.state, parseInt(e.currentTarget.value))
-        }
+    handleSubmit(e) {
+        // debugger
+        e.preventDefault();
+        this.props.submitFilter(this.state, parseInt(e.currentTarget.value))
     };
     handleChange(filter) {
-        // debugger
-        return e => this.setState({
+        return e => {
+            // debugger
+            return this.setState({
             [filter]: e.currentTarget.value
-        });
+        })};
     }
     render(){
     return(
     <div className="filter-container">
-    <form className="filter-form" onSubmit={this.handleSubmit(this.props.submitFilter)}>
+    <form className="filter-form" onSubmit={this.handleSubmit}>
         <div className="filter-group filter-keyword">
         <label>Keywords</label>
         <input

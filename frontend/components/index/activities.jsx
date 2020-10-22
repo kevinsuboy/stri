@@ -11,13 +11,13 @@ class Activities extends React.Component {
         this.props.fetchUserActivities(this.props.userId);
     }
     render() {
-        // debugger
+        debugger
         return (
             <div id="global-index">
             <div className="index-container container">
                 <h1>My Activities</h1>
                 <ul className="index-list">
-                    <FilterForm />
+                    <FilterForm submitFilter={this.props.updateUserActivitiesFilter}/>
                     <ActivitiesTable {...this.props}/>
                 </ul>
             </div>

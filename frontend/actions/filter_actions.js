@@ -19,8 +19,8 @@ export const updateUserRoutesFilter = (filter, value) => userId => (dispatch, ge
     dispatch(changeRoutesFilter(filter, value));
     return fetchUserRoutes(getState().ui.filters.routes)(userId)(dispatch);
 };
-export const updateUserActivitiesFilter = (filter, value) => userId => (dispatch, getState) => {
+export const updateUserActivitiesFilter = (filters) => userId => (dispatch, getState) => {
     dispatch(changeActivitiesFilter(filter, value));
-    // debugger
+    debugger
     return fetchUserActivities(getState().ui.filters.activity)(userId)(dispatch);
 };
