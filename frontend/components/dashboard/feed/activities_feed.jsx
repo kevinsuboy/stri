@@ -7,8 +7,8 @@ class Activities extends React.Component {
     }
     componentDidMount() {
         // debugger
-        // this.props.fetchUserActivities(this.props.userId);
-        this.props.updateUserActivitiesFilter("recentDays",60)(this.props.userId);
+        this.props.changeActivitiesFilter("recentDays",60);
+        this.props.fetchFilteredUserActivities(this.props.userId);
     }
     render() {
         // debugger

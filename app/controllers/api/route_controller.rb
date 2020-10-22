@@ -6,7 +6,7 @@ class Api::RouteController < ApplicationController
         else
             @routes = Route.all
         end
-        if params[:recentDays] != ""
+        if params[:recentDays] && params[:recentDays] != ""
             start_date = Date.today - params[:recentDays].to_i
             # debugger
             @routes = @routes.where("updated_at > (?)", start_date)
