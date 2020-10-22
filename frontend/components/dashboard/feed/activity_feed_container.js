@@ -6,6 +6,7 @@ import { updateUserActivitiesFilter } from '../../../actions/filter_actions'
 import { fetchUserActivity } from '../../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } }) => ({
+    userId: id,
     username: users[id].username,
     activities: activitySelector(users[id], activities)
 })
