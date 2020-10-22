@@ -1,29 +1,23 @@
 import React from 'react';
 
-
 class FilterForm extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            recentDays: null,
-            keywords: '',
-            sport: ''
-        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(e) {
         // debugger
         e.preventDefault();
-        this.props.submitFilter(this.state, parseInt(e.currentTarget.value))
+        this.props.submitFilter(this.props.userId)
     };
     handleChange(filter) {
         return e => {
             // debugger
-            return this.setState({
-            [filter]: e.currentTarget.value
-        })};
+            this.props.changeFilter(filter,e.currentTarget.value)
+        };
     }
     render(){
+        // debugger
     return(
     <div className="filter-container">
     <form className="filter-form" onSubmit={this.handleSubmit}>
@@ -42,7 +36,7 @@ class FilterForm extends React.Component {
         <select className="filter-select session-input" name="sport"
             onChange={this.handleChange("sport")}
         >
-            <option value="All" defaultValue>All Sport Types</option>
+            <option value="" defaultValue>All Sport Types</option>
             <option value="Ride">Ride</option>
             <option value="Run">Run</option>
             <option value="Swim">Swim</option>

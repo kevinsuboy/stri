@@ -3,7 +3,7 @@ import { calcTime } from '../../util/calc_util'
 import { Link } from 'react-router-dom';
 
 export default ({ activity }) => {
-    debugger
+    // debugger
     const { dur, pace } = calcTime(activity);
     const d = new Date(activity.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     return (

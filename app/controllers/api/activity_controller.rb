@@ -11,7 +11,13 @@ class Api::ActivityController < ApplicationController
             # debugger
             @activities = @activities.where("date > (?)", start_date)
         end
+        if params[:sport] && params[:sport] != ""
+            @activities = @activities.where("sport = (?)", params[:sport])
+        end
         # debugger
+        if params[:keywords] && params[:keywords] != ""
+            @activities = @activities.where("title like ?", "%#{params[:keywords]}%")
+        end
         render :index
     end
 end

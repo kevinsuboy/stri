@@ -6,7 +6,7 @@ class ActivitiesTable extends React.Component {
         super(props)
     }
     render() {
-        debugger
+        // debugger
         const activityItems = this.props.activities.map(el => <ActivitiesItem key={el.id} activity={el} />);
         return (
             <div className="table-container">
