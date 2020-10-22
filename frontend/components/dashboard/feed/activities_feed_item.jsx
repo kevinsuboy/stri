@@ -44,12 +44,12 @@ export default ({activity,username}) => {
     const {dur, pace} = calcTime(activity);
     const date = <p className="feed-item-date">{d}</p>
     const title =
-        <div className="feed-item-title">
+        <div key={activity.id} className="feed-item-title">
             <SportLogo sport={activity.sport} />
             <p>{activity.title}</p>
         </div>
     const stats =
-        <div className="feed-stats container">
+        <div key={activity.id*2} className="feed-stats container">
             <div className="feed-stat-item stat-item item-left">
                 <p className="feed-stat-title stat-title">Distance</p>
                 <p className="feed-stat-value stat-value">{activity.distance.toFixed(2)} mi</p>
@@ -64,6 +64,6 @@ export default ({activity,username}) => {
             </div>
         </div>
     return (
-        <FeedItem username={username} date={date} body={[title,stats]}/>
+        <FeedItem activityId={activity.id} username={username} date={date} body={[title,stats]}/>
     )
 }
