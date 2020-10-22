@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Routes from './routes'
 import { routeSelector } from '../selectors/index_selector'
-import { fetchUserRoute } from '../../actions/route_actions'
-import { updateUserRoutesFilter } from '../../actions/filter_actions'
+import { fetchFilteredUserRoutes, changeRoutesFilter } from '../../actions/filter_actions'
+import { fetchUserRoute, fetchUserRoutes } from '../../actions/route_actions'
 
 const mSTP = ({ session: { id }, entities: { users, routes } }) => ({
     userId: id,
@@ -10,7 +10,9 @@ const mSTP = ({ session: { id }, entities: { users, routes } }) => ({
     routes: routeSelector(users[id], routes),
 })
 const mDTP = dispatch => ({
-    updateUserRoutesFilter: (filters, value) => (userId) => dispatch(updateUserRoutesFilter(filters, value)(userId)),
-    fetchUserRoute: (userId, id) => dispatch(fetchUserRoute(userId, id))
+    changeRoutesFilter: (filter, value) => dispatch(changeRoutesFilter(filter, value)),
+    fetchFilteredUserRoutes: (userId) => dispatch(fetchFilteredUserRoutes(userId)),
+    fetchUserRoutes: (userId) => dispatch(fetchUserRoutes()(userId)),
+    fetchUserRoute: (userId, id) => dispatch(fetchUserRoute(userId, id)),
 })
 export default connect(mSTP, mDTP)(Routes)

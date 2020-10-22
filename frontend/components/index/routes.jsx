@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterForm from '../search/filter_form'
 
 class Routes extends React.Component {
     constructor(props) {
@@ -10,10 +11,14 @@ class Routes extends React.Component {
     render() {
         // debugger
         return (
-            <div className="index-body-container">
-                {/* <h1>I am the activities</h1> */}
-                <ul className="index-list">
-                </ul>
+            <div id="global-index">
+                <div className="index-container container">
+                    <h1>My Routes</h1>
+                    <ul className="index-list">
+                        <FilterForm userId={this.props.userId} submitFilter={this.props.fetchFilteredUserRoutes} changeFilter={this.props.changeRouteFilter} />
+                        {/* <RoutesTable {...this.props} /> */}
+                    </ul>
+                </div>
             </div>
         )
     }

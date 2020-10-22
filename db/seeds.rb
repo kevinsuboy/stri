@@ -34,7 +34,7 @@ u1 = User.create!(
         )
     )
 end
-20.times do
+100.times do
     Activity.create!(
         sport: sports.sample,
         title: Faker::Food.dish,

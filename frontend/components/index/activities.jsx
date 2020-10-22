@@ -17,7 +17,7 @@ class Activities extends React.Component {
             <div className="index-container container">
                 <h1>My Activities</h1>
                 <ul className="index-list">
-                    <FilterForm userId={this.props.userId} submitFilter={this.props.fetchFilteredUserActivities} changeFilter={this.props.changeActivitiesFilter}/>
+                    <FilterForm sport={true} userId={this.props.userId} submitFilter={this.props.fetchFilteredUserActivities} changeFilter={this.props.changeActivitiesFilter}/>
                     <ActivitiesTable {...this.props}/>
                 </ul>
             </div>
