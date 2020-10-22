@@ -20,7 +20,7 @@ class RoutesTable extends React.Component {
                     <li className="table-col index-item-3">Title<i className="fas fa-angle-down"></i></li>
                     <li className="table-col index-item-4">Time<i className="fas fa-angle-down"></i></li>
                     <li className="table-col index-item-5">Est. Pace<i className="fas fa-angle-down"></i></li>
-                    <li className="table-col index-item-6">Est. Duration<i className="fas fa-angle-down"></i></li>
+                    <li className="table-col index-item-6">Est. Distance<i className="fas fa-angle-down"></i></li>
                     <li className="table-col index-item-edit"></li>
                     <li className="table-col index-item-delete"></li>
                 </ul>

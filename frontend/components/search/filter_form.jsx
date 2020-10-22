@@ -14,6 +14,9 @@ class FilterForm extends React.Component {
         return e => {
             // debugger
             this.props.changeFilter(filter,e.currentTarget.value)
+            if(filter==="sport"){
+                this.handleSubmit(e);
+            }
         };
     }
     render(){
