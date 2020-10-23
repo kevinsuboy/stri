@@ -76,7 +76,7 @@ class ActivityForm extends React.Component{
         }
     }
     handleChange(field) {
-        debugger
+        // debugger
         if (field !== "hours" && field !== "minutes" && field !== "seconds"){
             return e => this.setState({
                 [field]: e.currentTarget.value
@@ -97,7 +97,7 @@ class ActivityForm extends React.Component{
             this.props.activityId)
     }
     render(){
-        debugger
+        // debugger
         let {hours:h ,minutes:m,seconds:s} = this.state.duration;
         h = h ? h : "";
         m = m ? m : "";

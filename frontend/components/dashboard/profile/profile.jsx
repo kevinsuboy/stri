@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default (props) => {
     // const inits = username.split(" ").map((word) => word[0]).join("");
     const {username,n_routes,n_activities,latest} = props;
-    debugger
+    // debugger
     const latest_el = latest ? 
         <div className="latest-body">
             <SportLogo sport={latest.sport} />

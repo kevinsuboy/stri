@@ -9,7 +9,7 @@ const routesReducer = (state = {}, action) => {
         case RECEIVE_ROUTES:
             return action.routes;
         case RECEIVE_ROUTE:
-            debugger
+            // debugger
             return Object.assign({}, state, {[action.route.id]: action.route});
         default:
             return state;

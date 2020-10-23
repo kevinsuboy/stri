@@ -12,7 +12,7 @@ class Activity extends React.Component {
         this.props.fetchActivity(this.props.match.params.activityId);
     }
     render() {
-        debugger
+        // debugger
         const activityItems = this.props.activity.map(el => <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username} descr={
             <div key={el.id * 3} className="feed-description">
                 <h3>Description</h3>

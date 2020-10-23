@@ -1,5 +1,5 @@
 export const routeSelector = (currentUser, allRoutes) => {
-    debugger
+    // debugger
     if (Object.keys(allRoutes).length !== 0) {
         return currentUser.routes.map(id => allRoutes[id]).filter(el => el);
     }
