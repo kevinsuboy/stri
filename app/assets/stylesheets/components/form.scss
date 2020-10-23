@@ -2,3 +2,27 @@
     font-size: 15px;
     margin-top: 20px;
 }
+.dist-input {
+    display: inline-block;
+}
+.dur-input {
+    width: 10%;
+    margin: 0;
+    display: inline-block;
+}
+.r1, .r2, .r3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.descr-input {
+    min-height: 300px;
+    text-align: start;
+}
+.dur-group {
+    margin-left: 50px;
+}
+.activity-edit-form .session-submit {
+    width: 25%;
+}

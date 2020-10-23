@@ -75,24 +75,72 @@ class ActivityForm extends React.Component{
     }
     render(){
         debugger
+        let {hours:h ,minutes:m,seconds:s} = this.state.duration;
+        h = h ? h : "";
+        m = m ? m : "";
+        s = s ? s : "";
         return(
     <form className={`activity-edit-form`}>
-        <label>Distance</label>
+        <div className="r1">
+        <label>Distance
+        {/* <div className="dist-input"> */}
         <input
             type="text"
             className="filter-input session-input"
             value={this.state.distance}
             // onChange={handleChange("keywords")}
         />
+        {/* </div> */}
+        </label>
+        <div className="dur-group">
         <label>Duration
+        <div className="dur-input-group">
+        <div className="dur-input">
         <input
             type="text"
             className="filter-input session-input"
-            value={this.state.duration}
+            value={parseInt(parseInt(h.split("h")[0]))}
+            // onChange={handleChange("keywords")}
+            />
+        </div>h
+        <div className="dur-input">
+        <input
+            type="text"
+            className="filter-input session-input"
+            value={parseInt(parseInt(m.split("m")[0]))}
             // onChange={handleChange("keywords")}
         />
+        </div>m
+        <div className="dur-input">
+        <input
+            type="text"
+            className="filter-input session-input"
+            value={parseInt(parseInt(s.split("s")[0]))}
+            // onChange={handleChange("keywords")}
+        />
+        </div>s
+        </div>
         </label>
+        </div>
+        </div>
+        <div className="r2">
         {sport}
+        <label>Date
+        <input
+                type="date"
+                className="filter-input session-input"
+                value={this.state.date}
+            // onChange={handleChange("keywords")}
+            />
+            <input
+                type="time"
+                className="filter-input session-input"
+                value={this.state.date}
+            // onChange={handleChange("keywords")}
+            />
+        </label>
+        </div>
+
         <label>Title</label>
         <input
             type="text"
@@ -101,27 +149,12 @@ class ActivityForm extends React.Component{
             // onChange={handleChange("keywords")}
         />
         <label>Description</label>
-        <input
-            type="text"
-            className="filter-input session-input"
+        <textarea
+            className="filter-input session-input descr-input"
             value={this.state.description}
             // onChange={handleChange("keywords")}
         />
-        <label>Date
-        <input
-            type="date"
-            className="filter-input session-input"
-            value={this.state.date}
-            // onChange={handleChange("keywords")}
-        />
-        <input
-            type="time"
-            className="filter-input session-input"
-            value={this.state.date}
-            // onChange={handleChange("keywords")}
-        />
-        </label>
-
+        <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
     </form>
     )}
 }
