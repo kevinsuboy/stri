@@ -16,6 +16,8 @@ import ActivitiesContainer from './index/activities_container'
 import RoutesContainer from './index/routes_container'
 import ActivityContainer from './show/activity_container'
 import RouteContainer from './show/route_container'
+import EditActivityContainer from './edit/edit_activity_container'
+import EditRouteContainer from './edit/edit_activity_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -30,8 +32,10 @@ const App = () => (
             <ProtectedRoute path="/dashboard" component={DashboardContainer} />
             <ProtectedRoute path="/athlete/activities" component={ActivitiesContainer} />
             <ProtectedRoute path="/athlete/routes" component={RoutesContainer} />
-            <ProtectedRoute path="/activities/:activityId" component={ActivityContainer} />
-            <ProtectedRoute path="/routes/:routeId" component={RouteContainer} />
+            <ProtectedRoute exact path="/activities/:activityId" component={ActivityContainer} />
+            <ProtectedRoute exact path="/routes/:routeId" component={RouteContainer} />
+            <ProtectedRoute exact path="/activities/:activityId/edit" component={EditActivityContainer} />
+            <ProtectedRoute exact path="/routes/:routeId/edit" component={EditRouteContainer} />
             {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
             <Route path="" render={() => (<Redirect to="/dashboard" />)} />
