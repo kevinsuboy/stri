@@ -13,5 +13,7 @@ export default ({username, date, body,activityId}) => (
     {body[0]}
     </div>
     {body[1]}
+    {body[2]}
+    {body[3]}
 </li>
 )

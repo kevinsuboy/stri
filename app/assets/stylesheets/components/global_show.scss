@@ -100,47 +100,53 @@
     flex-direction: column;
     align-items: flex-start;
 }
-.show-body .feed-stats {
-    flex-direction: column;
-    width: 50%;
-    // border: 1px solid orange;
-    border-left: 0.5px $primary-gray solid;
-    margin: 0;
+.feed-route * {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 20px;
 }
-.show-body .feed-stat-item {
-    border: none;
-    margin: 0;
-}
-.show-body .feed-item {
-    display: flex; 
-    flex-direction: row;
-    justify-content: flex-start;
-}
-.show-body .feed-item-left {
-    width: 50%;
-    // display: flex; 
-    border-right: 1px solid $primary-gray;
-}
-.show-body .profile-nav {
-    // padding: 0px;
-    height: 20%;
-}
-.show-body .feed-item-title, .show-body .feed-item-header{
-    margin-top: 15px;
-}
-.show-body .feed-item-link * {
-    // height: 100%;
-    cursor: default;
-}
-.show-body .feed-item-link:hover p{
-    color: inherit;
-}
-.show-body .feed-pic {
-    height: 60px;
-}
-.show-body .feed-item-title {
-    font-size: 28px;
-}
-.show-body .feed-username {
-    font-size: 20px;
-}
+// .show-body .feed-stats {
+//     flex-direction: column;
+//     width: 50%;
+//     // border: 1px solid orange;
+//     border-left: 0.5px $primary-gray solid;
+//     margin: 0;
+// }
+// .show-body .feed-stat-item {
+//     border: none;
+//     margin: 0;
+// }
+// .show-body .feed-item {
+//     display: flex; 
+//     flex-direction: row;
+//     justify-content: flex-start;
+//     flex-wrap: wrap;
+// }
+// .show-body .feed-item-left {
+//     width: 50%;
+//     // display: flex; 
+//     border-right: 1px solid $primary-gray;
+// }
+// .show-body .profile-nav {
+//     // padding: 0px;
+//     height: 20%;
+// }
+// .show-body .feed-item-title, .show-body .feed-item-header{
+//     margin-top: 15px;
+// }
+// .show-body .feed-item-link * {
+//     // height: 100%;
+//     cursor: default;
+// }
+// .show-body .feed-item-link:hover p{
+//     color: inherit;
+// }
+// .show-body .feed-pic {
+//     height: 60px;
+// }
+// .show-body .feed-item-title {
+//     font-size: 28px;
+// }
+// .show-body .feed-username {
+//     font-size: 20px;
+// }
