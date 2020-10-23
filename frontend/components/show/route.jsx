@@ -1,6 +1,6 @@
 import React from 'react';
 import RoutesFeedItem from '../dashboard/feed/routes_feed_item'
-import { Link } from 'react-router-dom';
+import Overview from './overview'
 
 class Route extends React.Component {
     constructor(props) {
@@ -16,17 +16,7 @@ class Route extends React.Component {
         return (
             <div id="global-index">
                 <div className="show-container container">
-                    <div className="show-profile container">
-                        <div className="show-profile-overview "><p>Overview</p></div>
-                        <div className="show-profile-links ">
-                            <Link to={`/routes/${this.props.match.params.routeId}/edit`} className="show-profile-link">
-                                <i className="fas fa-pen"></i>
-                            </Link>
-                            <Link to={`/routes/${this.props.match.params.routeId}/edit`} className="show-profile-link">
-                                <i className="fas fa-trash"></i>
-                            </Link>
-                        </div>
-                    </div>
+                    <Overview match={this.props.match} location={this.props.location}/>
                     <div className="show-body container">
                         <h1>My Route</h1>
                         <div className="feed-body-container">

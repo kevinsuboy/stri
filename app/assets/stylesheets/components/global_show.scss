@@ -12,27 +12,35 @@
     width: 20%;
 }
 .show-profile-overview {
-    border: 1px solid $primary-gray;
-    width: 90%;
+    width: 100%;
+    min-width: 120px;
     height: 50px;
     margin: 0;
     // margin-right: 20px;
     font-size: 16px;
     font-weight: normal;
     background-color: #fff;
-    border-left: 2px solid $primary-orange;
+    border-left: 3px solid $background-color;
     display: flex;
     align-items: center;
 }
-.show-profile-overview p {
+.show-profile-overview div {
     padding-left: 16px;
     padding-right: 16px;
+    border: 1px solid $primary-gray;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 .show-profile-links {
+    // border: 1px solid $primary-gray;
+    border-left: 3px solid $background-color;
     margin: 0;
     // padding: 0;
     height: 50px;
     width: 90%;
+    min-width: 120px;
     display:flex;
     justify-content: space-between;
 }
@@ -48,8 +56,19 @@
     align-items: center;
     justify-content: center;
 }
+.show-overview-link {
+    width: 90%;
+    border: none;
+    border-right:2px solid $primary-gray;
+}
+.show-link-right {
+    border-left:none;
+}
 .show-profile-link:hover {
     background-color: $secondary-gray-hover;
+}
+.show-selected {
+    border-left: 3px solid $primary-orange;
 }
 .show-container {
     position: relative;
