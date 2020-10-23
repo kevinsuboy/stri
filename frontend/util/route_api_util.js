@@ -5,12 +5,13 @@ export const fetchRoutes = data => (
         data
     })
 );
-export const fetchRoute = id => (
-    $.ajax({
+export const fetchRoute = id => {
+    debugger
+    return $.ajax({
         method: 'GET',
         url: `api/route/${id}`
     })
-);
+};
 export const fetchUserRoutes = data => userId => {
     return $.ajax({
         method: 'GET',

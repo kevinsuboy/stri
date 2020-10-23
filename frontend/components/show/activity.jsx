@@ -20,10 +20,10 @@ class Activity extends React.Component {
                         <div className="show-profile-overview "><p>Overview</p></div>
                         <div className="show-profile-links ">
                             <Link to={`/activities/${this.props.match.params.activityId}/edit`} className="show-profile-link">
-                                <i class="fas fa-pen"></i>
+                                <i className="fas fa-pen"></i>
                             </Link>
                             <Link to={`/activities/${this.props.match.params.activityId}/edit`} className="show-profile-link">
-                                <i class="fas fa-trash"></i>
+                                <i className="fas fa-trash"></i>
                             </Link>
                         </div>
                     </div>

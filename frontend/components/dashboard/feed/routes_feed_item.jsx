@@ -2,17 +2,20 @@ import React from 'react';
 import FeedItem from './feed_item_skeleton'
 import SportLogo from '../sport_logo'
 import { calcTime } from '../../../util/calc_util'
+import { Link } from 'react-router-dom';
 
 export default ({ route, username }) => {
+    debugger
     const d = new Date(route.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     const date = <p className="feed-item-date">{d}</p>
-    // debugger
     const { dur, pace } = calcTime(route);
     const title =
+        <Link to={`/routes/${route.id}`} className="feed-item-link">
         <div className="feed-item-title">
             <SportLogo sport={""} />
             <p>{route.name}</p>
         </div>
+        </Link>
     const stats =
         <div className="feed-stats container">
             <div className="feed-stat-item stat-item">
