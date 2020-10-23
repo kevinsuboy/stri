@@ -1,10 +1,10 @@
 import React from 'react';
 import { calcTime } from '../util/calc_util'
 
-const sport =
+const sport = (onChange) => (
 <div className="sport-input">
     <label>Sport</label>
-    <select className="filter-select session-input" name="sport"
+    <select onChange={onChange} className="filter-select session-input" name="sport"
     // onChange={handleChange("sport")}
     >
         <option value="" defaultValue>All Sport Types</option>
@@ -44,7 +44,7 @@ const sport =
         <option value="Other">Other</option>
     </select>
 </div>
-
+)
 
 class ActivityForm extends React.Component{
     constructor(props){
@@ -55,7 +55,9 @@ class ActivityForm extends React.Component{
             title: "",
             description: "",
             date: "",
+            sport: "",
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     componentDidMount(){
         this.props.fetchActivity(this.props.activityId);
@@ -73,6 +75,27 @@ class ActivityForm extends React.Component{
             })
         }
     }
+    handleChange(field) {
+        debugger
+        if (field !== "hours" && field !== "minutes" && field !== "seconds"){
+            return e => this.setState({
+                [field]: e.currentTarget.value
+            });
+        }else{
+            return e => this.setState({
+                duration: Object.assign({},this.state.duration,
+                    {[field]: e.currentTarget.value})
+            });
+        }
+    }
+    handleSubmit(e){
+        e.preventDefault();
+        const {duration} = this.state;
+        const {hours:h,minutes:m,seconds:s} = duration
+        this.props.action(Object.assign({},this.state,
+            { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
+            this.props.activityId)
+    }
     render(){
         debugger
         let {hours:h ,minutes:m,seconds:s} = this.state.duration;
@@ -80,7 +103,7 @@ class ActivityForm extends React.Component{
         m = m ? m : "";
         s = s ? s : "";
         return(
-    <form className={`activity-edit-form`}>
+    <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
         <div className="r1">
         <label>Distance
         {/* <div className="dist-input"> */}
@@ -88,7 +111,7 @@ class ActivityForm extends React.Component{
             type="text"
             className="filter-input session-input"
             value={this.state.distance}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("distance")}
         />
         {/* </div> */}
         </label>
@@ -100,7 +123,7 @@ class ActivityForm extends React.Component{
             type="text"
             className="filter-input session-input"
             value={parseInt(parseInt(h.split("h")[0]))}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("hours")}
             />
         </div>h
         <div className="dur-input">
@@ -108,7 +131,7 @@ class ActivityForm extends React.Component{
             type="text"
             className="filter-input session-input"
             value={parseInt(parseInt(m.split("m")[0]))}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("minutes")}
         />
         </div>m
         <div className="dur-input">
@@ -116,7 +139,7 @@ class ActivityForm extends React.Component{
             type="text"
             className="filter-input session-input"
             value={parseInt(parseInt(s.split("s")[0]))}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("seconds")}
         />
         </div>s
         </div>
@@ -124,20 +147,20 @@ class ActivityForm extends React.Component{
         </div>
         </div>
         <div className="r2">
-        {sport}
+        {sport(this.handleChange("sport"))}
         <label>Date
         <input
                 type="date"
                 className="filter-input session-input"
                 value={this.state.date}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("date")}
             />
-            <input
+            {/* <input
                 type="time"
                 className="filter-input session-input"
                 value={this.state.date}
-            // onChange={handleChange("keywords")}
-            />
+            onChange={this.handleChange("keywords")}
+            /> */}
         </label>
         </div>
 
@@ -146,13 +169,13 @@ class ActivityForm extends React.Component{
             type="text"
             className="filter-input session-input"
             value={this.state.title}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("title")}
         />
         <label>Description</label>
         <textarea
             className="filter-input session-input descr-input"
             value={this.state.description}
-            // onChange={handleChange("keywords")}
+            onChange={this.handleChange("description")}
         />
         <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
     </form>

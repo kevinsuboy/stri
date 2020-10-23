@@ -25,4 +25,14 @@ class Api::ActivityController < ApplicationController
         @activity = Activity.find(params[:id])
         render :show
     end
+    def update
+        # debugger
+        @activity = Activity.find_by(id:params[:id])
+        @activity.update(activity_params)
+        render :show
+    end
+    private
+    def activity_params
+        params.permit(:sport, :title, :description, :distance,:date,:duration)
+    end
 end

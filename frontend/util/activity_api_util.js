@@ -24,3 +24,10 @@ export const fetchUserActivity = (userId, id) => (
         url: `api/user/${userId}/activity/${id}`
     })
 );
+export const updateActivity = (data, id) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/activity/${id}`,
+        data
+    })
+)

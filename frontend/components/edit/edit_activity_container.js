@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import EditActivity from './edit_activity'
 import { activitySelector } from '../selectors/show_selector'
-import { fetchActivity } from '../../actions/activity_actions'
+import { fetchActivity, updateActivity } from '../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } }, { match }) => ({
     userId: id,
@@ -10,5 +10,6 @@ const mSTP = ({ session: { id }, entities: { users, activities } }, { match }) =
 })
 const mDTP = dispatch => ({
     fetchActivity: (id) => dispatch(fetchActivity(id)),
+    action: (data, id) => dispatch(updateActivity(data,id))
 })
 export default connect(mSTP, mDTP)(EditActivity)

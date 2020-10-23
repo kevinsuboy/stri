@@ -20,13 +20,14 @@ class Activity extends React.Component {
             </div>
         }
         route = {
+            el.id ?
             <div key={el.id * 4} className="feed-route">
                 <Link to={`/routes/${el.route_id}`} className="feed-item-link">
                     <div key={el.route_id} className="feed-item-title">
                         <i className="fas fa-angle-double-up"></i> View Associated route
                     </div>
                 </Link>
-            </div>
+            </div> : <div></div>
         }/>);
         return (
             <div id="global-index">

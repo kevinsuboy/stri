@@ -16,7 +16,7 @@ class Activity extends React.Component {
                     <Overview match={this.props.match} location={this.props.location} />
                     <div className="show-body container">
                         <h1>Edit Activity</h1>
-                        <EditActivityForm fetchActivity={this.props.fetchActivity} activityId={this.props.match.params.activityId} activity={this.props.activity}/>
+                        <EditActivityForm activityId={this.props.match.params.activityId} {...this.props}/>
                     </div>
                 </div>
             </div>

@@ -22,3 +22,8 @@ export const fetchUserRoutes = filters => (userId) => dispatch => (
         dispatch(receiveRoutes(routes))
     ))
 );
+export const updateRoute = (data, id) => dispatch => (
+    APIUtil.updateRoute(data, id).then(route => (
+        dispatch(receiveRoute(route))
+    ))
+)
