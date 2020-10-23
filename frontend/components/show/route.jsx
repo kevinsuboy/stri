@@ -19,10 +19,10 @@ class Route extends React.Component {
                     <div className="show-profile container">
                         <div className="show-profile-overview "><p>Overview</p></div>
                         <div className="show-profile-links ">
-                            <Link to={`/activities/${this.props.match.params.activityId}/edit`} className="show-profile-link">
+                            <Link to={`/routes/${this.props.match.params.routeId}/edit`} className="show-profile-link">
                                 <i className="fas fa-pen"></i>
                             </Link>
-                            <Link to={`/activities/${this.props.match.params.activityId}/edit`} className="show-profile-link">
+                            <Link to={`/routes/${this.props.match.params.routeId}/edit`} className="show-profile-link">
                                 <i className="fas fa-trash"></i>
                             </Link>
                         </div>
