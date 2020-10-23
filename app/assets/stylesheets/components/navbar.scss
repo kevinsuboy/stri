@@ -72,13 +72,16 @@
 .nav-profile .dropdown-content{
     left: -70px;
 }
-.notifications {
-    width: 55px;
-    font-size: 20px;
+.notifications .dropdown-content{
+    left: -115px;
 }
-.notifications:hover {
-    color: #777777;
-}
+// .notifications {
+//     width: 55px;
+//     font-size: 20px;
+// }
+// .notifications:hover {
+//     color: #777777;
+// }
 .footer-links {
     display: flex;
     flex-direction: row;

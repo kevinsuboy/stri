@@ -6,7 +6,12 @@ export default ({username, logout}) => {
     // debugger
     return (
     <ul className="user-nav nav-group">
-        <li className="nav-item notifications"><i className="far fa-bell"></i></li>
+        <li className="nav-item dropdown-menu notifications">
+                <i className="far fa-bell"></i>
+                <ul className="dropdown-content container">
+                    <li><p>You're all caught up!</p></li>
+                </ul>
+        </li>
         <li className="nav-item dropdown-menu circle nav-profile">
             <p>{inits}</p> <i className="fas fa-angle-down"></i>
             <ul className="dropdown-content container">
