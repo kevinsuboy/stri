@@ -10,6 +10,9 @@ class Routes extends React.Component {
         this.props.changeRoutesFilter("recentDays", 60);
         this.props.fetchFilteredUserRoutes(this.props.userId);
     }
+    componentWillUpdate() {
+        this.props.clearRoutesFilter();
+    }
     render() {
         // debugger
         const routeItems = this.props.routes.map(el => <RoutesFeedItem key={el.id} route={el} username={this.props.username} />);

@@ -10,6 +10,9 @@ class Activities extends React.Component {
         // debugger
         this.props.fetchUserActivities(this.props.userId);
     }
+    componentWillUnmount() {
+        this.props.clearActivitiesFilter();
+    }
     render() {
         // debugger
         return (

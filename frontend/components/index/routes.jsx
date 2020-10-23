@@ -9,6 +9,9 @@ class Routes extends React.Component {
     componentDidMount() {
         this.props.fetchUserRoutes(this.props.userId);
     }
+    componentWillUpdate() {
+        this.props.clearRoutesFilter();
+    }
     render() {
         // debugger
         return (

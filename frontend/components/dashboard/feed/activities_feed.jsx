@@ -10,6 +10,9 @@ class Activities extends React.Component {
         this.props.changeActivitiesFilter("recentDays",60);
         this.props.fetchFilteredUserActivities(this.props.userId);
     }
+    componentWillUpdate() {
+        this.props.clearActivitiesFilter();
+    }
     render() {
         // debugger
         const activityItems = this.props.activities.map(el => <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username}/>);
