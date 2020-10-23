@@ -8,7 +8,7 @@ export default ({match,location}) => {
         pathname.split("/").includes("edit") ? "show-selected":"",
         pathname.split("/").includes("delete") ? "show-selected":"",
     ]
-    debugger
+    // debugger
     const id = match.params.routeId ? match.params.routeId : match.params.activityId;
     const type = match.params.routeId ? "routes":"activities"
 return (<div className="show-profile container">

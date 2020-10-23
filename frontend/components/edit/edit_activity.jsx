@@ -1,5 +1,6 @@
 import React from 'react';
 import Overview from '../show/overview'
+import EditActivityForm from './edit_activity_form'
 
 class Activity extends React.Component {
     constructor(props) {
@@ -7,13 +8,16 @@ class Activity extends React.Component {
     }
     componentDidMount() {
         // debugger
-        // this.props.fetchActivity(this.props.match.params.activityId);
     }
     render() {
         return (
             <div id="global-index">
                 <div className="show-container container">
                     <Overview match={this.props.match} location={this.props.location} />
+                    <div className="show-body container">
+                        <h1>Edit Activity</h1>
+                        <EditActivityForm fetchActivity={this.props.fetchActivity} activityId={this.props.match.params.activityId} activity={this.props.activity}/>
+                    </div>
                 </div>
             </div>
         )
