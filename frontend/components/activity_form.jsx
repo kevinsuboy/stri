@@ -1,13 +1,14 @@
 import React from 'react';
 import { calcTime } from '../util/calc_util'
 
-const sport = (onChange) => (
+const sport = (onChange, defaultSport) => (
 <div className="sport-input">
     <label>Sport</label>
     <select onChange={onChange} className="filter-select session-input" name="sport"
+        value={defaultSport}
     // onChange={handleChange("sport")}
     >
-        <option value="" defaultValue>All Sport Types</option>
+        <option value="" selected disabled hidden>All Sport Types</option>
         <option value="Ride">Ride</option>
         <option value="Run">Run</option>
         <option value="Swim">Swim</option>
@@ -72,6 +73,7 @@ class ActivityForm extends React.Component{
                 title: this.props.activity[0].title,
                 description: this.props.activity[0].description,
                 date: this.props.activity[0].date,
+                sport: this.props.activity[0].sport
             })
         }
     }
@@ -97,11 +99,11 @@ class ActivityForm extends React.Component{
             this.props.activityId)
     }
     render(){
-        // debugger
         let {hours:h ,minutes:m,seconds:s} = this.state.duration;
-        h = h ? h : "";
-        m = m ? m : "";
-        s = s ? s : "";
+        h = h ? h : "0";
+        m = m ? m : "0";
+        s = s ? s : "0";
+        debugger
         return(
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
         <div className="r1">
@@ -147,7 +149,7 @@ class ActivityForm extends React.Component{
         </div>
         </div>
         <div className="r2">
-        {sport(this.handleChange("sport"))}
+        {sport(this.handleChange("sport"), this.state.sport)}
         <label>Date
         <input
                 type="date"
