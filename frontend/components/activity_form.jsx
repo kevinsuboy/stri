@@ -1,5 +1,6 @@
 import React from 'react';
 import { calcTime } from '../util/calc_util'
+import { Redirect } from 'react-router-dom';
 
 const sport = (onChange, defaultSport) => (
 <div className="sport-input">
@@ -96,7 +97,8 @@ class ActivityForm extends React.Component{
         const {hours:h,minutes:m,seconds:s} = duration
         this.props.action(Object.assign({},this.state,
             { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
-            this.props.activityId)
+            this.props.activityId);
+        this.props.history.push(`/activities/${this.props.activityId}`)
     }
     render(){
         let {hours:h ,minutes:m,seconds:s} = this.state.duration;

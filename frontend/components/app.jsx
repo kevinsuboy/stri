@@ -17,7 +17,7 @@ import RoutesContainer from './index/routes_container'
 import ActivityContainer from './show/activity_container'
 import RouteContainer from './show/route_container'
 import EditActivityContainer from './edit/edit_activity_container'
-import EditRouteContainer from './edit/edit_activity_container'
+import EditRouteContainer from './edit/edit_route_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (

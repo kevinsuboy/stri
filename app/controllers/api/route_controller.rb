@@ -22,4 +22,14 @@ class Api::RouteController < ApplicationController
         @route = Route.find(params[:id])
         render :show
     end
+    def update
+        # debugger
+        @route = Route.find_by(id:params[:id])
+        @route.update(route_params)
+        render :show
+    end
+    private
+    def route_params
+        params.permit(:name, :description, :distance,:estimated_duration)
+    end
 end
