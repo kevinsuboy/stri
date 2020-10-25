@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default (props) => {
-    const {match, location, deleteActivity} = props;
+    const {match, location, deleteAction} = props;
     let pathname = location.pathname;
     // debugger
     pathname = pathname.split("/");
@@ -24,7 +24,7 @@ return (<div className="show-profile container">
         </Link>
         <div className={`show-profile-link show-link-right show-delete`} onClick={() => {
             props.history.goBack();
-            return deleteActivity(id)
+            return deleteAction(id)
         }}>
             <i className="fas fa-trash"></i>
         </div>

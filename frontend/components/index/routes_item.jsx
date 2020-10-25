@@ -3,7 +3,7 @@ import { calcTime } from '../../util/calc_util'
 import { Link } from 'react-router-dom';
 import SportLogo from '../dashboard/sport_logo'
 
-export default ({ route }) => {
+export default ({ route,deleteRoute }) => {
     // debugger
     const { dur, pace } = calcTime(route);
     // const d = new Date(route.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -16,7 +16,7 @@ export default ({ route }) => {
             <li className="index-item-5">{pace.hours}{pace.minutes}{pace.seconds} /mi</li>
             <li className="index-item-6">{route.distance.toFixed(2)} mi</li>
             <Link to={`/routes/${route.id}/edit`} className="index-link index-item-edit"><li>{`Edit`}</li></Link>
-            <Link to={`/routes/${route.id}/edit`} className="index-link index-item-delete"><li>Delete</li></Link>
+            <li className="index-link index-item-delete" onClick={() => deleteRoute(route.id)}>Delete</li>
         </ul>
     )
 }

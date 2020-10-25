@@ -10,6 +10,6 @@ const mSTP = ({ session: { id }, entities: { users, activities } },{match}) => (
 })
 const mDTP = dispatch => ({
     fetchActivity: (id) => dispatch(fetchActivity(id)),
-    deleteActivity: (id) => dispatch(deleteActivity(id))
+    deleteAction: (id) => dispatch(deleteActivity(id))
 })
 export default connect(mSTP, mDTP)(Activity)

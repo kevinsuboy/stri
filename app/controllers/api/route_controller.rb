@@ -28,6 +28,14 @@ class Api::RouteController < ApplicationController
         @route.update(route_params)
         render :show
     end
+    def destroy
+        @route = Route.find_by(id:params[:id])
+        if @route.destroy
+            render :show
+        else
+            render json: @route.errors.full_messages, status: 422
+        end
+    end
     private
     def route_params
         params.permit(:name, :description, :distance,:estimated_duration)

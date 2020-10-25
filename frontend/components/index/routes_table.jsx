@@ -54,7 +54,7 @@ class RoutesTable extends React.Component {
         for (const [k, v] of Object.entries(this.state)) {
             arrow[k] = v ? <i className="fas fa-angle-down"></i> : <i className="fas fa-angle-up"></i>
         }
-        const routeItems = this.props.routes.map(el => <RoutesItem key={el.id} route={el} />);
+        const routeItems = this.props.routes.map(el => <RoutesItem key={el.id} route={el} deleteRoute={this.props.deleteRoute}/>);
         return (
             <div className="table-container">
                 <h2>Routes Table</h2>
