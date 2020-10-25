@@ -32,7 +32,7 @@ class Activity extends React.Component {
         return (
             <div id="global-index">
                 <div className="show-container container">
-                    <Overview match={this.props.match} location={this.props.location} />
+                    <Overview {...this.props}/>
                     <div className="show-body container">
                         <h1>My Activity</h1>
                         <div className="feed-body-container">

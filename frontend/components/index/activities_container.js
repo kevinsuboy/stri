@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Activities from './activities'
 import { activitySelector } from '../selectors/index_selector'
 import { fetchFilteredUserActivities, changeActivitiesFilter, clearActivitiesFilter } from '../../actions/filter_actions'
-import { fetchUserActivity, fetchUserActivities } from '../../actions/activity_actions'
+import { fetchUserActivity, fetchUserActivities, deleteActivity } from '../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } }) => ({
     userId: id,
@@ -14,5 +14,6 @@ const mDTP = dispatch => ({
     changeActivitiesFilter: (filter, value) => dispatch(changeActivitiesFilter(filter, value)),
     fetchFilteredUserActivities: (userId) => dispatch(fetchFilteredUserActivities(userId)),
     fetchUserActivities: (userId) => dispatch(fetchUserActivities()(userId)),
+    deleteActivity: (id) => dispatch(deleteActivity(id))
 })
 export default connect(mSTP, mDTP)(Activities)

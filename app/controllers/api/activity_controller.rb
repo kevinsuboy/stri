@@ -31,6 +31,14 @@ class Api::ActivityController < ApplicationController
         @activity.update(activity_params)
         render :show
     end
+    def destroy
+        @activity = Activity.find_by(id:params[:id])
+        if @activity.destroy
+            render :show
+        else
+            render json: @activity.errors.full_messages, status: 422
+        end
+    end
     private
     def activity_params
         params.permit(:sport, :title, :description, :distance,:date,:duration)

@@ -31,3 +31,9 @@ export const updateActivity = (data, id) => (
         data
     })
 )
+export const deleteActivity = activityId => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/activity/${activityId}`
+    })
+)

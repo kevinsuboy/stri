@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default ({match,location}) => {
-    const pathname = location.pathname;
+export default (props) => {
+    const {match, location, deleteActivity} = props;
+    let pathname = location.pathname;
+    // debugger
+    pathname = pathname.split("/");
     const selected = [
-        pathname.split("/").includes("edit","delete") ? "":"show-selected",
-        pathname.split("/").includes("edit") ? "show-selected":"",
-        pathname.split("/").includes("delete") ? "show-selected":"",
+        pathname.includes("edit","delete") ? "":"show-selected",
+        pathname.includes("edit") ? "show-selected":"",
+        pathname.includes("delete") ? "show-selected":"",
     ]
     // debugger
     const id = match.params.routeId ? match.params.routeId : match.params.activityId;
@@ -19,9 +22,12 @@ return (<div className="show-profile container">
         <Link to={`/${type}/${id}/edit`} className={`show-profile-link }`}>
             <i className="fas fa-pen"></i>
         </Link>
-        <Link to={`/${type}/${id}/edit`} className={`show-profile-link show-link-right`}>
+        <div className={`show-profile-link show-link-right show-delete`} onClick={() => {
+            props.history.goBack();
+            return deleteActivity(id)
+        }}>
             <i className="fas fa-trash"></i>
-        </Link>
+        </div>
     </div>
 </div>)
 }

@@ -58,7 +58,7 @@ class ActivitiesTable extends React.Component {
         for (const [k, v] of Object.entries(this.state)){
             arrow[k] = v ? <i className="fas fa-angle-down"></i> : <i className="fas fa-angle-up"></i>
         }
-        const activityItems = this.props.activities.map(el => <ActivitiesItem key={el.id} activity={el} />);
+        const activityItems = this.props.activities.map(el => <ActivitiesItem key={el.id} activity={el} deleteActivity={this.props.deleteActivity} />);
         // debugger
         return (
             <div className="table-container">
