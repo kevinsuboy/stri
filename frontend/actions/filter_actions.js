@@ -20,7 +20,7 @@ export const clearActivitiesFilter = () => ({
     type: CLEAR_ACTIVITIES_FILTER
 })
 export const clearRoutesFilter = () => ({
-    type: CLEAR_ACTIVITIES_FILTER
+    type: CLEAR_ROUTES_FILTER
 })
 export const fetchFilteredUserRoutes = userId => (dispatch, getState) => {
     return fetchUserRoutes(getState().ui.filters.route)(userId)(dispatch);
