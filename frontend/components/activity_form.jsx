@@ -129,7 +129,7 @@ class ActivityForm extends React.Component{
             value={parseInt(parseInt(h.split("h")[0]))}
             onChange={this.handleChange("hours")}
             />
-        </div>h
+        </div><p>h</p>
         <div className="dur-input">
         <input
             type="text"
@@ -137,7 +137,7 @@ class ActivityForm extends React.Component{
             value={parseInt(parseInt(m.split("m")[0]))}
             onChange={this.handleChange("minutes")}
         />
-        </div>m
+        </div><p>m</p>
         <div className="dur-input">
         <input
             type="text"
@@ -145,7 +145,7 @@ class ActivityForm extends React.Component{
             value={parseInt(parseInt(s.split("s")[0]))}
             onChange={this.handleChange("seconds")}
         />
-        </div>s
+        </div><p>s</p>
         </div>
         </label>
         </div>
@@ -167,14 +167,17 @@ class ActivityForm extends React.Component{
             /> */}
         </label>
         </div>
-
-        <label>Title</label>
+        <div className="r3">
+        <label>Title
         <input
             type="text"
             className="filter-input session-input"
             value={this.state.title}
             onChange={this.handleChange("title")}
         />
+        </label>
+        </div>
+        <div className="r4">
         <label>Description</label>
         <textarea
             className="filter-input session-input descr-input"
@@ -182,6 +185,7 @@ class ActivityForm extends React.Component{
             onChange={this.handleChange("description")}
         />
         <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
+        </div>
     </form>
     )}
 }

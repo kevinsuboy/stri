@@ -11,6 +11,9 @@
     flex-direction: column;
     width: 20%;
 }
+.show-profile-overview:hover {
+    background-color: $secondary-gray-hover;
+}
 .show-profile-overview {
     width: 100%;
     min-width: 120px;

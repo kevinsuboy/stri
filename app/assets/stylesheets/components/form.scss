@@ -1,19 +1,31 @@
 .activity-edit-form {
     font-size: 15px;
     margin-top: 20px;
+    width: 90%;
 }
 .dist-input {
     display: inline-block;
+}
+.dur-input-group p {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.dur-input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .dur-input {
     width: 10%;
     margin: 0;
     display: inline-block;
 }
-.r1, .r2, .r3 {
+.r1, .r2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.r1, .r2, .r3, .r4 {
     margin-bottom: 20px;
 }
 .time-input {
