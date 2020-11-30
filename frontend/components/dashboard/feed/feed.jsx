@@ -13,11 +13,25 @@ class Feed extends React.Component {
         this.display = null
         this.toggleFeed = this.toggleFeed.bind(this)
         this.handleClick = this.handleClick.bind(this)
+        this.watchOutside();
     }
     // componentDidMount(){
     //     this.props.fetchUserActivities(this.props.userId);
     //     this.props.fetchUserRoutes(this.props.userId);
     // }
+    watchOutside() {
+        document.addEventListener("click", (e) => {
+            const feed_show = document.getElementsByClassName("feed-show");
+            // debugger
+            for (let fc of feed_show) {
+                debugger
+                if (!fc.contains(e.target)) {
+                    fc.classList.remove('feed-show')
+                    this.setState({ showFeed: null })
+                }
+            }
+        })
+    }
     handleClick(field){
         // debugger
         return () => {

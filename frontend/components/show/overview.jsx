@@ -16,10 +16,12 @@ export default (props) => {
     const type = match.params.routeId ? "routes":"activities"
 return (<div className="show-profile container">
     <Link to={`/${type}/${id}`} className={`show-profile-link show-overview-link`}>
-        <div className={`show-profile-overview ${selected[0]}`}><div><p>Overview</p></div></div>
+        <div className={`overview-empty ${selected[0]}`}></div>
+        <div className={`show-profile-overview`}><div><p>Overview</p></div></div>
     </Link>
-    <div className={`show-profile-links ${selected[1]}`}>
-        <Link to={`/${type}/${id}/edit`} className={`show-profile-link }`}>
+    <div className={`show-profile-links`}>
+        <div className={`overview-empty ${selected[1]}`}></div>
+        <Link to={`/${type}/${id}/edit`} className={`show-profile-link`}>
             <i className="fas fa-pen"></i>
         </Link>
         <div className={`show-profile-link show-link-right show-delete`} onClick={() => {

@@ -5,8 +5,10 @@ import Root from './components/root';
 import { login, logout } from "./actions/session_actions";
 import { fetchUserRoutes } from "./actions/route_actions"
 import { fetchUserActivities } from "./actions/activity_actions"
+// import { watchOutside } from "./util/dom_util"
 
 document.addEventListener("DOMContentLoaded", () => {
+    // watchOutside();
     const root = document.getElementById("root");
     const body = document.getElementsByTagName("body")[0];
     body.className = "background-splash";

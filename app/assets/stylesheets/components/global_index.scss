@@ -63,6 +63,9 @@
 .table-col:hover {
     background-color: $secondary-gray-hover;
 }
+.index-link:hover {
+    text-decoration: underline;
+}
 .index-link {
     text-decoration: none;
     color: $secondary-blue-hover;

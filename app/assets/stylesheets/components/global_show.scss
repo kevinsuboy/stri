@@ -16,11 +16,9 @@
     min-width: 120px;
     height: 50px;
     margin: 0;
-    // margin-right: 20px;
     font-size: 16px;
     font-weight: normal;
     background-color: #fff;
-    border-left: 3px solid $background-color;
     display: flex;
     align-items: center;
 }
@@ -35,7 +33,7 @@
 }
 .show-profile-links {
     // border: 1px solid $primary-gray;
-    border-left: 3px solid $background-color;
+    // border-left: 3px solid $background-color;
     margin: 0;
     // padding: 0;
     height: 50px;
@@ -59,7 +57,7 @@
 .show-overview-link {
     width: 90%;
     border: none;
-    border-right:2px solid $primary-gray;
+    // border-right:2px solid $primary-gray;
 }
 .show-link-right {
     border-left:none;
@@ -67,8 +65,17 @@
 .show-profile-link:hover {
     background-color: $secondary-gray-hover;
 }
+.overview-empty {
+    min-width: 3px;
+    height: 50px;
+    border-top: 1px solid $background-color;
+    border-bottom: 1px solid $background-color;
+    background-color: $background-color;
+}
 .show-selected {
-    border-left: 3px solid $primary-orange;
+    border-top: 1px solid $primary-gray;
+    border-bottom: 1px solid $primary-gray;
+    background-color: $primary-orange;
 }
 .show-container {
     position: relative;
