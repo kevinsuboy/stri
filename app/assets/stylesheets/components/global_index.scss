@@ -66,12 +66,15 @@
 .index-link {
     text-decoration: none;
     color: $secondary-blue-hover;
+    cursor: pointer;
 }
 .index-item-1 {
     width: 13%;
     min-width: 150px;
     font-size: inherit;
     font-weight: normal;
+}
+.feed-item-title {
     cursor: unset;
 }
 .index-item-2 {
@@ -103,7 +106,6 @@
     width: 5%;
     // border: 1px solid red;
     padding: 10px 0;
-    cursor: pointer;
 }
 
 .index-table-header {
