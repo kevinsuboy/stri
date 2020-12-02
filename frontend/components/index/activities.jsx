@@ -20,7 +20,7 @@ class Activities extends React.Component {
             <div id="global-index">
             <div className="index-container container">
                 <h1>My Activities</h1>
-                <Link to={`activities/new`} className={`new-activity-link`}>Create a New Activity</Link>
+                <Link to={`activities/new`} className={`new-link link session-link`}>Create a New Activity</Link>
                 <ul className="index-list">
                     <FilterForm sport={true} userId={this.props.userId} submitFilter={this.props.fetchFilteredUserActivities} changeFilter={this.props.changeActivitiesFilter}/>
                     <ActivitiesTable {...this.props}/>

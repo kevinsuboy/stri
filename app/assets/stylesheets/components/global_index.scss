@@ -126,3 +126,16 @@
 .index-header-selected {
     background-color: $secondary-gray-hover;
 }
+.new-link {
+    width: 200px;
+    background-color: $primary-orange;
+    color: white;
+    border: lightgray 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+.new-link:hover {
+    background-color: $primary-orange-hover;
+}
+

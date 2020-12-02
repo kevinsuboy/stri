@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterForm from '../search/filter_form'
 import RoutesTable from './routes_table'
+import { Link } from 'react-router-dom';
 
 class Routes extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class Routes extends React.Component {
             <div id="global-index">
                 <div className="index-container container">
                     <h1>My Routes</h1>
+                    <Link to={`routes/new`} className={`new-link link session-link`}>Create a New Route</Link>
                     <ul className="index-list">
                         <FilterForm userId={this.props.userId} submitFilter={this.props.fetchFilteredUserRoutes} changeFilter={this.props.changeRoutesFilter} />
                         <RoutesTable {...this.props} />
