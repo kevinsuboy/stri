@@ -6,11 +6,11 @@
 .dist-input {
     display: inline-block;
 }
-.dur-input-group p {
+.dur-input-group p, .dist-input-group p {
     margin-top: 10px;
     margin-right: 10px;
 }
-.dur-input-group {
+.dur-input-group, .dist-input-group {
     display: flex;
     flex-direction: row;
     align-items: center;

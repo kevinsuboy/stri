@@ -67,7 +67,7 @@ class RouteForm extends React.Component {
                             className="filter-input session-input"
                             value={this.state.distance}
                             onChange={this.handleChange("distance")}
-                        />
+                        /><p>mi</p>
                         {/* </div> */}
                     </label>
                     <div className="dur-group">

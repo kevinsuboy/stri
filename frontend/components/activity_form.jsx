@@ -110,14 +110,16 @@ class ActivityForm extends React.Component{
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
         <div className="r1">
         <label>Distance
-        {/* <div className="dist-input"> */}
+        <div className="dist-input-group">
+        <div className="dist-input">
         <input
             type="text"
             className="filter-input session-input"
             value={this.state.distance}
             onChange={this.handleChange("distance")}
         />
-        {/* </div> */}
+        </div><p>mi</p>
+        </div>
         </label>
         <div className="dur-group">
         <label>Duration
