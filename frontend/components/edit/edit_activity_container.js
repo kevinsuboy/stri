@@ -4,8 +4,8 @@ import { activitySelector } from '../selectors/show_selector'
 import { fetchActivity, updateActivity } from '../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } }, { match }) => ({
-    userId: id,
-    username: users[id].username,
+    // userId: id,
+    // username: users[id].username,
     activity: activitySelector(users[id], activities, match.params.activityId)
 })
 const mDTP = dispatch => ({

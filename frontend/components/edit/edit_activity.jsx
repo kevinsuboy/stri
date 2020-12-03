@@ -6,9 +6,6 @@ class Activity extends React.Component {
     constructor(props) {
         super(props)
     }
-    componentDidMount() {
-        // debugger
-    }
     render() {
         return (
             <div id="global-index">

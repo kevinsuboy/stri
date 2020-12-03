@@ -5,6 +5,9 @@ class EditActivityForm extends React.Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        this.props.fetchRoute(this.props.routeId);
+    }
     render() {
         // debugger
         return (

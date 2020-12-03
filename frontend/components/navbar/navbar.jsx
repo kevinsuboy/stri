@@ -54,6 +54,7 @@ class NavBar extends React.Component {
             footerClassName = "logo-footer"
             footer = <ul className="footer-links">
                 <li className="nav-item"><a href="https://github.com/kevinsuboy" target="_blank"><i className="fab fa-github"></i></a></li>
+                <li className="nav-item"><a href="https://angel.co/u/kevin-su" target="_blank"><i className="fab fa-angellist"></i></a></li>
                 <li className="nav-item"><a href="https://www.linkedin.com/in/kevin-su-2700a859/" target="_blank"><i className="fab fa-linkedin"></i></a></li>
             </ul>
         }

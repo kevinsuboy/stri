@@ -5,10 +5,13 @@ class EditActivityForm extends React.Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        this.props.fetchActivity(this.props.activityId);
+    }
     render(){
         // debugger
         return(
-            <ActivityForm {...this.props}/>
+            <ActivityForm {...this.props} type="Change"/>
         )
     }
 }

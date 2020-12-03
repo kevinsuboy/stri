@@ -21,7 +21,7 @@ return (<div className="show-profile container">
     </Link>
     <div className={`show-profile-links`}>
         <div className={`overview-empty ${selected[1]}`}></div>
-        <Link to={`/${type}/${id}/edit`} className={`show-profile-link`}>
+        <Link to={`/${type}/${id}/edit`} className={`show-profile-link show-edit`}>
             <i className="fas fa-pen"></i>
         </Link>
         <div className={`show-profile-link show-link-right show-delete`} onClick={() => {

@@ -115,8 +115,17 @@
     font-weight: normal;
     margin-bottom: 20px;
 }
+.show-delete, .show-edit {
+    transition: all 0.25s linear;
+}
 .show-delete {
     cursor: pointer;
+}
+.show-delete:hover {
+    color: red;
+}
+.show-edit:hover {
+    color: lightgreen;
 }
 // .show-body .feed-stats {
 //     flex-direction: column;

@@ -38,3 +38,8 @@ export const deleteRoute = (id) => dispatch => (
         dispatch(removeRoute(id))
     ))
 )
+export const createRoute = (data) => dispatch => (
+    APIUtil.createRoute(data).then(route => (
+        dispatch(receiveRoute(route))
+    ))
+)

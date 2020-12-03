@@ -37,3 +37,10 @@ export const deleteActivity = activityId => (
         url: `api/activity/${activityId}`
     })
 )
+export const createActivity = (data) => (
+    $.ajax({
+        method: 'POST',
+        url: `api/activity`,
+        data
+    })
+)

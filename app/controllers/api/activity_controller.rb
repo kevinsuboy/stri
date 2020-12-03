@@ -39,6 +39,15 @@ class Api::ActivityController < ApplicationController
             render json: @activity.errors.full_messages, status: 422
         end
     end
+    def create
+        @activity = Activity.new(activity_params)
+        debugger
+        if @activity.save
+            render :show
+        else
+            render json: @activity.errors.full_messages, status: 422
+        end
+    end
     private
     def activity_params
         params.permit(:sport, :title, :description, :distance,:date,:duration)

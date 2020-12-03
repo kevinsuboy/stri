@@ -9,7 +9,7 @@ const sport = (onChange, defaultSport) => (
         value={defaultSport}
     // onChange={handleChange("sport")}
     >
-        <option value="" selected disabled hidden>All Sport Types</option>
+        <option defaultValue="" disabled hidden>All Sport Types</option>
         <option value="Ride">Ride</option>
         <option value="Run">Run</option>
         <option value="Swim">Swim</option>
@@ -53,7 +53,7 @@ class ActivityForm extends React.Component{
         super(props)
         this.state = {
             distance: "",
-            duration: "",
+            duration: { hours: "0h ", minutes: "0m ", seconds: "0s "},
             title: "",
             description: "",
             date: "",
@@ -61,12 +61,9 @@ class ActivityForm extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    componentDidMount(){
-        this.props.fetchActivity(this.props.activityId);
-    }
     componentDidUpdate(ownProps){
         // debugger
-        if(this.props.activity[0] && this.props.activity !== ownProps.activity){
+        if(this.props.activity && this.props.activity[0] && this.props.activity !== ownProps.activity){
             const res = calcTime(this.props.activity[0]);
             this.setState({
                 duration: res.dur,
@@ -95,10 +92,11 @@ class ActivityForm extends React.Component{
         e.preventDefault();
         const {duration} = this.state;
         const {hours:h,minutes:m,seconds:s} = duration
+        debugger
         this.props.action(Object.assign({},this.state,
             { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
             this.props.activityId);
-        this.props.history.push(`/activities/${this.props.activityId}`)
+        // this.props.history.push(`/activities/${this.props.activityId}`)
     }
     render(){
         let {hours:h ,minutes:m,seconds:s} = this.state.duration;
@@ -186,7 +184,7 @@ class ActivityForm extends React.Component{
             value={this.state.description}
             onChange={this.handleChange("description")}
         />
-        <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
+        <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
         </div>
     </form>
     )}

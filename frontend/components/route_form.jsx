@@ -14,12 +14,9 @@ class RouteForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    componentDidMount() {
-        this.props.fetchRoute(this.props.routeId);
-    }
     componentDidUpdate(ownProps) {
         // debugger
-        if (this.props.route[0] && this.props.route !== ownProps.route) {
+        if (this.props.route && this.props.route[0] && this.props.route !== ownProps.route) {
             const res = calcTime(this.props.route[0]);
             this.setState({
                 estimated_duration: res.dur,
