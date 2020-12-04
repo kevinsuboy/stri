@@ -41,7 +41,7 @@ class Api::ActivityController < ApplicationController
     end
     def create
         @activity = Activity.new(activity_params)
-        debugger
+        # debugger
         if @activity.save
             render :show
         else

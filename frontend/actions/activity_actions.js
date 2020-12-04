@@ -4,7 +4,7 @@ export const RECEIVE_ACTIVITIES = 'RECEIVE_ACTIVITIES';
 export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY';
 export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
 
-export const RECEIVE_ACTIVITY_ERRORS = 'DELETE_ACTIVITY';
+export const RECEIVE_ACTIVITY_ERRORS = 'RECEIVE_ACTIVITY_ERRORS';
 
 export const receiveActivities = activities => ({
     type: RECEIVE_ACTIVITIES,
@@ -47,6 +47,6 @@ export const createActivity = (data) => dispatch => (
     APIUtil.createActivity(data).then(activity => (
         dispatch(receiveActivity(activity))
     ), err => (
-            dispatch(receiveErrors(err.responseJSON))
+        dispatch(receiveErrors(err.responseJSON))
     ))
 )
