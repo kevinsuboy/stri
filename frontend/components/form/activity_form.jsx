@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';
 
+import ActivityErrorContainer from './activity_form_error_container'
+
 const sport = (onChange, defaultSport) => (
 <div className="sport-input">
     <label>Sport</label>
@@ -11,9 +13,9 @@ const sport = (onChange, defaultSport) => (
         value={defaultSport}
     // onChange={handleChange("sport")}
     >
-        <option defaultValue="" disabled hidden>All Sport Types</option>
-        <option value="Ride">Ride</option>
+        <option defaultValue="Run" disabled hidden>All Sport Types</option>
         <option value="Run">Run</option>
+        <option value="Ride">Ride</option>
         <option value="Swim">Swim</option>
         <option value="Hike">Hike</option>
         <option value="Walk">Walk</option>
@@ -53,15 +55,20 @@ const sport = (onChange, defaultSport) => (
 class ActivityForm extends React.Component{
     constructor(props){
         super(props)
+        const d = new Date();
+        const mm = (d.getMonth() + 1) < 10 ? "0":"" + `${d.getMonth()+1}`;
+        const dd = (d.getDate() < 10 ? '0':'') + d.getDate();
+        const date = `${d.getFullYear()}-${mm}-${dd}`;
         this.state = {
             distance: "",
             duration: { hours: "0h ", minutes: "0m ", seconds: "0s "},
             title: "",
             description: "",
-            date: "",
-            sport: "",
+            date,
+            sport: "Run",
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
     componentDidUpdate(ownProps){
         // debugger
@@ -97,8 +104,10 @@ class ActivityForm extends React.Component{
         debugger
         this.props.action(Object.assign({},this.state,
             { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
-            this.props.activityId);
-        // this.props.history.push(`/activities/${this.props.activityId}`)
+            this.props.activityId).then((data) => {
+                debugger
+                this.props.history.push(`/dashboard`)
+            })
     }
     render(){
         debugger
@@ -124,6 +133,7 @@ class ActivityForm extends React.Component{
         </div>
         <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange}/>
         <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
+        <ActivityErrorContainer />
     </form>
     )}
 }
