@@ -5,6 +5,6 @@ import { createRoute } from '../../actions/route_actions';
 const mSTP = ({}) => ({
 })
 const mDTP = dispatch => ({
-    action: (data, id) => dispatch(createRoute(data, id))
+    action: (data) => dispatch(createRoute(data))
 })
 export default connect(mSTP, mDTP)(NewRoute)

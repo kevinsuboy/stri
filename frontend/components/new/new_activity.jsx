@@ -14,7 +14,7 @@ class NewActivity extends React.Component {
                 <div className="show-container container">
                     <div className="show-body container">
                         <h1>New Activity</h1>
-                        <NewActivityForm {...this.props} />
+                        <NewActivityForm {...this.props} userId={this.props.userId}/>
                     </div>
                 </div>
             </div>

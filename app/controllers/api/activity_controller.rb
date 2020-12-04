@@ -41,7 +41,9 @@ class Api::ActivityController < ApplicationController
     end
     def create
         @activity = Activity.new(activity_params)
+        user = User.find_by(id:params[:userId])
         # debugger
+        @activity.user_id = user.id
         if @activity.save
             render :show
         else

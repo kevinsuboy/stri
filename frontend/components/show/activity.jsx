@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom';
 
 class Activity extends React.Component {
     constructor(props) {
+        debugger
         super(props)
     }
     componentDidMount() {
-        // debugger
+        debugger
         this.props.fetchActivity(this.props.match.params.activityId);
     }
     render() {
-        // debugger
+        debugger
         const activityItems = this.props.activity.map(el => <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username} descr={
             <div key={el.id * 3} className="feed-description">
                 <h3>Description</h3>
@@ -20,7 +21,7 @@ class Activity extends React.Component {
             </div>
         }
         route = {
-            el.id ?
+            el.route_id ?
             <div key={el.id * 4} className="feed-route">
                 <Link to={`/routes/${el.route_id}`} className="feed-item-link">
                     <div key={el.route_id} className="feed-item-title">

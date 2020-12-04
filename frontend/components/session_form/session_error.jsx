@@ -28,6 +28,9 @@ class SessionError extends React.Component {
             this.setTimer("",5000);
         }
     }
+    componentWillUnmount(){
+        clearTimeout(this.timerId); //! gets rid of potentially stale timeouts upon unmount
+    }
     render () {
         // debugger
         // this.state.errClass = "session-errors-display"

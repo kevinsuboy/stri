@@ -101,22 +101,22 @@ class ActivityForm extends React.Component{
         e.preventDefault();
         const {duration} = this.state;
         const {hours:h,minutes:m,seconds:s} = duration
-        debugger
-        this.props.action(Object.assign({},this.state,
+        // debugger
+        this.props.action(Object.assign({},this.state, {userId: this.props.userId},
             { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
             this.props.activityId).then((data) => {
                 debugger
-                this.props.history.push(`/dashboard`)
+                this.props.history.push(`/activities/${data.activity.id}`)
             })
     }
     render(){
-        debugger
+        // debugger
         return(
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
         <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange}/>
         <div className="r2">
         {sport(this.handleChange("sport"), this.state.sport)}
-        <label>Date
+        <label>Dated
         <input
                 type="date"
                 className="filter-input session-input"

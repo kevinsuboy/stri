@@ -50,7 +50,9 @@ class RouteForm extends React.Component {
             { estimated_duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0] }),
             this.props.routeId).then((data) => {
                 debugger
-                this.props.history.push(`/dashboard`)
+                // this.props.history.push(`/dashboard`)
+                // this.props.history.push(`/routes/${this.props.routeId}`)
+                this.props.history.push(`/routes/${data.route.id}`)
             })
     }
     render() {
