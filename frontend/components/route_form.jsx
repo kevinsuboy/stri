@@ -1,7 +1,8 @@
 import React from 'react';
 import { calcTime } from '../util/calc_util'
 import { Redirect } from 'react-router-dom';
-
+import DurDist from './durDist';
+import TitleDescr from './titleDescr';
 
 class RouteForm extends React.Component {
     constructor(props) {
@@ -56,64 +57,8 @@ class RouteForm extends React.Component {
         debugger
         return (
             <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
-                <div className="r1">
-                    <label>Distance
-        {/* <div className="dist-input"> */}
-                        <input
-                            type="text"
-                            className="filter-input session-input"
-                            value={this.state.distance}
-                            onChange={this.handleChange("distance")}
-                        /><p>mi</p>
-                        {/* </div> */}
-                    </label>
-                    <div className="dur-group">
-                        <label>Estimated Duration
-        <div className="dur-input-group">
-                                <div className="dur-input">
-                                    <input
-                                        type="text"
-                                        className="filter-input session-input"
-                                        value={parseInt(parseInt(h.split("h")[0]))}
-                                        onChange={this.handleChange("hours")}
-                                    />
-                                </div>h
-        <div className="dur-input">
-                                    <input
-                                        type="text"
-                                        className="filter-input session-input"
-                                        value={parseInt(parseInt(m.split("m")[0]))}
-                                        onChange={this.handleChange("minutes")}
-                                    />
-                                </div>m
-        <div className="dur-input">
-                                    <input
-                                        type="text"
-                                        className="filter-input session-input"
-                                        value={parseInt(parseInt(s.split("s")[0]))}
-                                        onChange={this.handleChange("seconds")}
-                                    />
-                                </div>s
-        </div>
-                        </label>
-                    </div>
-                </div>
-                <div className="r2">
-                </div>
-
-                <label>Title</label>
-                <input
-                    type="text"
-                    className="filter-input session-input"
-                    value={this.state.name}
-                    onChange={this.handleChange("name")}
-                />
-                <label>Description</label>
-                <textarea
-                    className="filter-input session-input descr-input"
-                    value={this.state.description}
-                    onChange={this.handleChange("description")}
-                />
+                <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
+                <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange} />
                 <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
             </form>
         )

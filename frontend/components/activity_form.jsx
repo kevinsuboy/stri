@@ -1,6 +1,8 @@
 import React from 'react';
 import { calcTime } from '../util/calc_util'
 import { Redirect } from 'react-router-dom';
+import DurDist from './durDist';
+import TitleDescr from './titleDescr';
 
 const sport = (onChange, defaultSport) => (
 <div className="sport-input">
@@ -99,57 +101,10 @@ class ActivityForm extends React.Component{
         // this.props.history.push(`/activities/${this.props.activityId}`)
     }
     render(){
-        let {hours:h ,minutes:m,seconds:s} = this.state.duration;
-        h = h ? h : "0";
-        m = m ? m : "0";
-        s = s ? s : "0";
         debugger
         return(
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
-        <div className="r1">
-        <label>Distance
-        <div className="dist-input-group">
-        <div className="dist-input">
-        <input
-            type="text"
-            className="filter-input session-input"
-            value={this.state.distance}
-            onChange={this.handleChange("distance")}
-        />
-        </div><p>mi</p>
-        </div>
-        </label>
-        <div className="dur-group">
-        <label>Duration
-        <div className="dur-input-group">
-        <div className="dur-input">
-        <input
-            type="text"
-            className="filter-input session-input"
-            value={parseInt(parseInt(h.split("h")[0]))}
-            onChange={this.handleChange("hours")}
-            />
-        </div><p>h</p>
-        <div className="dur-input">
-        <input
-            type="text"
-            className="filter-input session-input"
-            value={parseInt(parseInt(m.split("m")[0]))}
-            onChange={this.handleChange("minutes")}
-        />
-        </div><p>m</p>
-        <div className="dur-input">
-        <input
-            type="text"
-            className="filter-input session-input"
-            value={parseInt(parseInt(s.split("s")[0]))}
-            onChange={this.handleChange("seconds")}
-        />
-        </div><p>s</p>
-        </div>
-        </label>
-        </div>
-        </div>
+        <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange}/>
         <div className="r2">
         {sport(this.handleChange("sport"), this.state.sport)}
         <label>Date
@@ -167,25 +122,8 @@ class ActivityForm extends React.Component{
             /> */}
         </label>
         </div>
-        <div className="r3">
-        <label>Title
-        <input
-            type="text"
-            className="filter-input session-input"
-            value={this.state.title}
-            onChange={this.handleChange("title")}
-        />
-        </label>
-        </div>
-        <div className="r4">
-        <label>Description</label>
-        <textarea
-            className="filter-input session-input descr-input"
-            value={this.state.description}
-            onChange={this.handleChange("description")}
-        />
+        <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange}/>
         <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
-        </div>
     </form>
     )}
 }
