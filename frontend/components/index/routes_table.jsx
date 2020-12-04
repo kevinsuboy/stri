@@ -65,8 +65,8 @@ class RoutesTable extends React.Component {
                     <li className={`table-col index-item-4 ${selected[1]}`} onClick={this.handleClick("estimated_duration")}>Est. Time{arrow["duration"]}</li>
                     <li className={`table-col index-item-5 ${selected[2]}`} onClick={this.handleClick("pace")}>Est. Pace{arrow["pace"]}</li>
                     <li className={`table-col index-item-6 ${selected[3]}`} onClick={this.handleClick("distance")}>Distance{arrow["distance"]}</li>
-                    <li className="table-col index-item-edit"></li>
-                    <li className="table-col index-item-delete"></li>
+                    <li className="index-item-edit"></li>
+                    <li className="index-item-delete"></li>
                 </ul>
                 {routeItems}
             </div>
