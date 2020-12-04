@@ -1,5 +1,5 @@
 import React from 'react';
-import ActivityForm from '../activity_form'
+import ActivityForm from '../form/activity_form'
 
 class EditActivityForm extends React.Component {
     constructor(props) {

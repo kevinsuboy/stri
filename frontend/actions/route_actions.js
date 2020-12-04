@@ -4,6 +4,8 @@ export const RECEIVE_ROUTES = 'RECEIVE_ROUTES';
 export const RECEIVE_ROUTE = 'RECEIVE_ROUTE';
 export const DELETE_ROUTE = 'DELETE_ROUTE';
 
+export const RECEIVE_ROUTE_ERRORS = 'RECEIVE_ROUTE_ERRORS';
+
 export const receiveRoutes = routes => ({
     type: RECEIVE_ROUTES,
     routes
@@ -16,6 +18,10 @@ export const removeRoute = (routeId) => ({
     type: DELETE_ROUTE,
     routeId
 })
+export const receiveErrors = errors => ({
+    type: RECEIVE_ROUTE_ERRORS,
+    errors
+});
 
 
 export const fetchRoute = (id) => dispatch => (

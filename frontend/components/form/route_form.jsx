@@ -1,5 +1,5 @@
 import React from 'react';
-import { calcTime } from '../util/calc_util'
+import { calcTime } from '../../util/calc_util'
 import { Redirect } from 'react-router-dom';
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';

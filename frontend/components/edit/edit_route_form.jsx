@@ -1,5 +1,5 @@
 import React from 'react';
-import RouteForm from '../route_form'
+import RouteForm from '../form/route_form'
 
 class EditActivityForm extends React.Component {
     constructor(props) {
