@@ -1,5 +1,4 @@
 import React from 'react';
-import Overview from '../show/overview'
 import NewActivityForm from './new_activity_form';
 
 class NewActivity extends React.Component {

@@ -47,5 +47,7 @@ export const deleteRoute = (id) => dispatch => (
 export const createRoute = (data) => dispatch => (
     APIUtil.createRoute(data).then(route => (
         dispatch(receiveRoute(route))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
     ))
 )

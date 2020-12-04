@@ -36,6 +36,15 @@ class Api::RouteController < ApplicationController
             render json: @route.errors.full_messages, status: 422
         end
     end
+    def create
+        @route = Route.new(route_params)
+        # debugger
+        if @route.save
+            render :show
+        else
+            render json: @route.errors.full_messages, status: 422
+        end
+    end
     private
     def route_params
         params.permit(:name, :description, :distance,:estimated_duration)

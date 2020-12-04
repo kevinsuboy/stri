@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import SessionError from '../session_form/session_error';
 
 const mapStateToProps = ({ errors }) => {

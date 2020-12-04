@@ -4,12 +4,14 @@ import { Redirect } from 'react-router-dom';
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';
 
+import RouteErrorContainer from './route_form_error_container'
+
 class RouteForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             distance: "",
-            estimated_duration: "",
+            estimated_duration: { hours: "0h ", minutes: "0m ", seconds: "0s " },
             name: "",
             description: "",
         }
@@ -46,8 +48,10 @@ class RouteForm extends React.Component {
         const { hours: h, minutes: m, seconds: s } = estimated_duration
         this.props.action(Object.assign({}, this.state,
             { estimated_duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0] }),
-            this.props.routeId);
-        this.props.history.push(`/routes/${this.props.routeId}`)
+            this.props.routeId).then((data) => {
+                debugger
+                this.props.history.push(`/dashboard`)
+            })
     }
     render() {
         let { hours: h, minutes: m, seconds: s } = this.state.estimated_duration;
@@ -60,6 +64,7 @@ class RouteForm extends React.Component {
                 <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
                 <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange} />
                 <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
+                <RouteErrorContainer />
             </form>
         )
     }

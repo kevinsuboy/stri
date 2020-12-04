@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import SessionError from './session_error';
+import SessionError from '../session_form/session_error';
 
 const mapStateToProps = ({ errors }) => {
     return {
-        errors: errors.session,
+        errors: errors.route,
+        type: "route"
     };
 };
 
