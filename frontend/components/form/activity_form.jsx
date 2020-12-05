@@ -118,7 +118,7 @@ class ActivityForm extends React.Component{
         <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange}/>
         <div className="r2">
         {sport(this.handleChange("sport"), this.state.sport)}
-        <label>Dated
+        <label>Date
         <input
                 type="date"
                 className="filter-input session-input"

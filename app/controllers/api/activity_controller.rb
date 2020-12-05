@@ -1,9 +1,13 @@
 class Api::ActivityController < ApplicationController
     def index
-        if params[:user_id] != "undefined"
+        if params[:user_id] && params[:user_id] != "undefined"
             @activities = Activity.where(user_id: params[:user_id])
         else
-            @activities = Activity.all
+            if params[:route_id] != "undefined"
+                @activities = Activity.where(route_id: params[:route_id])
+            else
+                @activities = Activity.all
+            end
         end
         # debugger
         if params[:recentDays] && params[:recentDays] != ""
@@ -18,6 +22,7 @@ class Api::ActivityController < ApplicationController
         if params[:keywords] && params[:keywords] != ""
             @activities = @activities.where("title ilike ?", "%#{params[:keywords]}%")
         end
+        # debugger
         render :index
     end
     def show

@@ -10,13 +10,14 @@ class Route extends React.Component {
     componentDidMount() {
         // debugger
         this.props.fetchRoute(this.props.match.params.routeId);
+        this.props.fetchRouteActivities(this.props.match.params.routeId);
     }
     render() {
         const routeItems = [];
         const activityItems = [];
         this.props.route.forEach(el => {
             routeItems.push(<RoutesFeedItem key={el.id} route={el} username={this.props.username} />);
-            el.activity ? el.activity.forEach(act => activityItems.push(<li>{`${act.title}`}</li>)) : null;
+            // el.activity ? el.activity.forEach(act => activityItems.push(<li>{`${act.title}`}</li>)) : null;
         });
         debugger
         return (
@@ -32,7 +33,7 @@ class Route extends React.Component {
                             {/* <ul className="feed-list-2">
                                 {activityItems}
                             </ul> */}
-                            <ActivitiesTable {...this.props} activities={this.props.route[0] ? this.props.route[0].activity : []}/>
+                            <ActivitiesTable {...this.props}/>
                         </div>
                     </div>
                 </div>

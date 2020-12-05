@@ -9,7 +9,7 @@ const activitiesReducer = (state = {}, action) => {
     // debugger
     switch (action.type) {
         case RECEIVE_ACTIVITIES:
-            // debugger
+            debugger
             return action.activities;
         case RECEIVE_ACTIVITY:
             // debugger

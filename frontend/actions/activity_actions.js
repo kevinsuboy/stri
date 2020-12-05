@@ -33,6 +33,11 @@ export const fetchUserActivities = filters => (userId) => dispatch => (
         dispatch(receiveActivities(activities))
     ))
 );
+export const fetchRouteActivities = filters => (routeId) => dispatch => (
+    APIUtil.fetchRouteActivities(filters)(routeId).then(activities => (
+        dispatch(receiveActivities(activities))
+    ))
+);
 export const updateActivity = (data,id) => dispatch => (
     APIUtil.updateActivity(data,id).then(activity => (
         dispatch(receiveActivity(activity))
