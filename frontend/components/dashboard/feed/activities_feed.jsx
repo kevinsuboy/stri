@@ -7,7 +7,7 @@ class Activities extends React.Component {
     }
     componentDidMount() {
         // debugger
-        this.props.changeActivitiesFilter("recentDays",60);
+        this.props.changeActivitiesFilter("recentDays",30);
         this.props.fetchFilteredUserActivities(this.props.userId);
     }
     componentWillUpdate() {
@@ -17,11 +17,14 @@ class Activities extends React.Component {
         // debugger
         const activityItems = this.props.activities.map(el => <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username}/>);
         return (
-            <div className="feed-body-container">
+            <div className="feed-body-container feed-body-scroll">
                 {/* <h1>I am the activities</h1> */}
                 <ul className="feed-list">
                     {activityItems}
                 </ul>
+                <div className="feed-footer">
+                    <p>No more activity in the last 30 days.<br />To see your full activity history, visit your Profile or Training page.</p>
+                </div>
             </div>
         )
     }
