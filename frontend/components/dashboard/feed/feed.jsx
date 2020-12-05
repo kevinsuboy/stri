@@ -79,9 +79,6 @@ class Feed extends React.Component {
                 <ProtectedRoute exact path="/dashboard/activities" component={ActivitiesContainer} />
                 <ProtectedRoute exact path="/dashboard/routes" component={RoutesContainer} />
                 <br/>
-                <div className="feed-footer">
-                    <p>No more activity in the last 60 days.<br/>To see your full activity history, visit your Profile or Training page.</p>
-                </div>
             </div>
         )
     }
