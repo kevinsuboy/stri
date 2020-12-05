@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require_relative './data.rb'
+d = SeedData.new();
+# debugger
 
 User.delete_all
 Route.delete_all
@@ -24,10 +27,11 @@ u1 = User.create!(
     email: "irunfast@goldmedal.com",
     password: "iamusain"
 )
-20.times do 
+20.times do |i|
     routes.push(
         Route.create!(
-            name: Faker::Restaurant.name,
+            name: d.route_titles[i],
+            # name: Faker::Restaurant.name,
             description: Faker::Restaurant.description,
             distance: rand*1000,
             user_id: u1.id,
@@ -35,10 +39,12 @@ u1 = User.create!(
         )
     )
 end
-100.times do
+100.times do |i|
     Activity.create!(
-        sport: sports.sample,
-        title: Faker::Food.dish,
+        sport: sports[i % sports.length()],
+        title: d.activity_titles[i],
+        # title: Faker::Food.dish,
+        # description: Faker::Marketing.buzzwords,
         description: Faker::Food.description,
         distance: rand*1000,
         date: Faker::Date.between(from: 120.days.ago, to: Date.today),
