@@ -10,6 +10,7 @@ class RoutesTable extends React.Component {
             estimated_duration: true,
             pace: true,
             distance: true,
+            updated_at: true,
         }
         this.sortField = ""; this.sorted = [];
     }
@@ -49,6 +50,7 @@ class RoutesTable extends React.Component {
             this.sortField === "duration" ? "index-header-selected" : null,
             this.sortField === "pace" ? "index-header-selected" : null,
             this.sortField === "distance" ? "index-header-selected" : null,
+            this.sortField === "updated_at" ? "index-header-selected" : null,
         ]
         const arrow = {}
         for (const [k, v] of Object.entries(this.state)) {
@@ -59,10 +61,10 @@ class RoutesTable extends React.Component {
             <div className="table-container">
                 <h2>Routes Table</h2>
                 <ul className="index-table-header index-item">
-                    {/* <li className="table-col index-item-1">Sport<i className="fas fa-angle-down"></i></li>
-                    <li className="table-col index-item-2">Date<i className="fas fa-angle-down"></i></li> */}
+                    {/* <li className={`table-col index-item-1 ${selected[0]}`} onClick={this.handleClick("sport")}>Sport{arrow["sport"]}</li> */}
                     <li className={`table-col index-item-3 ${selected[0]}`} onClick={this.handleClick("name")}>Title{arrow["name"]}</li>
-                    <li className={`table-col index-item-4 ${selected[1]}`} onClick={this.handleClick("estimated_duration")}>Est. Time{arrow["duration"]}</li>
+                    <li className={`table-col index-item-2 ${selected[4]}`} onClick={this.handleClick("updated_at")}>Date{arrow["updated_at"]}</li>
+                    <li className={`table-col index-item-4 ${selected[1]}`} onClick={this.handleClick("estimated_duration")}>Est. Time{arrow["estimated_duration"]}</li>
                     <li className={`table-col index-item-5 ${selected[2]}`} onClick={this.handleClick("pace")}>Est. Pace{arrow["pace"]}</li>
                     <li className={`table-col index-item-6 ${selected[3]}`} onClick={this.handleClick("distance")}>Distance{arrow["distance"]}</li>
                     <li className="index-item-edit"></li>

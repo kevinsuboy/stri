@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SportLogo from '../dashboard/sport_logo'
 
 export default ({ activity, deleteActivity}) => {
-    // debugger
+    debugger
     const { dur, pace } = calcTime(activity);
     const d = new Date(activity.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     return (
