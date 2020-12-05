@@ -15,11 +15,11 @@ class Activity extends React.Component {
     render() {
         debugger
         const activityItems = this.props.activity.map(el => 
-        { if(!el) debugger; return <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username} descr={
-            <div key={el.id * 3} className="feed-description">
+        { if(!el) debugger; return <ActivitiesFeedItem key={el.id} active={false} activity={el} username={this.props.username} descr={
+            el.description ? <div key={el.id * 3} className="feed-description">
                 <h3>Description</h3>
                 <p>{el.description}</p>
-            </div>
+            </div>: <div></div>
         }
         route = {
             el.route_id ?

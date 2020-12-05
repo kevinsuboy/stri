@@ -113,6 +113,12 @@
 // .feed-item p {
 //     padding: 16px;
 // }
+.feed-item-link-disabled:hover p {
+    color: unset !important;
+}
+.feed-item-link-disabled {
+    cursor: unset;
+}
 .feed-item-link {
     text-decoration: none;
     color: inherit;

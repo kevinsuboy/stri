@@ -16,7 +16,7 @@ class Route extends React.Component {
         const routeItems = [];
         const activityItems = [];
         this.props.route.forEach(el => {
-            routeItems.push(<RoutesFeedItem key={el.id} route={el} username={this.props.username} />);
+            routeItems.push(<RoutesFeedItem key={el.id} route={el} username={this.props.username} active={false}/>);
             // el.activity ? el.activity.forEach(act => activityItems.push(<li>{`${act.title}`}</li>)) : null;
         });
         debugger
