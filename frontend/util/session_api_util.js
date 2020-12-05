@@ -13,6 +13,12 @@ export const signup = user => (
         data: { user }
     })
 );
+export const update = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/session'
+    })
+);
 
 export const logout = () => (
     $.ajax({

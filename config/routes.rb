@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :route, only: [:index]
       resources :activity, only: [:index]
     end
-    resource :session, only: [:create, :destroy]
+    resource :session, only: [:create, :destroy, :show]
     resources :route, only: [:index,:show,:update,:create,:edit,:destroy]
     resources :activity, only: [:index,:show,:update,:create,:edit,:destroy]
   end
