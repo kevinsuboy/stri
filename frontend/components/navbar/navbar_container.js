@@ -8,6 +8,7 @@ import selector from '../selectors/username_selector'
 const mSTP = state => {
     return {
     username: selector(state),
+    userId: state.session.id,
     header: true
 }}
 const mDTP = dispatch => ({

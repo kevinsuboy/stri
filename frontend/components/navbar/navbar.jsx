@@ -9,7 +9,7 @@ class NavBar extends React.Component {
         super(props)
     }
     handleLoggedIn(){
-        const {username,logout} = this.props;
+        const {username,logout,userId} = this.props;
         // debugger
         const {pathname} = this.props.location;
         // debugger
@@ -40,7 +40,7 @@ class NavBar extends React.Component {
             return (
                 <div className="nav-bar-content">
                     <GlobalNav selected={selected}/>
-                    <UserNav username={username} logout={logout}/>
+                    <UserNav username={username} logout={logout} userId={userId}/>
                 </div>
             )
         }

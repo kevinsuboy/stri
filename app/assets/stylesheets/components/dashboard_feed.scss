@@ -1,5 +1,9 @@
 @import 'partials/_base.scss';
 
+.feed-header-body {
+    display: flex;
+    flex-direction: column;
+}
 .feed-header {
     //border: 1px solid green;
     width: 100%;
@@ -150,6 +154,8 @@
     height: 30px;
 }
 .feed-username {
+    text-decoration: none;
+    color: inherit;
     font-size: 14px;
     text-align: left;
     padding: 2px 25px;

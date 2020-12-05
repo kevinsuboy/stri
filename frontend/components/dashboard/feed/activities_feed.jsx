@@ -15,7 +15,7 @@ class Activities extends React.Component {
     }
     render() {
         // debugger
-        const activityItems = this.props.activities.map(el => <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username}/>);
+        const activityItems = this.props.activities.map(el => <ActivitiesFeedItem key={el.id} activity={el} userId={this.props.userId} username={this.props.username}/>);
         return (
             <div className="feed-body-container feed-body-scroll">
                 {/* <h1>I am the activities</h1> */}

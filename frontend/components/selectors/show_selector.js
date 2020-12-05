@@ -1,7 +1,7 @@
 export const routeSelector = (currentUser, allRoutes, routeId) => {
     // debugger
     if (Object.keys(allRoutes).length !== 0) {
-        return currentUser.routes.filter(id=>id===parseInt(routeId)).map(id => allRoutes[id]);
+        return currentUser.routes.filter(id => id === parseInt(routeId)).map(id => allRoutes[id]).filter(el => el);
     }
     else return [];
 }

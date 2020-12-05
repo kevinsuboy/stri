@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default (props) => {
     // const inits = username.split(" ").map((word) => word[0]).join("");
-    const {username,n_routes,n_activities,latest} = props;
+    const {username,n_routes,n_activities,latest,userId} = props;
     // debugger
     const latest_el = latest ? 
         <div className="latest-body">
@@ -19,11 +19,13 @@ export default (props) => {
         <div className="profile-container">
             {/* <h1>I am the profile</h1> */}
             <div className="profile-icon-group">
-            <div className="profile-nav">
+            <Link to={`/athlete/${userId}`} className="profile-nav">
+            {/* <div className="profile-nav"> */}
                 <img className="profile-pic" alt=""/>
                 <p className="profile-username">{username}</p>
+            </Link>
             </div>
-            </div>
+            {/* </div> */}
             <div className="profile-stats container">
                 <div className="stat-item item-left">
                     <p className="stat-title">Routes</p>

@@ -6,7 +6,7 @@ import SportLogo from '../dashboard/sport_logo'
 export default ({ route,deleteRoute }) => {
     debugger
     const { dur, pace } = calcTime(route);
-    const d = new Date(route.updated_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+    const d = new Date(route.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     return (
         <ul className={`index-item`}>
             {/* <li className="index-item-1 feed-item-title"><SportLogo sport={route.sport} /> {route.sport}</li> */}

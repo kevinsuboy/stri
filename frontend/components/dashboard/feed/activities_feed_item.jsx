@@ -4,7 +4,7 @@ import FeedItem from './feed_item_skeleton'
 import {calcTime} from '../../../util/calc_util'
 import { Link } from 'react-router-dom';
 
-export default ({activity,username,descr,route, active = true}) => {
+export default ({ activity, username, descr, route, userId, active = true}) => {
     const d = new Date(activity.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     // debugger
     const {dur, pace} = calcTime(activity);
@@ -32,6 +32,6 @@ export default ({activity,username,descr,route, active = true}) => {
             </div>
         </div>
     return (
-        <FeedItem activityId={activity.id} username={username} date={date} body={[title,stats,descr,route]}/>
+        <FeedItem activityId={activity.id} username={username} date={date} body={[title, stats, descr, route]} userId={userId} />
     )
 }
