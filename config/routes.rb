@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       resources :activity, only: [:index]
     end
     resource :session, only: [:create, :destroy, :show]
-    resources :route, only: [:index,:show,:update,:create,:edit,:destroy]
+    resources :route, only: [:index,:update,:create,:edit,:destroy]
+    resources :route, only: [:show] do
+      resources :activity, only: [:index]
+    end
     resources :activity, only: [:index,:show,:update,:create,:edit,:destroy]
   end
 

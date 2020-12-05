@@ -18,5 +18,6 @@
 #
 class Route < ApplicationRecord
     validates :name, :description, :distance, presence: true
+    has_many :activity
     belongs_to :user
 end

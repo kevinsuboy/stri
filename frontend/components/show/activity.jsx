@@ -5,16 +5,17 @@ import { Link } from 'react-router-dom';
 
 class Activity extends React.Component {
     constructor(props) {
-        debugger
+        // debugger
         super(props)
     }
     componentDidMount() {
-        debugger
+        // debugger
         this.props.fetchActivity(this.props.match.params.activityId);
     }
     render() {
         debugger
-        const activityItems = this.props.activity.map(el => <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username} descr={
+        const activityItems = this.props.activity.map(el => 
+        { if(!el) debugger; return <ActivitiesFeedItem key={el.id} activity={el} username={this.props.username} descr={
             <div key={el.id * 3} className="feed-description">
                 <h3>Description</h3>
                 <p>{el.description}</p>
@@ -29,7 +30,7 @@ class Activity extends React.Component {
                     </div>
                 </Link>
             </div> : <div></div>
-        }/>);
+        }/>});
         return (
             <div id="global-index">
                 <div className="show-container container">

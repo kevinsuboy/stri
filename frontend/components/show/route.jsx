@@ -1,6 +1,7 @@
 import React from 'react';
 import RoutesFeedItem from '../dashboard/feed/routes_feed_item'
 import Overview from './overview'
+import ActivitiesTable from '../index/activities_table'
 
 class Route extends React.Component {
     constructor(props) {
@@ -11,8 +12,13 @@ class Route extends React.Component {
         this.props.fetchRoute(this.props.match.params.routeId);
     }
     render() {
-        // debugger
-        const routeItems = this.props.route.map(el => <RoutesFeedItem key={el.id} route={el} username={this.props.username} />);
+        const routeItems = [];
+        const activityItems = [];
+        this.props.route.forEach(el => {
+            routeItems.push(<RoutesFeedItem key={el.id} route={el} username={this.props.username} />);
+            el.activity ? el.activity.forEach(act => activityItems.push(<li>{`${act.title}`}</li>)) : null;
+        });
+        debugger
         return (
             <div id="global-index">
                 <div className="show-container container">
@@ -23,6 +29,10 @@ class Route extends React.Component {
                             <ul className="feed-list">
                                 {routeItems}
                             </ul>
+                            {/* <ul className="feed-list-2">
+                                {activityItems}
+                            </ul> */}
+                            <ActivitiesTable {...this.props} activities={this.props.route[0] ? this.props.route[0].activity : []}/>
                         </div>
                     </div>
                 </div>

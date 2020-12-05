@@ -8,7 +8,7 @@ export const routeSelector = (currentUser, allRoutes, routeId) => {
 export const activitySelector = (currentUser, allActivities, activityId) => {
     debugger
     if (Object.keys(allActivities).length !== 0) {
-        return currentUser.activities.filter(id=>id===parseInt(activityId)).map(id => allActivities[id]);
+        return currentUser.activities.filter(id => id === parseInt(activityId)).map(id => allActivities[id]).filter(el => el);
     }
     else return [];
 }

@@ -29,6 +29,6 @@ class Activity < ApplicationRecord
                                         "Virtual Ride","Virtual Run","Weight Training","Wheelchair","Windsurf",
                                         "Workout","Yoga","Other"
                                         ]}
-    # belongs_to :route
+    belongs_to :route
     belongs_to :user
 end

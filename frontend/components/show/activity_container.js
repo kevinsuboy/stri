@@ -4,7 +4,7 @@ import { activitySelector } from '../selectors/show_selector'
 import { fetchActivity, deleteActivity } from '../../actions/activity_actions'
 
 const mSTP = ({ session: { id }, entities: { users, activities } },{match}) => {
-    debugger
+    // debugger
     return{
     userId: id,
     username: users[id].username,

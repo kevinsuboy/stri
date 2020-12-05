@@ -11,7 +11,7 @@ class EditActivityForm extends React.Component {
     render() {
         // debugger
         return (
-            <RouteForm {...this.props} />
+            <RouteForm {...this.props} type="Change"/>
         )
     }
 }

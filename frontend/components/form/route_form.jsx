@@ -65,7 +65,7 @@ class RouteForm extends React.Component {
             <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
                 <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
                 <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange} />
-                <input className={`session-submit link session-link`} type="submit" value={`Submit Change`} />
+                <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
                 <RouteErrorContainer />
             </form>
         )
