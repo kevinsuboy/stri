@@ -8,7 +8,7 @@ class NewRouteForm extends React.Component {
     render(){
         // debugger
         return(
-            <RouteForm {...this.props} type="New Route"/>
+            <RouteForm {...this.props} type="New Route" newForm={true}/>
         )
     }
 }

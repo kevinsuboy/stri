@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ title, description, handleChange }) => {
+export default ({ title, description, handleChange, activity=true }) => {
     return (
         <div>
         <div className="r3">
@@ -9,7 +9,7 @@ export default ({ title, description, handleChange }) => {
                     type="text"
                     className="filter-input session-input"
                     value={title}
-                    onChange={handleChange("title")}
+                    onChange={handleChange(activity ? "title" : "name")}
                 />
             </label>
         </div>

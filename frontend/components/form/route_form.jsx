@@ -11,11 +11,12 @@ class RouteForm extends React.Component {
         super(props)
         this.state = {
             distance: "",
-            estimated_duration: { hours: "0h ", minutes: "0m ", seconds: "0s " },
+            estimated_duration: { hours: "0h ", minutes: "0m ", seconds: "1s " },
             name: "",
             description: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
     componentDidUpdate(ownProps) {
         // debugger
@@ -46,13 +47,15 @@ class RouteForm extends React.Component {
         e.preventDefault();
         const { estimated_duration } = this.state;
         const { hours: h, minutes: m, seconds: s } = estimated_duration
-        this.props.action(Object.assign({}, this.state,
+        this.props.action(Object.assign({}, this.state, { userId: this.props.userId },
             { estimated_duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0] }),
             this.props.routeId).then((data) => {
-                debugger
-                // this.props.history.push(`/dashboard`)
-                // this.props.history.push(`/routes/${this.props.routeId}`)
-                this.props.history.push(`/routes/${data.route.id}`)
+                if (this.props.newForm)
+                    this.props.updateUser().then(() => 
+                        this.props.history.push(`/routes/${data.route.id}`)
+                        );
+                else
+                    this.props.history.push(`/routes/${data.route.id}`)
             })
     }
     render() {
@@ -64,7 +67,7 @@ class RouteForm extends React.Component {
         return (
             <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
                 <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
-                <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange} />
+                <TitleDescr title={this.state.name} description={this.state.description} handleChange={this.handleChange} activity={false}/>
                 <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
                 <RouteErrorContainer />
             </form>

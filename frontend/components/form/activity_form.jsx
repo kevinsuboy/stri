@@ -61,7 +61,7 @@ class ActivityForm extends React.Component{
         const date = `${d.getFullYear()}-${mm}-${dd}`;
         this.state = {
             distance: "",
-            duration: { hours: "0h ", minutes: "0m ", seconds: "0s "},
+            duration: { hours: "0h ", minutes: "0m ", seconds: "1s "},
             title: "",
             description: "",
             date,
@@ -105,10 +105,12 @@ class ActivityForm extends React.Component{
         this.props.action(Object.assign({},this.state, {userId: this.props.userId},
             { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
             this.props.activityId).then((data) => {
-                debugger
-                this.props.updateUser().then(() => 
+                if(this.props.newForm)
+                    this.props.updateUser().then(() => 
+                        this.props.history.push(`/activities/${data.activity.id}`)
+                    );
+                else
                     this.props.history.push(`/activities/${data.activity.id}`)
-                );
             })
     }
     render(){

@@ -38,7 +38,9 @@ class Api::RouteController < ApplicationController
     end
     def create
         @route = Route.new(route_params)
+        user = User.find_by(id:params[:userId])
         # debugger
+        @route.user_id = user.id
         if @route.save
             render :show
         else

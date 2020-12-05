@@ -8,7 +8,7 @@ class NewActivityForm extends React.Component {
     render(){
         // debugger
         return(
-            <ActivityForm {...this.props} type="New Activity"/>
+            <ActivityForm {...this.props} type="New Activity" newForm={true}/>
         )
     }
 }
