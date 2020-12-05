@@ -32,7 +32,8 @@ u1 = User.create!(
         Route.create!(
             name: d.route_titles[i],
             # name: Faker::Restaurant.name,
-            description: Faker::Restaurant.description,
+            description: Faker::Movies::HarryPotter.quote,
+            # description: Faker::Restaurant.description,
             distance: rand*1000,
             user_id: u1.id,
             estimated_duration: "#{rand(23)}:#{rand(59)}:#{rand(59)}"
@@ -45,7 +46,8 @@ end
         title: d.activity_titles[i],
         # title: Faker::Food.dish,
         # description: Faker::Marketing.buzzwords,
-        description: Faker::Food.description,
+        description: Faker::TvShows::Friends.quote,
+        # description: Faker::Food.description,
         distance: rand*1000,
         date: Faker::Date.between(from: 120.days.ago, to: Date.today),
         duration: "#{rand(23)}:#{rand(59)}:#{rand(59)}",
