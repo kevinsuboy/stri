@@ -21,7 +21,7 @@ import EditRouteContainer from './edit/edit_route_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NewActivityContainer from './new/new_activity_container';
 import NewRouteContainer from './new/new_route_container';
-import UserContainer from './show/user_container';
+import UserContainer from './show/user/user_container';
 
 const App = () => (
     <div className="app-container">

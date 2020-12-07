@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './header'
 
 class User extends React.Component {
     constructor(props){
@@ -7,7 +8,10 @@ class User extends React.Component {
     render() {
         return (
             <div id="global-user">
-                <h1>I am the user</h1>
+                <div className="user-show-container container">
+                    {/* <h1>I am the user</h1> */}
+                    <Header {...this.props} />
+                </div>
             </div>
         )
     }
