@@ -3,3 +3,4 @@
         json.partial! 'route', route: route
     end
 end
+json.totalCnt @cnt

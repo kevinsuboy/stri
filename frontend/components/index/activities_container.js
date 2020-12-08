@@ -7,6 +7,8 @@ import { fetchUserActivity, fetchUserActivities, deleteActivity } from '../../ac
 const mSTP = ({ session: { id }, entities: { users, activities } }) => ({
     userId: id,
     username: users[id].username,
+    activitiesCnt: activities.totalCnt,
+    // activitiesCnt: users[id].activities.length,
     activities: activitySelector(users[id], activities)
 })
 const mDTP = dispatch => ({

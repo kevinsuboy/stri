@@ -24,7 +24,7 @@ class Feed extends React.Component {
             const feed_show = document.getElementsByClassName("feed-show");
             // debugger
             for (let fc of feed_show) {
-                debugger
+                // debugger
                 if (!fc.contains(e.target)) {
                     fc.classList.remove('feed-show')
                     this.setState({ showFeed: null })

@@ -7,6 +7,7 @@ import { fetchUserRoutes, deleteRoute } from '../../actions/route_actions'
 const mSTP = ({ session: { id }, entities: { users, routes } }) => ({
     userId: id,
     username: users[id].username,
+    routesCnt: routes.totalCnt,
     routes: routeSelector(users[id], routes),
 })
 const mDTP = dispatch => ({

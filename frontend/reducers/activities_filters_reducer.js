@@ -3,7 +3,9 @@ import { UPDATE_ACTIVITIES_FILTER, CLEAR_ACTIVITIES_FILTER } from '../actions/fi
 const defaultFilters = Object.freeze({
     recentDays: null,
     keywords: null,
-    sport: null
+    sport: null,
+    cnt: null,
+    offset: 0
 });
 
 const activitiesFilterReducer = (state = defaultFilters, action) => {

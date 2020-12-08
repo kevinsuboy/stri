@@ -13,8 +13,8 @@ export default ({selected}) => {
             </li>
             <li className={`nav-item dropdown-menu ${selected.slice(2).some(el => el) ? " nav-menu-selected":""}`}>Training<i className="fas fa-angle-down"></i>
                 <ul className="dropdown-content container">
-                    <Link to="/athlete/activities" className="nav-link"><li className={selected[2]}><p>My Activities</p></li></Link>
-                    <Link to="/athlete/routes" className="nav-link"><li className={selected[3]}><p>My Routes</p></li></Link>
+                    <Link to="/athlete/activities/1" className="nav-link"><li className={selected[2]}><p>My Activities</p></li></Link>
+                    <Link to="/athlete/routes/1" className="nav-link"><li className={selected[3]}><p>My Routes</p></li></Link>
                 </ul>
             </li>
             {/* <li className="nav-item dropdown-menu">Explore<i className="fas fa-angle-down"></i>

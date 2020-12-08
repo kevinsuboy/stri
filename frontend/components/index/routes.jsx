@@ -1,20 +1,55 @@
 import React from 'react';
 import FilterForm from '../search/filter_form'
 import RoutesTable from './routes_table'
+import IndexNav from './index_nav'
 import { Link } from 'react-router-dom';
 
 class Routes extends React.Component {
     constructor(props) {
         super(props)
+        this.cntPerPage = 10;
+        this.handleClick = this.handleClick.bind(this);
+        this.handlePage = this.handlePage.bind(this);
     }
     componentDidMount() {
-        this.props.fetchUserRoutes(this.props.userId);
+        this.props.clearRoutesFilter();
+        this.props.changeRoutesFilter("cnt", this.cntPerPage);
+        this.props.changeRoutesFilter("offset", (this.props.match.params.pg - 1) * this.cntPerPage);
+        this.props.fetchFilteredUserRoutes(this.props.userId);
     }
-    componentWillUpdate() {
+    componentWillUpdate(nextProps) {
+        // debugger
+        if (nextProps.match.params.pg !== this.props.match.params.pg) {
+            this.props.changeRoutesFilter("offset", (nextProps.match.params.pg - 1) * this.cntPerPage);
+            this.props.fetchFilteredUserRoutes(this.props.userId);
+        }
+    }
+    componentWillUnmount() {
         this.props.clearRoutesFilter();
     }
-    render() {
+    handleClick(type) {
         // debugger
+        return (e) => {
+            switch (type) {
+                case "next":
+                    this.props.history.push(`/athlete/routes/${parseInt(this.props.match.params.pg) + 1}`);
+                    // this.setState({ page: this.state.page + 1 })
+                    break;
+                case "prev":
+                    this.props.history.push(`/athlete/routes/${parseInt(this.props.match.params.pg) - 1}`);
+                    // this.setState({ page: this.state.page - 1 })
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    handlePage(num) {
+        this.setState({ page: num })
+    }
+    render() {
+        debugger
+        this.maxPage = Math.ceil(this.props.routesCnt / this.cntPerPage);
         return (
             <div id="global-index">
                 <div className="index-container container">
@@ -24,6 +59,12 @@ class Routes extends React.Component {
                         <FilterForm userId={this.props.userId} submitFilter={this.props.fetchFilteredUserRoutes} changeFilter={this.props.changeRoutesFilter} />
                         <RoutesTable {...this.props} />
                     </ul>
+                    <IndexNav page={parseInt(this.props.match.params.pg)}
+                        maxPage={this.maxPage}
+                        handleClick={this.handleClick}
+                        handlePage={this.handlePage}
+                        urlHead={"/athlete/routes"}
+                    />
                 </div>
             </div>
         )

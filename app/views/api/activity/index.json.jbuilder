@@ -3,3 +3,4 @@
         json.partial! 'activity', activity: activity
     end
 end
+json.totalCnt @cnt

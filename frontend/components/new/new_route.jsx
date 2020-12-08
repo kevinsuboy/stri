@@ -6,7 +6,7 @@ class NewRoute extends React.Component {
         super(props)
     }
     componentDidMount() {
-        debugger
+        // debugger
     }
     render() {
         return (

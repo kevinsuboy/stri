@@ -63,7 +63,7 @@ class RouteForm extends React.Component {
         h = h ? h : "0";
         m = m ? m : "0";
         s = s ? s : "0";
-        debugger
+        // debugger
         return (
             <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
                 <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />

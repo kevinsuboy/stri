@@ -5,7 +5,7 @@ import { calcTime } from '../../../util/calc_util'
 import { Link } from 'react-router-dom';
 
 export default ({ route, username, descr, userId, active=true}) => {
-    debugger
+    // debugger
     const d = new Date(route.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     const date = <p className="feed-item-date">{d}</p>
     const { dur, pace } = calcTime(route);

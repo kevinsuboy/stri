@@ -33,19 +33,20 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/" component={SplashContainer} />
             <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-            <ProtectedRoute exact path="/athlete/activities" component={ActivitiesContainer} />
-            <ProtectedRoute exact path="/athlete/routes" component={RoutesContainer} />
+            <ProtectedRoute exact path="/athlete/activities/new" component={NewActivityContainer} />
+            <ProtectedRoute exact path="/athlete/routes/new" component={NewRouteContainer} />
+            <ProtectedRoute exact path="/athlete/activities/:pg" component={ActivitiesContainer} />
+            <ProtectedRoute exact path="/athlete/routes/:pg" component={RoutesContainer} />
             <ProtectedRoute exact path="/activities/:activityId" component={ActivityContainer} />
             <ProtectedRoute exact path="/routes/:routeId" component={RouteContainer} />
             <ProtectedRoute exact path="/activities/:activityId/edit" component={EditActivityContainer} />
             <ProtectedRoute exact path="/routes/:routeId/edit" component={EditRouteContainer} />
-            <ProtectedRoute exact path="/athlete/activities/new" component={NewActivityContainer} />
-            <ProtectedRoute exact path="/athlete/routes/new" component={NewRouteContainer} />
             <ProtectedRoute exact path="/athlete/:athleteId" component={UserContainer} />
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
-            <Route path="" render={() => (<Redirect to="/dashboard" />)} />
+            <Route path="" render={() => (<Redirect to="/dashboard/activities" />)} />
         </Switch>
         <footer id="global-footer">
+            
             <Route path="/" component={FooterContainer} />
         </footer>
     </div>

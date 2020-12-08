@@ -9,6 +9,7 @@ class Api::ActivityController < ApplicationController
                 @activities = Activity.all
             end
         end
+        @activities = @activities.order("date desc")
         # debugger
         if params[:recentDays] && params[:recentDays] != ""
             start_date = Date.today - params[:recentDays].to_i
@@ -21,6 +22,12 @@ class Api::ActivityController < ApplicationController
         # debugger
         if params[:keywords] && params[:keywords] != ""
             @activities = @activities.where("title ilike ?", "%#{params[:keywords]}%")
+        end
+        # debugger
+        # @activities = @activities.offset(0).limit(10)
+        @cnt = @activities.length;
+        if params[:cnt] && params[:offset] && params[:cnt] != ""
+            @activities = @activities.limit(params[:cnt]).offset(params[:offset])
         end
         # debugger
         render :index

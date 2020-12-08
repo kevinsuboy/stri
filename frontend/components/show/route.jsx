@@ -24,7 +24,7 @@ class Route extends React.Component {
             }/>);
             // el.activity ? el.activity.forEach(act => activityItems.push(<li>{`${act.title}`}</li>)) : null;
         });
-        debugger
+        // debugger
         return (
             <div id="global-index">
                 <div className="show-container container">

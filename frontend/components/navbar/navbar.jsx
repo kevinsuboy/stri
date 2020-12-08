@@ -29,13 +29,20 @@ class NavBar extends React.Component {
                 </div>
             )
         }else{
+            // debugger
             // const username = currentUser[id].username;
             const selected = [
-                pathname === "/dashboard/activities" ? "nav-item-selected" : null,
-                pathname === "/dashboard/routes" ? "nav-item-selected" : null,
-                pathname === "/athlete/activities" ? "nav-item-selected" : null,
-                pathname === "/athlete/routes" ? "nav-item-selected" : null,
+                pathname.match(/^\/dashboard\/activities/g) ? "nav-item-selected" : null,
+                pathname.match(/^\/dashboard\/routes/g) ? "nav-item-selected" : null,
+                pathname.match(/^\/athlete\/activities/g) ? "nav-item-selected" : null,
+                pathname.match(/^\/athlete\/routes/g) ? "nav-item-selected" : null,
             ]
+            // const selected = [
+            //     pathname === "/dashboard/activities" ? "nav-item-selected" : null,
+            //     pathname === "/dashboard/routes" ? "nav-item-selected" : null,
+            //     pathname === "/athlete/activities" ? "nav-item-selected" : null,
+            //     pathname === "/athlete/routes" ? "nav-item-selected" : null,
+            // ]
             // debugger
             return (
                 <div className="nav-bar-content">
