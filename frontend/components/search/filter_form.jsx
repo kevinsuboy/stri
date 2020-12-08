@@ -28,6 +28,7 @@ class FilterForm extends React.Component {
         return e => {
             // debugger
             this.props.changeFilter(filter,e.currentTarget.value)
+            this.props.handlePage(1)
             db(this.props.userId);
             if(filter==="sport"){
                 this.handleSubmit(e);

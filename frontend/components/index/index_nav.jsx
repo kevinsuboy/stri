@@ -18,7 +18,7 @@ export default ({ page, maxPage, handleClick, handlePage, urlHead }) => {
             </li>
     }
     for (let i = 0; i < maxPage; i++) pages.push(
-        <li><Link to={`${urlHead}/${i + 1}`} key={i} className={(page === i + 1 ? "page-selected" : "") + " index-pg"}>{i + 1}</Link></li>
+        <li key={i}><Link to={`${urlHead}/${i + 1}`} key={i} className={(page === i + 1 ? "page-selected" : "") + " index-pg"}>{i + 1}</Link></li>
     );
     if (page > maxPage) handlePage(maxPage)
     return <div className="index-nav">

@@ -44,23 +44,31 @@ class Activities extends React.Component {
         }
     }
     handlePage(num) {
-        this.setState({ page: num })
+        // this.setState({ page: num })
+        this.props.history.push(`/athlete/activities/${1}`);
+
     }
     componentWillUnmount() {
         this.props.clearActivitiesFilter();
     }
     render() {
-        debugger
+        // debugger
         // const l = this.props.activities.length;
         // this.maxPage = Math.ceil(l === 0 ? 1:l / this.cntPerPage);
         this.maxPage = Math.ceil(this.props.activitiesCnt / this.cntPerPage);
+        this.maxPage = this.maxPage === 0 ? 1:this.maxPage;
         return (
             <div id="global-index">
             <div className="index-container container">
                 <h1>My Activities</h1>
                 <Link to={`/athlete/activities/new`} className={`new-link link session-link`}>Create a New Activity</Link>
                 <ul className="index-list">
-                    <FilterForm sport={true} userId={this.props.userId} submitFilter={this.props.fetchFilteredUserActivities} changeFilter={this.props.changeActivitiesFilter}/>
+                    <FilterForm sport={true}
+                                userId={this.props.userId}
+                                submitFilter={this.props.fetchFilteredUserActivities}
+                                changeFilter={this.props.changeActivitiesFilter}
+                                handlePage={this.handlePage}
+                    />
                     <ActivitiesTable {...this.props}/>
                 </ul>
                     <IndexNav   page={parseInt(this.props.match.params.pg)}

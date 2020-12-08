@@ -26,7 +26,7 @@ class Activity extends React.Component {
             <div key={el.id * 4} className="feed-route">
                 <Link to={`/routes/${el.route_id}`} className="feed-item-link">
                     <div key={el.route_id} className="feed-item-title">
-                        <i className="fas fa-angle-double-up"></i> View Route
+                        <i className="fas fa-angle-double-up"></i><p>View Route</p>
                     </div>
                 </Link>
             </div> : <div></div>

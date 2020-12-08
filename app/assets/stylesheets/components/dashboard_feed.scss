@@ -167,6 +167,9 @@
 .feed-item-header:hover .profile-username {
     color: $secondary-blue-hover;
 }
+.feed-item-title p {
+    margin: auto 0;
+}
 .feed-item-title {
     padding: 5px 30px;
     display: flex;
