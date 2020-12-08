@@ -5,15 +5,30 @@ class FilterForm extends React.Component {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    debounce(fn, wait) {
+        let timeout;
+
+        return (...args) => {
+            const later = () => {
+                clearTimeout(timeout);
+                fn(...args);
+            };
+
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    };
     handleSubmit(e) {
         // debugger
         e.preventDefault();
         this.props.submitFilter(this.props.userId)
     };
     handleChange(filter) {
+        const db = this.debounce(this.props.submitFilter, 2000)
         return e => {
             // debugger
             this.props.changeFilter(filter,e.currentTarget.value)
+            db(this.props.userId);
             if(filter==="sport"){
                 this.handleSubmit(e);
             }
@@ -79,7 +94,7 @@ class FilterForm extends React.Component {
             onChange={this.handleChange("keywords")}
         />
         </div>
-        <input className={`nav-bar-login link session-link filter-submit`} type="submit" value="Search" />
+        {/* <input className={`nav-bar-login link session-link filter-submit`} type="submit" value="Search" /> */}
         {sport}
         </form>
     </div>
