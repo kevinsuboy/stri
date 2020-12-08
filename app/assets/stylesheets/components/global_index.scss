@@ -1,5 +1,8 @@
 @import 'partials/_base.scss';
 
+#global-index .feed-list {
+    align-items: flex-start;
+}
 #global-index{
     position: relative;
 }
