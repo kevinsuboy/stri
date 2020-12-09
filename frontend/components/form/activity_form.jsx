@@ -5,6 +5,8 @@ import DurDist from './durDist';
 import TitleDescr from './titleDescr';
 
 import ActivityErrorContainer from './activity_form_error_container'
+import ActivityFormRoute from './activity_form_route';
+
 
 const sport = (onChange, defaultSport) => (
 <div className="sport-input">
@@ -116,6 +118,8 @@ class ActivityForm extends React.Component{
     render(){
         // debugger
         return(
+            <div className="activity-new-form-container">
+            <ActivityFormRoute {...this.props}/>
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
         <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange}/>
         <div className="r2">
@@ -138,7 +142,8 @@ class ActivityForm extends React.Component{
         <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange}/>
         <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
         <ActivityErrorContainer />
-    </form>
+        </form>
+        </div>
     )}
 }
 

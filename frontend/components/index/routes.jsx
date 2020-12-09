@@ -45,7 +45,8 @@ class Routes extends React.Component {
         }
     }
     handlePage(num) {
-        this.setState({ page: num })
+        // this.setState({ page: num })
+        this.props.history.push(`/athlete/routes/${1}`);
     }
     render() {
         debugger
@@ -56,7 +57,11 @@ class Routes extends React.Component {
                     <h1>My Routes</h1>
                     <Link to={`routes/new`} className={`new-link link session-link`}>Create a New Route</Link>
                     <ul className="index-list">
-                        <FilterForm userId={this.props.userId} submitFilter={this.props.fetchFilteredUserRoutes} changeFilter={this.props.changeRoutesFilter} />
+                        <FilterForm userId={this.props.userId}
+                                    submitFilter={this.props.fetchFilteredUserRoutes}
+                                    changeFilter={this.props.changeRoutesFilter}
+                                    handlePage={this.handlePage}
+                        />
                         <RoutesTable {...this.props} />
                     </ul>
                     <IndexNav page={parseInt(this.props.match.params.pg)}

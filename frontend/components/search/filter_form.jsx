@@ -3,6 +3,7 @@ import React from 'react';
 class FilterForm extends React.Component {
     constructor(props){
         super(props)
+        debugger
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     debounce(fn, wait) {
@@ -87,7 +88,7 @@ class FilterForm extends React.Component {
     <div className="filter-container">
     <form className="filter-form" onSubmit={this.handleSubmit}>
         <div className="filter-group filter-keyword">
-        <label>Keywords</label>
+        <label>{this.props.title ? this.props.title:"Keyword"}</label>
         <input
             type="text"
             className="filter-input session-input"

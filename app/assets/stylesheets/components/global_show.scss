@@ -8,7 +8,7 @@
     width: 20%;
 }
 .show-profile-link {
-    box-shadow: $my-box-shadow-2;
+    // box-shadow: $my-box-shadow-2;
 }
 .show-profile-overview:hover {
     background-color: $secondary-gray-hover;
@@ -59,6 +59,7 @@
 .show-overview-link {
     width: 100%;
     border: none;
+    background-color: rgba(255, 255, 255, 0);
     // border-right:2px solid $primary-gray;
 }
 .show-link-right {
