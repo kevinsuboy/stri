@@ -8,6 +8,7 @@ import { fetchUserActivities } from "./actions/activity_actions"
 // import { watchOutside } from "./util/dom_util"
 
 document.addEventListener("DOMContentLoaded", () => {
+    window.timeout = {};
     // watchOutside();
     const root = document.getElementById("root");
     const body = document.getElementsByTagName("body")[0];

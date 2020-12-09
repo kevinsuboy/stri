@@ -59,7 +59,7 @@ class RoutesTable extends React.Component {
         } else {
             [ title, date, time, pace, dist, ed ] = [ true, true, true, true, true, true ];
         }
-        debugger
+        // debugger
         const arrow = {}
         for (const [k, v] of Object.entries(this.state)) {
             arrow[k] = v ? <i className="fas fa-angle-down"></i> : <i className="fas fa-angle-up"></i>
