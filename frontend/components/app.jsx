@@ -33,8 +33,8 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/" component={SplashContainer} />
             <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-            <ProtectedRoute exact path="/athlete/activities/new" component={NewActivityContainer} />
             <ProtectedRoute exact path="/athlete/routes/new" component={NewRouteContainer} />
+            <ProtectedRoute exact path="/athlete/activities/new" component={NewActivityContainer} />
             <ProtectedRoute exact path="/athlete/activities/:pg" component={ActivitiesContainer} />
             <ProtectedRoute exact path="/athlete/routes/:pg" component={RoutesContainer} />
             <ProtectedRoute exact path="/activities/:activityId" component={ActivityContainer} />

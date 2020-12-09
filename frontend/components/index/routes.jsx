@@ -55,7 +55,7 @@ class Routes extends React.Component {
             <div id="global-index">
                 <div className="index-container container">
                     <h1>My Routes</h1>
-                    <Link to={`routes/new`} className={`new-link link session-link`}>Create a New Route</Link>
+                    <Link to={`/athlete/routes/new`} className={`new-link link session-link`}>Create a New Route</Link>
                     <ul className="index-list">
                         <FilterForm userId={this.props.userId}
                                     submitFilter={this.props.fetchFilteredUserRoutes}
