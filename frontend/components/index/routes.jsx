@@ -46,10 +46,10 @@ class Routes extends React.Component {
     }
     handlePage(num) {
         // this.setState({ page: num })
-        this.props.history.push(`/athlete/routes/${1}`);
+        this.props.history.push(`/athlete/routes/${num}`);
     }
     render() {
-        debugger
+        // debugger
         this.maxPage = Math.ceil(this.props.routesCnt / this.cntPerPage);
         return (
             <div id="global-index">

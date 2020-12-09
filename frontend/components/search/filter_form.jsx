@@ -10,23 +10,14 @@ class FilterForm extends React.Component {
     debounce(fn, wait) {
         let timeout;
 
-        return function (...args) {
+        return (...args) => {
             const later = () => {
-                debugger
-                if(timeout){
-                    clearTimeout(timeout);
-                    window.timeout[timeout] = false;
-                }
-                // timeout = null;
+                clearTimeout(timeout);
                 fn(...args);
             };
 
-            if(timeout){
-                clearTimeout(timeout);
-                window.timeout[timeout] = false;
-            }
+            clearTimeout(timeout);
             timeout = setTimeout(later, wait);
-            window.timeout[timeout] = true;
         };
     };
     handleSubmit(e) {
@@ -37,12 +28,12 @@ class FilterForm extends React.Component {
     handleChange(filter) {
         // const db = this.debounce(this.props.submitFilter, 1000)
         const db = this.debounce((filter,value)=>{
+            this.props.handlePage(1)
             this.props.changeFilter(filter,value);
             if(value !== "") this.props.submitFilter(this.props.userId);
         }, 1000)
         return e => {
             // this.props.changeFilter(filter,e.currentTarget.value)
-            this.props.handlePage(1)
             if(this.props.title && e.currentTarget.value === "") this.props.clearData();
             // db(this.props.userId);
             db(filter, e.currentTarget.value);
