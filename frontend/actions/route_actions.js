@@ -3,6 +3,7 @@ import * as APIUtil from '../util/route_api_util';
 export const RECEIVE_ROUTES = 'RECEIVE_ROUTES';
 export const RECEIVE_ROUTE = 'RECEIVE_ROUTE';
 export const DELETE_ROUTE = 'DELETE_ROUTE';
+export const CLEAR_ROUTES = 'CLEAR_ROUTES';
 
 export const RECEIVE_ROUTE_ERRORS = 'RECEIVE_ROUTE_ERRORS';
 
@@ -21,6 +22,9 @@ export const removeRoute = (routeId) => ({
 export const receiveErrors = errors => ({
     type: RECEIVE_ROUTE_ERRORS,
     errors
+});
+export const receiveClear = () => ({
+    type: CLEAR_ROUTES
 });
 
 
@@ -50,4 +54,7 @@ export const createRoute = (data) => dispatch => (
     ), err => (
         dispatch(receiveErrors(err.responseJSON))
     ))
+)
+export const clearRoutes = () => dispatch => (
+    dispatch(receiveClear())
 )

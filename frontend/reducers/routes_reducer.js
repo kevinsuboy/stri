@@ -1,7 +1,8 @@
 import {
     RECEIVE_ROUTES,
     RECEIVE_ROUTE,
-    DELETE_ROUTE
+    DELETE_ROUTE,
+    CLEAR_ROUTES
 } from '../actions/route_actions';
 
 const routesReducer = (state = {}, action) => {
@@ -16,6 +17,8 @@ const routesReducer = (state = {}, action) => {
             let nextState = Object.assign({}, state);
             delete nextState[action.routeId]
             return nextState
+        case CLEAR_ROUTES:
+            return {};
         default:
             return state;
     }

@@ -25,12 +25,12 @@ class FilterForm extends React.Component {
         this.props.submitFilter(this.props.userId)
     };
     handleChange(filter) {
-        const db = this.debounce(this.props.submitFilter, 2000)
+        const db = this.debounce(this.props.submitFilter, 500)
         return e => {
-            // debugger
             this.props.changeFilter(filter,e.currentTarget.value)
             this.props.handlePage(1)
-            db(this.props.userId);
+            if(this.props.title && e.currentTarget.value === "") this.props.clearData();
+            else db(this.props.userId);
             if(filter==="sport"){
                 this.handleSubmit(e);
             }
@@ -92,7 +92,7 @@ class FilterForm extends React.Component {
         <input
             type="text"
             className="filter-input session-input"
-            placeholder="My Morning Workout"
+            placeholder={this.props.default ? this.props.default : "My Morning Workout"}
             onChange={this.handleChange("keywords")}
         />
         </div>

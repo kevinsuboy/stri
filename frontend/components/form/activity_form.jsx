@@ -118,8 +118,7 @@ class ActivityForm extends React.Component{
     render(){
         // debugger
         return(
-            <div className="activity-new-form-container">
-            <ActivityFormRoute {...this.props}/>
+            <div className="activity-form-container">
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
         <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange}/>
         <div className="r2">
@@ -140,9 +139,10 @@ class ActivityForm extends React.Component{
         </label>
         </div>
         <TitleDescr title={this.state.title} description={this.state.description} handleChange={this.handleChange}/>
-        <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
+        <input className={`session-submit link session-link form-submit`} type="submit" value={`Submit ${this.props.type}`} />
         <ActivityErrorContainer />
         </form>
+                <ActivityFormRoute {...this.props} />
         </div>
     )}
 }
