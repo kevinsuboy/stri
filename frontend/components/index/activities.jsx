@@ -44,8 +44,10 @@ class Activities extends React.Component {
         }
     }
     handlePage(num) {
+        // debugger
         // this.setState({ page: num })
-        this.props.history.push(`/athlete/activities/${1}`);
+        this.props.history.push(`/athlete/activities/${num}`);
+        // this.props.history.goBack();
 
     }
     componentWillUnmount() {
