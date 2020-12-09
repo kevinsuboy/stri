@@ -68,6 +68,7 @@ class Activities extends React.Component {
                                 submitFilter={this.props.fetchFilteredUserActivities}
                                 changeFilter={this.props.changeActivitiesFilter}
                                 handlePage={this.handlePage}
+                                page={this.props.match.params.pg}
                     />
                     <ActivitiesTable {...this.props}/>
                 </ul>

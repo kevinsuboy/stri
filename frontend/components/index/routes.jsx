@@ -61,6 +61,7 @@ class Routes extends React.Component {
                                     submitFilter={this.props.fetchFilteredUserRoutes}
                                     changeFilter={this.props.changeRoutesFilter}
                                     handlePage={this.handlePage}
+                                    page={this.props.match.params.pg}
                         />
                         <RoutesTable {...this.props} />
                     </ul>
