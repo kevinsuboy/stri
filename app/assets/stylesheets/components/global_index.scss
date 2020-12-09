@@ -45,6 +45,7 @@
     padding: 10px;
 }
 .index-item {
+    min-width: 300px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -102,16 +103,18 @@
     width: 10%
 }
 .index-item-6 {
-    min-width: 50px;
-    width: 10%
+    min-width: 90px;
+    // width: 10%
 }
 .index-item-edit {
     width: 5%;
+    min-width: 35px;
     // border: 1px solid red;
     padding: 10px 0;
 }
 .index-item-delete {
     width: 5%;
+    min-width: 35px;
     // border: 1px solid red;
     padding: 10px 0;
 }
@@ -124,6 +127,9 @@
     // border: 1px solid blue;
     border-bottom: 2px solid lightgray;
     min-width: 625px;
+}
+.activity-form-route .index-table-header {
+    min-width: 300px;
 }
 .table-col {
     font-weight: bold;

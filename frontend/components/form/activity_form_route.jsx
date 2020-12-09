@@ -18,7 +18,14 @@ class ActivityFormRoute extends React.Component {
                     title={`Route`}
                     default={`Optional`}
         />
-        <RoutesTable {...this.props} />
+        <RoutesTable    {...this.props}
+                        options={{
+                            date: false,
+                            time: false,
+                            pace: false,
+                            ed: false
+                        }}
+        />
             </div>
         )
     }

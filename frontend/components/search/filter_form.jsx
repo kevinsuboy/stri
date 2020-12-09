@@ -5,6 +5,7 @@ class FilterForm extends React.Component {
         super(props)
         debugger
         this.handleSubmit = this.handleSubmit.bind(this);
+        if(this.props.clearData) this.props.clearData();
     }
     debounce(fn, wait) {
         let timeout;
