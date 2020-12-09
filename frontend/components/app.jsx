@@ -45,6 +45,7 @@ const App = () => (
             {/* <Route path="" render={() => (<Redirect to="/PageNotFoundContainer" />)} /> */}
             <Route path="" render={() => (<Redirect to="/dashboard/activities" />)} />
         </Switch>
+        <div id="clearfix"></div>
         <footer id="global-footer">
             
             <Route path="/" component={FooterContainer} />
