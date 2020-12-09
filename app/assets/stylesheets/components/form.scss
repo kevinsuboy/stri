@@ -1,3 +1,5 @@
+@import 'partials/_base.scss';
+
 .form-submit {
     height: 40px;
 }
@@ -8,18 +10,20 @@
     min-width: 300px;
 }
 .activity-form-container .activity-edit-form {
-    margin-right: 20px;
-    width: 65%;
+    margin-left: 0;
+    width: calc(65% - 80px);
 }
 .activity-form-container .table-container {
     max-height: 500px;
     overflow: scroll;
+    min-width: 300px;
 }
 .activity-form-container {
-    max-height: 750px;
+    // max-height: 750px;
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .activity-edit-form {
     font-size: 15px;
@@ -27,6 +31,7 @@
     // width: 100%;
     padding: 2%;
     width: 96%;
+    min-width: 400px;
 }
 .dist-input {
     display: inline-block;
@@ -66,6 +71,7 @@
 }
 .activity-edit-form .session-submit {
     width: 25%;
+    min-width: 200px;
 }
 .activity-errors, .route-errors {
     font-weight: normal;
@@ -79,4 +85,21 @@
 }
 .activity-errors-arrow, .route-errors-arrow {
     top: 60px;
+}
+
+
+.index-item-select {
+    // width: 200px;
+    background-color: $primary-orange;
+    color: white !important;
+    border: lightgray 1px solid;
+    padding: 5px 0 !important;
+    // margin-top: 10px;
+}
+.index-item-select:hover {
+    background-color: $primary-orange-hover;
+    text-decoration: none !important;
+}
+.activity-form-route .index-item-edit {
+    min-width: 70px;
 }

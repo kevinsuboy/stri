@@ -24,7 +24,7 @@ export default ({ route,deleteRoute, options }) => {
         l1 = <Link to={`/routes/${route.id}/edit`} className="index-link index-item-edit"><li>{`Edit`}</li></Link>
         l2 = <li className="index-link index-item-delete" onClick={() => deleteRoute(route.id)}>Delete</li>
     } else {
-        l1 = <li className="index-link index-item-edit">Hello</li>
+        l1 = <li className="index-link index-item-edit index-item-select session-link link">Select</li>
     }
     return (
         <ul className={`index-item`}>
