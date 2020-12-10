@@ -54,11 +54,14 @@ class Api::ActivityController < ApplicationController
     def create
         @activity = Activity.new(activity_params)
         user = User.find_by(id:params[:userId])
+        route = Route.find_by(id:params[:routeId])
         # debugger
-        @activity.user_id = user.id
+        @activity.user_id = user.id if(user)
+        @activity.route_id = route.id if(route)
         if @activity.save
             render :show
         else
+            debugger
             render json: @activity.errors.full_messages, status: 422
         end
     end

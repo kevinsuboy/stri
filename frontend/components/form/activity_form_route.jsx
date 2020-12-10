@@ -5,7 +5,18 @@ import RoutesTable from '../index/routes_table';
 class ActivityFormRoute extends React.Component {
     constructor(props) {
         super(props)
-        debugger
+        this.state = {
+            chosen: false
+        }
+        // debugger
+        this.updateChosen = this.updateChosen.bind(this)
+    }
+    updateChosen(val, title) {
+        // debugger
+        this.setState({
+            chosen: val,
+            title
+        })
     }
     render() {
         return(
@@ -17,6 +28,8 @@ class ActivityFormRoute extends React.Component {
                     clearData={this.props.clearRoutes}
                     title={`Route`}
                     default={`Optional`}
+                    updateChosen={this.updateChosen}
+                    value={this.state}
         />
         <RoutesTable    {...this.props}
                         options={{
@@ -25,6 +38,8 @@ class ActivityFormRoute extends React.Component {
                             pace: false,
                             ed: false
                         }}
+                        selectRoute={this.props.selectRoute}
+                        updateChosen={this.updateChosen}
         />
             </div>
         )

@@ -88,6 +88,7 @@ class FilterForm extends React.Component {
             if(filter==="sport"){
                 this.handleSubmit(e);
             }
+            this.props.updateChosen(false);
         };
     }
     componentWillUpdate(nextProps){
@@ -112,7 +113,7 @@ class FilterForm extends React.Component {
             className="filter-input session-input"
             placeholder={this.props.default ? this.props.default : "My Morning Workout"}
             onChange={this.handleChange("keywords")}
-            // value={this.state.keyword}
+            value={this.props.value ? (this.props.value.chosen ? this.props.value.title:null):null}
         />
         </div>
         {/* <input className={`nav-bar-login link session-link filter-submit`} type="submit" value="Search" /> */}

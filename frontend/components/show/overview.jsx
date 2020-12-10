@@ -25,7 +25,8 @@ return (<div className="show-profile container">
             <i className="fas fa-pen"></i>
         </Link>
         <div className={`show-profile-link show-link-right show-delete`} onClick={() => {
-            props.history.goBack();
+            props.history.replace(`/${type}`);
+            // props.history.goBack();
             return deleteAction(id)
         }}>
             <i className="fas fa-trash"></i>

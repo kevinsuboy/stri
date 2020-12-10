@@ -3,7 +3,7 @@ import { calcTime } from '../../util/calc_util'
 import { Link } from 'react-router-dom';
 import SportLogo from '../dashboard/sport_logo'
 
-export default ({ route,deleteRoute, options }) => {
+export default ({ route,deleteRoute, options, selectRoute, updateChosen }) => {
     // debugger
     const { dur, pace } = calcTime(route);
     const d = new Date(route.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -24,7 +24,11 @@ export default ({ route,deleteRoute, options }) => {
         l1 = <Link to={`/routes/${route.id}/edit`} className="index-link index-item-edit"><li>{`Edit`}</li></Link>
         l2 = <li className="index-link index-item-delete" onClick={() => deleteRoute(route.id)}>Delete</li>
     } else {
-        l1 = <li className="index-link index-item-edit index-item-select session-link link">Select</li>
+        l1 = <li className="index-link index-item-edit index-item-select session-link link"
+        onClick={() => {
+            selectRoute(route.id)
+            updateChosen(true, route.name)
+        }}>Select</li>
     }
     return (
         <ul className={`index-item`}>

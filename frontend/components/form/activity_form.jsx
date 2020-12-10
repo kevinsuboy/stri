@@ -68,9 +68,11 @@ class ActivityForm extends React.Component{
             description: "",
             date,
             sport: "Run",
+            routeId: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.selectRoute = this.selectRoute.bind(this)
     }
     componentDidUpdate(ownProps){
         // debugger
@@ -85,6 +87,12 @@ class ActivityForm extends React.Component{
                 sport: this.props.activity[0].sport
             })
         }
+    }
+    selectRoute(routeId) {
+        // debugger
+        this.setState({
+            routeId
+        })
     }
     handleChange(field) {
         // debugger
@@ -103,17 +111,21 @@ class ActivityForm extends React.Component{
         e.preventDefault();
         const {duration} = this.state;
         const {hours:h,minutes:m,seconds:s} = duration
-        // debugger
-        this.props.action(Object.assign({},this.state, {userId: this.props.userId},
-            { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}),
-            this.props.activityId).then((data) => {
-                if(this.props.newForm)
-                    this.props.updateUser().then(() => 
-                        this.props.history.push(`/activities/${data.activity.id}`)
-                    );
-                else
+        debugger
+        this.props.action(
+            Object.assign({},this.state,
+                {userId: this.props.userId},
+                { duration: h.split("h")[0] + ":" + m.split("m")[0] + ":" + s.split("s")[0]}
+            ),
+            this.props.activityId
+        ).then((data) => {
+            if(this.props.newForm)
+                this.props.updateUser().then(() => 
                     this.props.history.push(`/activities/${data.activity.id}`)
-            })
+                );
+            else
+                this.props.history.push(`/activities/${data.activity.id}`)
+        })
     }
     render(){
         // debugger
@@ -142,7 +154,9 @@ class ActivityForm extends React.Component{
         <input className={`session-submit link session-link form-submit`} type="submit" value={`Submit ${this.props.type}`} />
         <ActivityErrorContainer />
         </form>
-                <ActivityFormRoute {...this.props} />
+                <ActivityFormRoute  {...this.props}
+                                    selectRoute={this.selectRoute}
+                />
         </div>
     )}
 }

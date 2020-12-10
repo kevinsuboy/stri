@@ -13,7 +13,7 @@ export default ({ duration, distance, handleChange }) => {
                         <input
                             type="text"
                             className="filter-input session-input"
-                            value={Math.round(distance*100)/100}
+                            value={distance !== "" ? Math.round(distance*100)/100:null}
                             onChange={handleChange("distance")}
                         />
                     </div><p>mi</p>
