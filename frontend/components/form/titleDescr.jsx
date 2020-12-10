@@ -17,7 +17,7 @@ export default ({ title, description, handleChange, activity=true }) => {
             <label>Description</label>
             <textarea
                 className="filter-input session-input descr-input"
-                placeholder={"Optional"}
+                placeholder={activity ? "Optional":null}
                 value={description}
                 onChange={handleChange("description")}
             />
