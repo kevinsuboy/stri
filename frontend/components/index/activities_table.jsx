@@ -62,7 +62,7 @@ class ActivitiesTable extends React.Component {
         // debugger
         return (
             <div className="table-container">
-                <h2>Activities Table</h2>
+                <h2>Activities</h2>
                 <ul className="index-table-header index-item">
                     <li className={`table-col index-item-1 ${selected[0]}`} onClick={this.handleClick("sport")}>Sport{arrow["sport"]}</li>
                     <li className={`table-col index-item-2 ${selected[1]}`} onClick={this.handleClick("date")}>Date{arrow["date"]}</li>

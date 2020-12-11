@@ -23,7 +23,7 @@ class ActivityFormRoute extends React.Component {
         if(this.firstMount && this.props.activity && this.props.activity[0]){
             const r = this.props.route(this.props.activity[0].route_id);
             const oR = ownProps.route(this.props.activity[0].route_id);
-            debugger
+            // debugger
             if (r && r[0] && r[0] !== oR[0]) {
                 this.updateChosen(true,r[0].name)
                 this.firstMount = false;
@@ -32,7 +32,7 @@ class ActivityFormRoute extends React.Component {
 
     }
     render() {
-        // debugger
+        if(this.state.chosen) debugger
         return(
             <div className="activity-form-route">
         <FilterForm userId={this.props.userId}
@@ -45,7 +45,7 @@ class ActivityFormRoute extends React.Component {
                     updateChosen={this.updateChosen}
                     value={this.state}
         />
-        <RoutesTable    {...this.props}
+        {!this.state.chosen ? <RoutesTable    {...this.props}
                         options={{
                             date: false,
                             time: false,
@@ -54,7 +54,7 @@ class ActivityFormRoute extends React.Component {
                         }}
                         selectRoute={this.props.selectRoute}
                         updateChosen={this.updateChosen}
-        />
+        /> : null}
             </div>
         )
     }

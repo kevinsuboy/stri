@@ -85,7 +85,7 @@ class RoutesTable extends React.Component {
         }
         return (
             <div className="table-container">
-                <h2>Routes Table</h2>
+                <h2>Routes</h2>
                 <ul className="index-table-header index-item">
                     {/* <li className={`table-col index-item-1 ${selected[0]}`} onClick={this.handleClick("sport")}>Sport{arrow["sport"]}</li> */}
                     { t}
