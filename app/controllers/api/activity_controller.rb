@@ -40,7 +40,7 @@ class Api::ActivityController < ApplicationController
     def update
         @activity = Activity.find_by(id:params[:id])
         route = Route.find_by(id:params[:routeId])
-        debugger
+        # debugger
         @activity.update(route_id: route.id) if(route)
         @activity.update(activity_params)
         render :show
