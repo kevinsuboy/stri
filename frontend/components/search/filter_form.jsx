@@ -75,6 +75,7 @@ class FilterForm extends React.Component {
         const db = this.debounce((filter,value)=>{
             this.props.handlePage(1)
             this.props.changeFilter(filter,value);
+            if (this.props.updateChosen) this.props.updateChosen(false);
             if(!this.props.title || value !== ""){
                 this.props.submitFilter(this.props.userId);
             }
@@ -88,7 +89,6 @@ class FilterForm extends React.Component {
             if(filter==="sport"){
                 this.handleSubmit(e);
             }
-            this.props.updateChosen(false);
         };
     }
     componentWillUpdate(nextProps){

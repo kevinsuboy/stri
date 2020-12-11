@@ -20,8 +20,7 @@ class ActivityFormRoute extends React.Component {
         })
     }
     componentDidUpdate(ownProps) {
-        // debugger
-        if(this.firstMount && this.props.activity[0]){
+        if(this.firstMount && this.props.activity && this.props.activity[0]){
             const r = this.props.route(this.props.activity[0].route_id);
             const oR = ownProps.route(this.props.activity[0].route_id);
             debugger
