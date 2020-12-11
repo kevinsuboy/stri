@@ -10,6 +10,7 @@ class ActivityFormRoute extends React.Component {
         }
         // debugger
         this.updateChosen = this.updateChosen.bind(this)
+        this.firstMount = true;
     }
     updateChosen(val, title) {
         // debugger
@@ -18,7 +19,21 @@ class ActivityFormRoute extends React.Component {
             title
         })
     }
+    componentDidUpdate(ownProps) {
+        // debugger
+        if(this.firstMount && this.props.activity[0]){
+            const r = this.props.route(this.props.activity[0].route_id);
+            const oR = ownProps.route(this.props.activity[0].route_id);
+            debugger
+            if (r && r[0] && r[0] !== oR[0]) {
+                this.updateChosen(true,r[0].name)
+                this.firstMount = false;
+            }
+        }
+
+    }
     render() {
+        // debugger
         return(
             <div className="activity-form-route">
         <FilterForm userId={this.props.userId}

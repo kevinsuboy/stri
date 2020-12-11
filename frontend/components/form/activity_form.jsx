@@ -87,6 +87,11 @@ class ActivityForm extends React.Component{
                 sport: this.props.activity[0].sport
             })
         }
+        if(this.props.route && this.props.route[0] && this.props.route !== ownProps.route){
+            this.setState({
+                routeId: this.props.route[0].id
+            })
+        }
     }
     selectRoute(routeId) {
         // debugger
@@ -111,7 +116,7 @@ class ActivityForm extends React.Component{
         e.preventDefault();
         const {duration} = this.state;
         const {hours:h,minutes:m,seconds:s} = duration
-        debugger
+        // debugger
         this.props.action(
             Object.assign({},this.state,
                 {userId: this.props.userId},

@@ -44,7 +44,7 @@ const sportBlock = (handleChange) => <div className="filter-group filter-sport">
 class FilterForm extends React.Component {
     constructor(props){
         super(props)
-        debugger
+        // debugger
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         if(this.props.clearData) this.props.clearData();
