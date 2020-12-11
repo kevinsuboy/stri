@@ -4,7 +4,7 @@ import { activitySelector } from '../selectors/show_selector'
 import { fetchActivity, updateActivity } from '../../actions/activity_actions'
 import { routeSelector } from '../selectors/index_selector';
 import { clearRoutesFilter, changeRoutesFilter, fetchFilteredUserRoutes } from '../../actions/filter_actions';
-import { clearRoutes } from '../../actions/route_actions';
+import { clearRoutes, fetchRoute } from '../../actions/route_actions';
 
 const mSTP = ({ session: { id }, entities: { users, activities, routes } }, { match }) => ({
     // userId: id,
@@ -17,8 +17,9 @@ const mDTP = dispatch => ({
     clearRoutesFilter: () => dispatch(clearRoutesFilter()),
     changeRoutesFilter: (filter, value) => dispatch(changeRoutesFilter(filter, value)),
     clearRoutes: () => dispatch(clearRoutes()),
-    fetchFilteredUserRoutes: (userId) => dispatch(fetchFilteredUserRoutes(userId)),
+    // fetchFilteredUserRoutes: (userId) => dispatch(fetchFilteredUserRoutes(userId)),
     fetchActivity: (id) => dispatch(fetchActivity(id)),
+    fetchRoute: (id) => dispatch(fetchRoute(id)),
     action: (data, id) => dispatch(updateActivity(data,id))
 })
 export default connect(mSTP, mDTP)(EditActivity)

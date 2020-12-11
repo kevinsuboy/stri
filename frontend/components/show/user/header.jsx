@@ -8,12 +8,12 @@ class Header extends React.Component {
     }
     render() {
         return (
-            <div className="user-show-header container">
+            <div className="user-show-header">
                 <div className="profile-container">
                     <ProfileIcon {...this.props} />
                     <ProfileStats {...this.props} />
                 </div>
-                <div className="user-show-header-stats container">
+                <div className="user-show-header-stats">
                     <h1>Hello World!</h1>
                 </div>
             </div>

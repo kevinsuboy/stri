@@ -6,7 +6,7 @@ class EditActivityForm extends React.Component {
         super(props);
     }
     componentDidMount() {
-        this.props.fetchActivity(this.props.activityId);
+        this.props.fetchActivity(this.props.activityId)
     }
     render(){
         // debugger

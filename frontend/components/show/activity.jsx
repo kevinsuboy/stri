@@ -10,12 +10,19 @@ class Activity extends React.Component {
     }
     componentDidMount() {
         // debugger
-        this.props.fetchActivity(this.props.match.params.activityId);
+        this.props.fetchActivity(this.props.match.params.activityId)
+            .then(() =>
+                this.props.fetchRoute(this.props.activity[0].route_id)
+                // console.log(this.props.activity)
+            )
     }
     render() {
         // debugger
         const activityItems = this.props.activity.map(el => 
-        { if(!el) debugger; return <ActivitiesFeedItem key={el.id} active={false} userId={this.props.userId} activity={el} username={this.props.username} descr={
+        { if(!el) debugger;
+        const r = this.props.route(el.route_id)[0];
+        // if(xxx(el.route_id)[0] === undefined) debugger;
+        return <ActivitiesFeedItem key={el.id} active={false} userId={this.props.userId} activity={el} username={this.props.username} descr={
             el.description ? <div key={el.id * 3} className="feed-description">
                 <h3>Description</h3>
                 <p>{el.description}</p>
@@ -26,7 +33,7 @@ class Activity extends React.Component {
             <div key={el.id * 4} className="feed-route">
                 <Link to={`/routes/${el.route_id}`} className="feed-item-link">
                     <div key={el.route_id} className="feed-item-title">
-                        <i className="fas fa-angle-double-up"></i><p>View Route</p>
+                    <i className="fas fa-angle-double-up"></i><p>Route: {r ? r.name : "" }</p>
                     </div>
                 </Link>
             </div> : <div></div>

@@ -12,12 +12,14 @@
 }
 .user-show-header {
     // min-width: 270px;
-    width: 270px;
+    width: 100%;
+    // width: 270px;
     height: 330px;
     // border: 1px solid orange;
     display: flex;
     padding: 0px;
-    justify-content: center;
+    flex-direction: row;
+    // justify-content: center;
 }
 .user-show-header-stats {
     width: 100px;
