@@ -1,3 +1,5 @@
+@import 'partials/_base.scss';
+
 .user-show-header {
     position: relative;
     // max-width: 1200px;
@@ -14,4 +16,16 @@
     width: calc(100% - 270px - 64px); // 2 sets of padding to adj
     margin: 56px auto;
     border: 1px solid red;
+}
+.color-scale-1 {
+    fill: $cal-heatmap-1;
+}
+.color-scale-2 {
+    fill: $cal-heatmap-2;
+}
+.color-scale-3 {
+    fill: $cal-heatmap-3;
+}
+.color-scale-4 {
+    fill: $cal-heatmap-4;
 }

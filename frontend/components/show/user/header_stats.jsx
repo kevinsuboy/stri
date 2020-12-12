@@ -1,15 +1,34 @@
 import React from 'react';
-import ProfileIcon from '../../dashboard/profile/profile_icon';
-import ProfileStats from '../../dashboard/profile/profile_stats';
+import CalendarHeatmap from 'react-calendar-heatmap';
 
 class HeaderStats extends React.Component {
     constructor(props) {
         super(props)
+        this.normCnt = 4;
     }
     render() {
+        const n_dated = [];
+        for(const [k,v] of Object.entries(this.props.dated)){
+            n_dated.push({
+                date: k, count: Math.round((v.length/this.props.maxCnt) * this.normCnt)
+            })
+        }
+        // debugger
         return (
             <div className="user-show-header-stats container">
-                <h1>Hello World!</h1>
+                <CalendarHeatmap
+                    startDate={new Date(new Date().getFullYear(), 0, 1)}
+                    endDate={new Date()}
+                    showWeekdayLabels={true}
+                    // weekdayLabels={["M", "T", "W", "T", "F"]}
+                    values={n_dated}
+                    classForValue={(value) => {
+                        if (!value) {
+                            return 'color-empty';
+                        }
+                        return `color-scale-${value.count}`;
+                    }}
+                />
             </div>
         )
     }

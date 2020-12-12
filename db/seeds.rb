@@ -49,7 +49,7 @@ end
         description: Faker::TvShows::Friends.quote,
         # description: Faker::Food.description,
         distance: rand*1000,
-        date: Faker::Date.between(from: 120.days.ago, to: Date.today),
+        date: Faker::Date.between(from: 365.days.ago, to: Date.today),
         duration: "#{rand(23)}:#{rand(59)}:#{rand(59)}",
         user_id: u1.id,
         route_id: routes.sample.id

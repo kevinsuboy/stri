@@ -4,8 +4,8 @@ import { logout } from '../../actions/session_actions';
 import Dashboard from './dashboard'
 import selector from '../selectors/dashboard_selector'
 
-const mSTP = state => (
-    selector(state)
+const mSTP = ({ session: { id }, entities: { users } }) => (
+    selector(id, users)
 )
 const mDTP = dispatch => ({
 })

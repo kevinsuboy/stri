@@ -1,8 +1,8 @@
-export default (state) => {
-    if (state.session.id) {
-        const user = state.entities.users[state.session.id];
+export default (sessionId, users) => {
+    if (sessionId) {
+        const user = users[sessionId];
         return ({
-            userId: state.session.id,
+            userId: sessionId,
             username: user.username,
             n_routes: user.routes.length,
             n_activities: user.activities.length,
