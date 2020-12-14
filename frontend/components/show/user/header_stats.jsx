@@ -10,7 +10,8 @@ class HeaderStats extends React.Component {
         const n_dated = [];
         for(const [k,v] of Object.entries(this.props.dated)){
             n_dated.push({
-                date: k, count: Math.round((v.length/this.props.maxCnt) * this.normCnt)
+                date: k, count: Math.round((v.length/this.props.maxCnt) * this.normCnt),
+                activities: v
             })
         }
         // debugger
@@ -21,6 +22,12 @@ class HeaderStats extends React.Component {
                     endDate={new Date()}
                     showWeekdayLabels={true}
                     // weekdayLabels={["M", "T", "W", "T", "F"]}
+                    onMouseOver={(e, v) => {
+                        console.log(`e: ${e}`)
+                        console.log(e)
+                        console.log(`v: ${v}`)
+                        console.log(v)
+                    }}
                     values={n_dated}
                     classForValue={(value) => {
                         if (!value) {
