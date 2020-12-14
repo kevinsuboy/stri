@@ -1,5 +1,6 @@
 import React from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
+import ReactTooltip from 'react-tooltip';
 
 class HeaderStats extends React.Component {
     constructor(props) {
@@ -23,10 +24,16 @@ class HeaderStats extends React.Component {
                     showWeekdayLabels={true}
                     // weekdayLabels={["M", "T", "W", "T", "F"]}
                     onMouseOver={(e, v) => {
+                        // debugger
                         console.log(`e: ${e}`)
                         console.log(e)
                         console.log(`v: ${v}`)
                         console.log(v)
+                    }}
+                    tooltipDataAttrs={v => {
+                        return {
+                            'data-tip': (v && v.date) ? `${v.date}: ${v.count} activities` : "",
+                        }
                     }}
                     values={n_dated}
                     classForValue={(value) => {
@@ -36,6 +43,7 @@ class HeaderStats extends React.Component {
                         return `color-scale-${value.count}`;
                     }}
                 />
+                <ReactTooltip />
             </div>
         )
     }

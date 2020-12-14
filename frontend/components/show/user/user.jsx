@@ -42,7 +42,7 @@ class User extends React.Component {
             <div id="global-user">
                 <div className="user-show-header container">
                     {/* <h1>I am the user</h1> */}
-                    <Profile {...this.props}/>
+                    <Profile {...this.props} no_show_latest={true}/>
                     <HeaderStats
                         dated={this.state.dated}
                         n_dated={this.state.n_dated}

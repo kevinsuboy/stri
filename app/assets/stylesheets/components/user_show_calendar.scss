@@ -1,4 +1,25 @@
+@import 'partials/_base.scss';
+
+.color-scale-1 {
+    fill: $cal-heatmap-1;
+}
+.color-scale-2 {
+    fill: $cal-heatmap-2;
+}
+.color-scale-3 {
+    fill: $cal-heatmap-3;
+}
+.color-scale-4 {
+    fill: $cal-heatmap-4;
+}
+
+@for $i from 1 through 4 {
+    .color-scale-#{$i} {
+        cursor: pointer;
+    }
+}
 .react-calendar-heatmap {
     width: 100%;
     max-height: 500px;
+    margin: 47px auto;
 }

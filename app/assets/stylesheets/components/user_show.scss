@@ -14,18 +14,11 @@
 }
 .user-show-header-stats {
     width: calc(100% - 270px - 64px); // 2 sets of padding to adj
-    margin: 50px auto;
-    border: 1px solid red;
-}
-.color-scale-1 {
-    fill: $cal-heatmap-1;
-}
-.color-scale-2 {
-    fill: $cal-heatmap-2;
-}
-.color-scale-3 {
-    fill: $cal-heatmap-3;
-}
-.color-scale-4 {
-    fill: $cal-heatmap-4;
+    min-width: 950px; // 2 sets of padding to adj
+    // height: 330px;
+    align-items: unset;
+    // margin: 50px auto;
+    // border: 1px solid red;
+    // display: flex;
+    // align-items: center;
 }
