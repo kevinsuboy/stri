@@ -21,7 +21,7 @@ export default (props) => {
             <p className="latest-header">Latest Activity</p>
             {latest_el}
         </div>;
-    const clearfix = no_show_latest ? <div className="profile-latest-clear"></div>:null;
+    const profile_stats = no_show_latest ? <div className="profile-latest-clear"></div>:null;
     return (
         <div className="dashboard-profile container">
         <div className="profile-container">
@@ -29,7 +29,7 @@ export default (props) => {
             <ProfileStats {...props}/>
             {profile_latest}
         </div>
-            {clearfix}
+            {profile_stats}
         </div>
     )
 }

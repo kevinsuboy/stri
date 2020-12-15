@@ -1,19 +1,10 @@
 @import 'partials/_base.scss';
 
 .user-show-header {
-    position: relative;
-    // max-width: 1200px;
-    width: 90%;
-    margin-top: 12px;
-    height: calc(100% - 110px);
-    // border: 1px solid red;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    height: 250px;
 }
 .user-show-header-stats {
-    width: calc(100% - 270px - 64px); // 2 sets of padding to adj
+    width: calc(100% - 270px - 61px); // 2 sets of padding to adj
     min-width: 950px; // 2 sets of padding to adj
     // height: 330px;
     align-items: unset;
@@ -21,4 +12,28 @@
     // border: 1px solid red;
     // display: flex;
     // align-items: center;
+}
+.profile-latest-clear {
+    min-height: 86px;
+    width: 100%;
+}
+.user-stats h1 {
+    font-size: 22px;
+}
+.user-stats {
+    width: 270px;
+    min-height: 100px;
+    // border: 1px solid red;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #fff;
+    box-shadow: $my-box-shadow;
+}
+.user-stats .filter-group {
+    width: calc(100% - 20px)
+}
+.user-show-body {
+    width: 90%;
+    border: 1px solid green;
 }

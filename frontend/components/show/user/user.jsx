@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderStats from './header_stats'
 import Profile from '../../dashboard/profile/profile'
+import UserStats from '../user/user_stats'
 
 class User extends React.Component {
     constructor(props){
@@ -40,7 +41,7 @@ class User extends React.Component {
     render() {
         return (
             <div id="global-user">
-                <div className="user-show-header container">
+                <div className="user-show-header dashboard-container container">
                     {/* <h1>I am the user</h1> */}
                     <Profile {...this.props} no_show_latest={true}/>
                     <HeaderStats
@@ -48,6 +49,9 @@ class User extends React.Component {
                         n_dated={this.state.n_dated}
                         maxCnt={this.state.maxCnt}
                     />
+                </div>
+                <div className="user-show-body dashboard-container container">
+                    <UserStats />
                 </div>
             </div>
         )

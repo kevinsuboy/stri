@@ -34,9 +34,9 @@ u1 = User.create!(
             # name: Faker::Restaurant.name,
             description: Faker::Movies::HarryPotter.quote,
             # description: Faker::Restaurant.description,
-            distance: rand*1000,
+            distance: rand*30,
             user_id: u1.id,
-            estimated_duration: "#{rand(23)}:#{rand(59)}:#{rand(59)}"
+            estimated_duration: "#{rand(3)}:#{rand(59)}:#{rand(59)}"
         )
     )
 end
@@ -48,9 +48,9 @@ end
         # description: Faker::Marketing.buzzwords,
         description: Faker::TvShows::Friends.quote,
         # description: Faker::Food.description,
-        distance: rand*1000,
+        distance: rand*30,
         date: Faker::Date.between(from: 365.days.ago, to: Date.today),
-        duration: "#{rand(23)}:#{rand(59)}:#{rand(59)}",
+        duration: "#{rand(3)}:#{rand(59)}:#{rand(59)}",
         user_id: u1.id,
         route_id: routes.sample.id
     )
