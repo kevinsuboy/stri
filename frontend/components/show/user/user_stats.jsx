@@ -1,5 +1,6 @@
 import React from 'react';
 import {sportBlock} from '../../search/filter_util'
+import SportLogo from '../../dashboard/sport_logo'
 
 class UserStats extends React.Component {
     // debugger
@@ -54,14 +55,14 @@ class UserStats extends React.Component {
                 {sportBlock(this.handleChange)}
                 <h2>{d.getFullYear()}</h2>
                 <div className="ytd-stats">
-                    <div className="ytd-stat-item"><p>Total Distance:</p>     <p>{totalDist.toFixed(2)} mi                      </p></div>
-                    <div className="ytd-stat-item"><p>Total Time:</p>         <p>{dur.hours}h {dur.minutes}m {dur.seconds}s </p></div>
+                    <div className="ytd-stat-item"><p><i className="fas fa-route"></i> Total Distance:</p>     <p>{totalDist.toFixed(2)} mi                      </p></div>
+                    <div className="ytd-stat-item"><p><i className="far fa-clock"></i> Total Time:</p>         <p>{dur.hours}h {dur.minutes}m {dur.seconds}s </p></div>
                     <div className="ytd-stat-item"><p>Total Activities:</p>   <p>{this.props.activities.length}                                   </p></div>
                 </div>
-                <h2>{this.state.sport === "" ? "No Sport Selected" : this.state.sport}</h2>
+                <h2><SportLogo sport={this.state.sport} />{this.state.sport === "" ? "No Sport Selected" : this.state.sport}</h2>
                 <div className="ytd-stats">
-                    <div className="ytd-stat-item"><p>Total Distance:</p>     <p>{s_totalDist.toFixed(2)} mi                      </p></div>
-                    <div className="ytd-stat-item"><p>Total Time:</p>         <p>{s_dur.hours}h {s_dur.minutes}m {s_dur.seconds}s </p></div>
+                    <div className="ytd-stat-item"><p><i className="fas fa-route"></i> Total Distance:</p>     <p>{s_totalDist.toFixed(2)} mi                      </p></div>
+                    <div className="ytd-stat-item"><p><i className="far fa-clock"></i> Total Time:</p>         <p>{s_dur.hours}h {s_dur.minutes}m {s_dur.seconds}s </p></div>
                     <div className="ytd-stat-item"><p>Total Activities:</p>   <p>{s_Act.length}                                   </p></div>
                 </div>
             </div>

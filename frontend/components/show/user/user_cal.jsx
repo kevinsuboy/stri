@@ -27,7 +27,7 @@ class UserCal extends React.Component {
             })
         }
         if(this.props.dated[this.state.dateFilter] === undefined) debugger;
-        const dateActivities = (this.state.dateFilter && this.props.dated[this.state.dateFilter]) ? this.props.dated[this.state.dateFilter].map(id => this.props.allActivities[id]) : [];
+        const dateActivities = (this.state.dateFilter && this.props.dated[this.state.dateFilter]) ? this.props.dated[this.state.dateFilter].map(id => this.props.allActivities[id]) : this.props.activities;
         if(n_dated.length !== 0) debugger
         return (
             <div className="user-show-header-stats container">
