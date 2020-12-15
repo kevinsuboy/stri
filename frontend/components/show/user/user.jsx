@@ -1,6 +1,7 @@
 import React from 'react';
 import UserCal from './user_cal'
 import Profile from '../../dashboard/profile/profile'
+import ActivitiesTable from '../../index/activities_table'
 
 class User extends React.Component {
     constructor(props){
@@ -38,6 +39,7 @@ class User extends React.Component {
         )
     }
     render() {
+        if(this.props.activities.length !== 0) debugger
         return (
             <div id="global-user">
                 <div className="user-show-header dashboard-container container">
@@ -45,10 +47,11 @@ class User extends React.Component {
                     <Profile {...this.props} no_show_latest={true}/>
                     <UserCal
                         dated={this.state.dated}
-                        n_dated={this.state.n_dated}
                         maxCnt={this.state.maxCnt}
                     />
                 </div>
+                <ActivitiesTable deleteActivity={this.props.deleteActivity} activities={this.props.activities} />
+
             </div>
         )
     }

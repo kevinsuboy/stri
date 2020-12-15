@@ -12,6 +12,7 @@ class UserCal extends React.Component {
         for(const [k,v] of Object.entries(this.props.dated)){
             n_dated.push({
                 date: k, count: Math.round((v.length/this.props.maxCnt) * this.normCnt),
+                len: v.length,
                 activities: v
             })
         }
@@ -32,7 +33,7 @@ class UserCal extends React.Component {
                     }}
                     tooltipDataAttrs={v => {
                         return {
-                            'data-tip': (v && v.date) ? `${v.date}: ${v.count} activities` : "",
+                            'data-tip': (v && v.date) ? `${v.date}: ${v.len} activities` : "",
                         }
                     }}
                     values={n_dated}
@@ -42,6 +43,7 @@ class UserCal extends React.Component {
                         }
                         return `color-scale-${value.count}`;
                     }}
+                    // onClick={}
                 />
                 <ReactTooltip />
             </div>
