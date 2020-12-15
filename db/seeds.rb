@@ -40,10 +40,10 @@ u1 = User.create!(
         )
     )
 end
-100.times do |i|
+500.times do |i|
     Activity.create!(
         sport: sports[i % sports.length()],
-        title: d.activity_titles[i],
+        title: d.activity_titles[rand(d.activity_titles.length)],
         # title: Faker::Food.dish,
         # description: Faker::Marketing.buzzwords,
         description: Faker::TvShows::Friends.quote,

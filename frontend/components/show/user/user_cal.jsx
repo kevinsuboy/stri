@@ -1,11 +1,21 @@
 import React from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
+import ActivitiesTable from '../../index/activities_table'
 
 class UserCal extends React.Component {
     constructor(props) {
         super(props)
         this.normCnt = 4;
+        this.state = {
+            dateFilter: "",
+        }
+        this.handleCalClick = this.handleCalClick.bind(this);
+    }
+    handleCalClick(v) {
+        console.log('I am the cal click')
+        console.log(v)
+        this.setState({ dateFilter: v.date })
     }
     render() {
         const n_dated = [];
@@ -16,7 +26,9 @@ class UserCal extends React.Component {
                 activities: v
             })
         }
-        // debugger
+        if(this.props.dated[this.state.dateFilter] === undefined) debugger;
+        const dateActivities = (this.state.dateFilter && this.props.dated[this.state.dateFilter]) ? this.props.dated[this.state.dateFilter].map(id => this.props.allActivities[id]) : [];
+        if(n_dated.length !== 0) debugger
         return (
             <div className="user-show-header-stats container">
                 <CalendarHeatmap
@@ -43,9 +55,10 @@ class UserCal extends React.Component {
                         }
                         return `color-scale-${value.count}`;
                     }}
-                    // onClick={}
+                    onClick={this.handleCalClick}
                 />
                 <ReactTooltip />
+                <ActivitiesTable deleteActivity={this.props.deleteActivity} activities={dateActivities} />
             </div>
         )
     }

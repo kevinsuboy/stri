@@ -1,8 +1,5 @@
 @import 'partials/_base.scss';
 
-.user-show-header .dashboard-profile {
-    left: 1px;
-}
 .user-show-header {
     min-height: 250px;
     // height: 250px;
@@ -13,9 +10,13 @@
     // height: 330px;
     align-items: unset;
     // margin: 50px auto;
-    border: 1px solid blue;
-    // display: flex;
+    // border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
     // align-items: center;
+}
+.user-show-header .table-container {
+    margin-top: 16px;
 }
 .profile-latest-clear {
     min-height: 86px;
@@ -45,7 +46,7 @@
 }
 .user-show-body {
     width: 100%;
-    border: 1px solid green;
+    // border: 1px solid green;
     padding: 0px;
     margin: 64px 0;
 }

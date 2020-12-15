@@ -8,7 +8,9 @@ import { deleteActivity } from '../../../actions/activity_actions';
 const mSTP = ({ session: { id }, entities: { users, activities } }) => (
     Object.assign(
         selector(id, users),
-        {activities: activitySelector(users[id], activities)}
+        {activities: activitySelector(users[id], activities),
+        allActivities: activities
+        }
     )
 )
 const mDTP = dispatch => ({
