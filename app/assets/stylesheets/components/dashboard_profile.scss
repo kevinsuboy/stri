@@ -52,7 +52,12 @@
     justify-content: space-evenly;
     border-bottom: 1px solid $primary-gray;
 }
+.stat-item:hover {
+    color: $secondary-blue-hover;
+}
 .stat-item {
+    text-decoration: unset;
+    color: inherit;
     width: 100%;
     text-align: center;
     margin: 20px 0;

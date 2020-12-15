@@ -3,6 +3,7 @@ import SportLogo from '../sport_logo'
 import { Link } from 'react-router-dom'
 import ProfileIcon from './profile_icon';
 import ProfileStats from './profile_stats';
+import UserStats from '../../show/user/user_stats'
 
 export default (props) => {
     // const inits = username.split(" ").map((word) => word[0]).join("");
@@ -22,6 +23,9 @@ export default (props) => {
             {latest_el}
         </div>;
     const profile_stats = no_show_latest ? <div className="profile-latest-clear"></div>:null;
+    const user_stats = no_show_latest ? <div className="user-show-body dashboard-container container">
+        <UserStats {...props} />
+    </div> : null;
     return (
         <div className="dashboard-profile container">
         <div className="profile-container">
@@ -29,7 +33,8 @@ export default (props) => {
             <ProfileStats {...props}/>
             {profile_latest}
         </div>
-            {profile_stats}
+            {/* {profile_stats} */}
+            {user_stats}
         </div>
     )
 }

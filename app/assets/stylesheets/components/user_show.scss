@@ -1,7 +1,11 @@
 @import 'partials/_base.scss';
 
+.user-show-header .dashboard-profile {
+    left: 1px;
+}
 .user-show-header {
-    height: 250px;
+    min-height: 250px;
+    // height: 250px;
 }
 .user-show-header-stats {
     width: calc(100% - 270px - 61px); // 2 sets of padding to adj
@@ -9,16 +13,13 @@
     // height: 330px;
     align-items: unset;
     // margin: 50px auto;
-    // border: 1px solid red;
+    border: 1px solid blue;
     // display: flex;
     // align-items: center;
 }
 .profile-latest-clear {
     min-height: 86px;
     width: 100%;
-}
-.user-stats h1 {
-    font-size: 22px;
 }
 .user-stats {
     width: 270px;
@@ -30,10 +31,18 @@
     background-color: #fff;
     box-shadow: $my-box-shadow;
 }
+.user-stats p {
+    font-weight: normal;
+}
+.user-stats h1 {
+    font-size: 22px;
+}
 .user-stats .filter-group {
     width: calc(100% - 20px)
 }
 .user-show-body {
-    width: 90%;
+    width: 100%;
     border: 1px solid green;
+    padding: 0px;
+    margin: 32px 0;
 }

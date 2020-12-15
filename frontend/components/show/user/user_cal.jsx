@@ -2,7 +2,7 @@ import React from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 
-class HeaderStats extends React.Component {
+class UserCal extends React.Component {
     constructor(props) {
         super(props)
         this.normCnt = 4;
@@ -49,4 +49,4 @@ class HeaderStats extends React.Component {
     }
 }
 
-export default HeaderStats;
+export default UserCal;
