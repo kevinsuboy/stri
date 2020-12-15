@@ -25,10 +25,10 @@ class UserCal extends React.Component {
                     // weekdayLabels={["M", "T", "W", "T", "F"]}
                     onMouseOver={(e, v) => {
                         // debugger
-                        console.log(`e: ${e}`)
-                        console.log(e)
-                        console.log(`v: ${v}`)
-                        console.log(v)
+                        // console.log(`e: ${e}`)
+                        // console.log(e)
+                        // console.log(`v: ${v}`)
+                        // console.log(v)
                     }}
                     tooltipDataAttrs={v => {
                         return {

@@ -8,7 +8,7 @@
     // max-width: 1200px;
     width: 90%;
     margin-top: 12px;
-    // height: calc(100% - 110px);
+    height: calc(100% - 110px);
     border: 1px solid red;
     display: flex;
     justify-content: space-evenly;
@@ -22,6 +22,7 @@
     border: 1px solid orange;
     display: flex;
     padding: 0px;
+    margin-bottom: 70px;
     justify-content: center;
     flex-direction: column;
     position: relative;

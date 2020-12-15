@@ -37,6 +37,9 @@
 .user-stats h1 {
     font-size: 22px;
 }
+.user-stats h2 {
+    margin: 8px 0;
+}
 .user-stats .filter-group {
     width: calc(100% - 20px)
 }
@@ -44,5 +47,11 @@
     width: 100%;
     border: 1px solid green;
     padding: 0px;
-    margin: 32px 0;
+    margin: 64px 0;
+}
+.ytd-stat-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
 }

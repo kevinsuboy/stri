@@ -22,7 +22,7 @@ export default (props) => {
             <p className="latest-header">Latest Activity</p>
             {latest_el}
         </div>;
-    const profile_stats = no_show_latest ? <div className="profile-latest-clear"></div>:null;
+    // const profile_stats = no_show_latest ? <div className="profile-latest-clear"></div>:null;
     const user_stats = no_show_latest ? <div className="user-show-body dashboard-container container">
         <UserStats {...props} />
     </div> : null;
