@@ -21,6 +21,7 @@ sports = ["Ride","Run","Swim","Hike","Walk","Alpine_Ski",
                                         "Workout","Yoga","Other"
                                         ]
 routes = []
+locations = []
 
 u1 = User.create!(
     username: "Usain Bolt",
@@ -39,6 +40,16 @@ u1 = User.create!(
             estimated_duration: "#{rand(3)}:#{rand(59)}:#{rand(59)}"
         )
     )
+    5.times do |j|
+        latlng = d.locations.sample
+        # debugger
+        Location.create!(
+            lat: latlng[:lat],
+            lng: latlng[:lng],
+            route_id: routes[-1].id,
+            order: j
+        )
+    end
 end
 500.times do |i|
     Activity.create!(
