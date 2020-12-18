@@ -7,7 +7,8 @@ class User extends React.Component {
         super(props)
         this.state = {
             dated: {},
-            maxCnt: 0
+            maxCnt: 0,
+            mounted: false
         }
     }
     componentDidMount(){
@@ -17,7 +18,7 @@ class User extends React.Component {
         
         this.props.clearActivitiesFilter();
         this.props.changeActivitiesFilter("recentDays", days);
-        this.props.fetchFilteredUserActivities(this.props.userId)
+        this.props.fetchFilteredUserActivities(this.props.userId).then(() => this.setState({ mounted: true }))
     }
     componentWillReceiveProps(newProps){
         const dated = {};
@@ -46,7 +47,7 @@ class User extends React.Component {
                         allActivities={this.props.allActivities}
                         deleteActivity={this.props.deleteActivity}
                         activities={this.props.activities}
-                        dated={this.state.dated}
+                        dated={this.state.mounted ? this.state.dated : []}
                         maxCnt={this.state.maxCnt}
                     />
                 </div>

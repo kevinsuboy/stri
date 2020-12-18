@@ -114,6 +114,17 @@
     box-shadow: $my-box-shadow;
     margin-bottom: 20px;
     width: 95%;
+    // max-height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.feed-item-left {
+    width: 70%;
+}
+.feed-item .map {
+    height: auto;
+    width: 30%;
 }
 .feed-description {
     color: $secondary-gray;

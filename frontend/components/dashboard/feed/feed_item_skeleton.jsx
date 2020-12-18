@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Map from '../../map/map'
 
 export default ({username, date, body,activityId,userId}) => (
 <li key={activityId} className="feed-item">
@@ -13,9 +14,10 @@ export default ({username, date, body,activityId,userId}) => (
         </div>
     </Link>
     {body[0]}
-    </div>
     {body[1]}
     {body[2]}
     {body[3]}
+    </div>
+    <Map />
 </li>
 )
