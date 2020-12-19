@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :route, only: [:index,:update,:create,:edit,:destroy]
     resources :route, only: [:show] do
       resources :activity, only: [:index]
+      resources :location, only: [:index, :update,:create,:edit,:destroy]
     end
     resources :activity, only: [:index,:show,:update,:create,:edit,:destroy]
   end

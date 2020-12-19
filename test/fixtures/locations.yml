@@ -10,6 +10,10 @@
 #  updated_at :datetime         not null
 #  route_id   :integer          not null
 #
+# Indexes
+#
+#  index_locations_on_route_id  (route_id)
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately

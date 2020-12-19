@@ -10,6 +10,10 @@
 #  updated_at :datetime         not null
 #  route_id   :integer          not null
 #
+# Indexes
+#
+#  index_locations_on_route_id  (route_id)
+#
 class Location < ApplicationRecord
     validates :lat, :lng, :route_id, presence: true
     validates :order, uniqueness: { scope: :route_id }
