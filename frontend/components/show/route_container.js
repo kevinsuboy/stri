@@ -4,6 +4,7 @@ import { activitySelector } from '../selectors/index_selector'
 import { routeSelector } from '../selectors/show_selector'
 import { fetchRoute, deleteRoute } from '../../actions/route_actions'
 import { fetchRouteActivities } from '../../actions/activity_actions';
+import { fetchRouteLocations } from '../../actions/location_actions';
 
 const mSTP = ({ session: { id }, entities: { users, routes, activities } },{match}) => ({
     userId: id,
@@ -14,6 +15,7 @@ const mSTP = ({ session: { id }, entities: { users, routes, activities } },{matc
 const mDTP = dispatch => ({
     fetchRoute: (id) => dispatch(fetchRoute(id)),
     fetchRouteActivities: (routeId) => dispatch(fetchRouteActivities()(routeId)),
+    fetchRouteLocations: (routeId) => dispatch(fetchRouteLocations(routeId)),
     deleteAction: (id) => dispatch(deleteRoute(id))
 })
 export default connect(mSTP, mDTP)(Route)

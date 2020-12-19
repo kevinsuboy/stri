@@ -3,3 +3,4 @@
         json.partial! 'location', location: location
     end
 end
+json.order @locations.order(:order).pluck(:id)

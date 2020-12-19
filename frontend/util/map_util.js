@@ -27,21 +27,23 @@ class MapUtil {
         this.map.panTo(latLng);
     }
     calculateAndDisplayRoute(orDest, waypoints, travelMode) {
-        let req = {
-            origin: orDest.origin,
-            waypoints,
-            destination: orDest.origin,
-            travelMode: google.maps.TravelMode.WALKING,
-        };
-        this.directionsService.route(req,
-            (response, status) => {
-                if (status === "OK") {
-                    this.directionsRenderer.setDirections(response);
-                } else {
-                    window.alert("Directions request failed due to " + status);
+        if(orDest.origin && orDest.destination){
+            let req = {
+                origin: orDest.origin,
+                waypoints,
+                destination: orDest.destination,
+                travelMode: google.maps.TravelMode.WALKING,
+            };
+            this.directionsService.route(req,
+                (response, status) => {
+                    if (status === "OK") {
+                        this.directionsRenderer.setDirections(response);
+                    } else {
+                        window.alert("Directions request failed due to " + status);
+                    }
                 }
-            }
-        );
+            );
+        }
     }
 
 }

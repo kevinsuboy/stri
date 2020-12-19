@@ -44,15 +44,41 @@ const waypoints =
 class Map extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            orDest: {
+                origin: undefined,
+                destination: undefined
+            },
+            waypoints: undefined,
+        }
+    }
+    componentWillUpdate(nextProps) {
+        if(this.props.coord !== nextProps.coord){
+            const coord = nextProps.coord;
+            this.setState({
+                route: true,
+                orDest: {
+                    origin: coord[0],
+                    destination: coord[coord.length - 1]
+                },
+                waypoints: coord.slice(1,coord.length-1).map(el => ({
+                    location: el,
+                    stopover: false
+                }))
+            })
+        }
     }
     componentDidMount() {
         const map = this.refs.map;
         this.map = new google.maps.Map(map, mapOptions);
-        // this.maputil = new MapUtil(this.map);
-        // this.maputil.calculateAndDisplayRoute(orDest, waypoints);
+        this.maputil = new MapUtil(this.map);
     }
-
+    
     render() {
+        if (this.maputil){ 
+            debugger
+            this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints);
+        }
         return (
             <div className="map" ref="map">
                 Map

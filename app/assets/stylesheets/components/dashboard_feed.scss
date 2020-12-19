@@ -218,6 +218,9 @@
 .feed-stat-item {
     margin: 5px 0;
 }
+.feed-stat-item:hover {
+    color: unset !important;
+}
 .feed-stat-title {
     padding-top: 0;
 }

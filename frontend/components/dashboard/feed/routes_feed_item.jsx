@@ -32,6 +32,11 @@ export default ({ route, username, descr, userId, active=true}) => {
             </div>
         </div>
     return (
-        <FeedItem username={username} date={date} body={[title, stats, descr]} userId={userId}/>
+        <FeedItem
+            username={username}
+            date={date}
+            body={[title, stats, descr]}
+            userId={userId}
+        />
     )
 }

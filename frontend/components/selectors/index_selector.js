@@ -12,4 +12,3 @@ export const activitySelector = (currentUser, allActivities) => {
     }
     else return [];
 }
-

@@ -13,7 +13,7 @@ export default ({ activity, deleteActivity}) => {
         year: d.getUTCFullYear(),
     }
     // const d = new Date(activity.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    debugger
+    // debugger
     return (
         <ul className={`index-item`}>
             <li className="index-item-1 feed-item-title"><SportLogo sport={activity.sport} /> {activity.sport}</li>
