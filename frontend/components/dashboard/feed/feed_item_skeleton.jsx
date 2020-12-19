@@ -18,6 +18,8 @@ export default ({username, date, body,activityId,userId}) => (
     {body[2]}
     {body[3]}
     </div>
-    <Map />
+    <div className="feed-item-right">
+        <Map />
+    </div>
 </li>
 )

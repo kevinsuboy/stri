@@ -48,8 +48,8 @@ class Map extends React.Component {
     componentDidMount() {
         const map = this.refs.map;
         this.map = new google.maps.Map(map, mapOptions);
-        this.maputil = new MapUtil(this.map);
-        this.maputil.calculateAndDisplayRoute(orDest, waypoints);
+        // this.maputil = new MapUtil(this.map);
+        // this.maputil.calculateAndDisplayRoute(orDest, waypoints);
     }
 
     render() {
