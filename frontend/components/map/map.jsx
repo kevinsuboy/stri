@@ -52,9 +52,15 @@ class Map extends React.Component {
             waypoints: undefined,
         }
     }
+    convertLocations(locations){
+        return locations.order.map(id => 
+            Object.assign({}, { lat: parseFloat(locations[id].lat), lng: parseFloat(locations[id].lng)})
+        );
+    }
     componentWillUpdate(nextProps) {
-        if(this.props.coord !== nextProps.coord){
-            const coord = nextProps.coord;
+        if(this.props.locations !== nextProps.locations){
+            const coord = this.convertLocations(nextProps.locations);
+            // debugger
             this.setState({
                 route: true,
                 orDest: {
@@ -76,7 +82,7 @@ class Map extends React.Component {
     
     render() {
         if (this.maputil){ 
-            debugger
+            // debugger
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints);
         }
         return (

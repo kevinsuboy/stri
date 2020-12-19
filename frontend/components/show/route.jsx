@@ -24,11 +24,13 @@ class Route extends React.Component {
                     userId={this.props.userId}
                     active={false}
                     descr={
-                    el.description ? <div key={el.id * 3} className="feed-description">
-                        <h3>Description</h3>
-                        <p>{el.description}</p>
-                    </div> : <div></div>
-                }/>
+                        el.description ? <div key={el.id * 3} className="feed-description">
+                            <h3>Description</h3>
+                            <p>{el.description}</p>
+                        </div> : <div></div>
+                    }
+                    locations={this.props.locations}
+                />
             );
             // el.activity ? el.activity.forEach(act => activityItems.push(<li>{`${act.title}`}</li>)) : null;
         });

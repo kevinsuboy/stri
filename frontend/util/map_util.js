@@ -34,6 +34,7 @@ class MapUtil {
                 destination: orDest.destination,
                 travelMode: google.maps.TravelMode.WALKING,
             };
+            debugger
             this.directionsService.route(req,
                 (response, status) => {
                     if (status === "OK") {
