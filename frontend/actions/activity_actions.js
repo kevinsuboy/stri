@@ -41,6 +41,8 @@ export const fetchRouteActivities = filters => (routeId) => dispatch => (
 export const updateActivity = (data,id) => dispatch => (
     APIUtil.updateActivity(data,id).then(activity => (
         dispatch(receiveActivity(activity))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
     ))
 );
 export const deleteActivity = (id) => dispatch => (

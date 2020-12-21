@@ -42,8 +42,11 @@ class Api::ActivityController < ApplicationController
         route = Route.find_by(id:params[:routeId])
         # debugger
         @activity.update(route_id: route.id) if(route)
-        @activity.update(activity_params)
-        render :show
+        if @activity.update(activity_params)
+            render :show
+        else
+            render json: @activity.errors.full_messages, status: 422
+        end
     end
     def destroy
         @activity = Activity.find_by(id:params[:id])
@@ -63,7 +66,7 @@ class Api::ActivityController < ApplicationController
         if @activity.save
             render :show
         else
-            debugger
+            # debugger
             render json: @activity.errors.full_messages, status: 422
         end
     end

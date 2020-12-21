@@ -30,8 +30,11 @@ class Api::RouteController < ApplicationController
     def update
         # debugger
         @route = Route.find_by(id:params[:id])
-        @route.update(route_params)
-        render :show
+        if @route.update(route_params)
+            render :show
+        else
+            render json: @route.errors.full_messages, status: 422
+        end
     end
     def destroy
         @route = Route.find_by(id:params[:id])

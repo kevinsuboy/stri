@@ -41,6 +41,8 @@ export const fetchUserRoutes = filters => (userId) => dispatch => (
 export const updateRoute = (data, id) => dispatch => (
     APIUtil.updateRoute(data, id).then(route => (
         dispatch(receiveRoute(route))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
     ))
 )
 export const deleteRoute = (id) => dispatch => (

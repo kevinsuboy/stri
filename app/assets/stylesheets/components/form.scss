@@ -108,11 +108,14 @@
     font-weight: normal;
     font-size: 12px;
     top: unset;
-    left: 0px;
+    left: 10px;
     transform: translate(10%,0%);
-    bottom: 75px;
+    bottom: 85px;
     height: 40px;
     width: 25%;
+}
+.route-errors {
+    bottom: 95px;
 }
 .activity-errors-arrow, .route-errors-arrow {
     top: 60px;
