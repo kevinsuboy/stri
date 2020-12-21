@@ -3,6 +3,7 @@ import { calcTime } from '../../util/calc_util'
 import { Redirect } from 'react-router-dom';
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';
+import Map from '../map/map'
 
 import RouteErrorContainer from './route_form_error_container'
 
@@ -65,10 +66,15 @@ class RouteForm extends React.Component {
         s = s ? s : "0";
         // debugger
         return (
-            <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
-                <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
-                <TitleDescr title={this.state.name} description={this.state.description} handleChange={this.handleChange} activity={false}/>
-                <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
+            <form className={`activity-edit-form route-form`} onSubmit={this.handleSubmit}>
+                <div className="activity-edit-form-body">
+                    <div className="activity-edit-form-content">
+                        <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
+                        <TitleDescr title={this.state.name} description={this.state.description} handleChange={this.handleChange} activity={false}/>
+                        <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
+                    </div>
+                    <Map />
+                </div>
                 <RouteErrorContainer />
             </form>
         )

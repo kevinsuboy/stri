@@ -32,6 +32,17 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.activity-edit-form-body .map {
+    width: 70%;
+    margin-left: 35px;
+}
+.activity-edit-form-content {
+    width: 30%;
+}
+.activity-edit-form-body {
+    display: flex;
+    flex-direction: row;
+}
 .activity-edit-form {
     font-size: 15px;
     margin: 0 auto;
@@ -39,6 +50,13 @@
     padding: 2%;
     width: 96%;
     min-width: 400px;
+}
+.route-form .dur-group {
+    margin: 0;
+    margin-top: 20px;
+}
+.route-form .r1 {
+    flex-direction: column;
 }
 .dist-input {
     display: inline-block;
@@ -81,7 +99,9 @@
     margin-left: 50px;
 }
 .activity-edit-form .session-submit {
-    width: 25%;
+    height: 50px;
+    width: 100%;
+    // width: 25%;
     min-width: 200px;
 }
 .activity-errors, .route-errors {
