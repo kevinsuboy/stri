@@ -77,7 +77,7 @@ class Map extends React.Component {
     componentDidMount() {
         const map = this.refs.map;
         this.map = new google.maps.Map(map, mapOptions);
-        this.maputil = new MapUtil(this.map, this.props.draggable);
+        this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange);
         // debugger
         this.registerListeners();
     }
@@ -90,7 +90,7 @@ class Map extends React.Component {
     render() {
         if (this.maputil){ 
             // debugger
-            this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints);
+            this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
         }
         return (
             <div className="map" ref="map">

@@ -1,8 +1,9 @@
 /* global google:false */
 
 class MapUtil {
-    constructor(map, draggable=false) {
+    constructor(map, draggable=false, handleCoordChange=()=>{}) {
         this.map = map;
+        this.handleCoordChange = handleCoordChange;
         this.directionsService = new google.maps.DirectionsService();
         this.directionsRenderer = new google.maps.DirectionsRenderer({draggable});
         window.directionsRenderer = this.directionsRenderer;
@@ -26,6 +27,7 @@ class MapUtil {
             const res = this.computeTotalDistance(this.directionsRenderer.getDirections());
             const loc = this.getLocations(this.directionsRenderer.getDirections());
             // debugger
+            if(this.handleCoordChange) this.handleCoordChange(res,loc);
         });
     }
     getLocations(result) {
@@ -37,6 +39,10 @@ class MapUtil {
         )
         coord.push({ lat: myleg.end_location.lat(), lng: myleg.end_location.lng() })
         return coord;
+    }
+    getTime(result) {
+        const myleg = result.routes[0].legs[0];
+        return myleg.duration.value;
     }
     computeTotalDistance(result) {
         let total = 0;
@@ -56,13 +62,14 @@ class MapUtil {
         });
         this.map.panTo(latLng);
     }
-    calculateAndDisplayRoute(orDest, waypoints, travelMode) {
+    calculateAndDisplayRoute(orDest, waypoints, travelMode = google.maps.TravelMode.WALKING) {
         if(orDest.origin && orDest.destination){
             let req = {
                 origin: orDest.origin,
                 waypoints,
                 destination: orDest.destination,
-                travelMode: google.maps.TravelMode.WALKING,
+                travelMode: travelMode,
+                // travelMode: google.maps.TravelMode.WALKING,
             };
             // debugger
             this.directionsService.route(req,
