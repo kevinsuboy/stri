@@ -73,7 +73,7 @@ class RouteForm extends React.Component {
                         <TitleDescr title={this.state.name} description={this.state.description} handleChange={this.handleChange} activity={false}/>
                         <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
                     </div>
-                    <Map />
+                    <Map locations={this.props.locations} draggable={true}/>
                 </div>
                 <RouteErrorContainer />
             </form>

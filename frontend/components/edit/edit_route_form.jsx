@@ -7,6 +7,7 @@ class EditActivityForm extends React.Component {
     }
     componentDidMount() {
         this.props.fetchRoute(this.props.routeId);
+        this.props.fetchRouteLocations(this.props.match.params.routeId);
     }
     render() {
         // debugger

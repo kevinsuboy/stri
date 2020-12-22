@@ -77,9 +77,16 @@ class Map extends React.Component {
     componentDidMount() {
         const map = this.refs.map;
         this.map = new google.maps.Map(map, mapOptions);
-        this.maputil = new MapUtil(this.map);
+        this.maputil = new MapUtil(this.map, this.props.draggable);
+        // debugger
+        this.registerListeners();
     }
-    
+    registerListeners() {
+        google.maps.event.addListener(this.map, 'click', (event) => {
+            const coords = getCoordsObj(event.latLng);
+            // debugger
+        });
+    }
     render() {
         if (this.maputil){ 
             // debugger

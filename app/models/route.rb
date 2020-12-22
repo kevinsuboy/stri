@@ -19,5 +19,6 @@
 class Route < ApplicationRecord
     validates :name, :description, :distance, presence: true
     has_many :activity
+    has_many :locations, dependent: :delete_all
     belongs_to :user
 end
