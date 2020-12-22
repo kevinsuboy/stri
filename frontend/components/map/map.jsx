@@ -50,7 +50,9 @@ class Map extends React.Component {
                 destination: undefined
             },
             waypoints: undefined,
+            init: true
         }
+        this.init = true;
     }
     convertLocations(locations){
         return locations.order.map(id => 
@@ -58,11 +60,11 @@ class Map extends React.Component {
         );
     }
     componentWillUpdate(nextProps) {
-        if(this.props.locations !== nextProps.locations){
+        if(this.state.init && this.props.locations !== nextProps.locations){
             const coord = this.convertLocations(nextProps.locations);
-            // debugger
+            debugger
             this.setState({
-                route: true,
+                init: false,
                 orDest: {
                     origin: coord[0],
                     destination: coord[coord.length - 1]
@@ -88,8 +90,10 @@ class Map extends React.Component {
         });
     }
     render() {
-        if (this.maputil){ 
-            // debugger
+        debugger
+        if ((this.init && !this.state.init) && this.maputil){ 
+            debugger
+            this.init = false;
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
         }
         return (

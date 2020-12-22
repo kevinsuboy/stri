@@ -24,10 +24,13 @@ class MapUtil {
     }
     directionsChanged(){
         this.directionsRenderer.addListener("directions_changed", (e) => {
-            const res = this.computeTotalDistance(this.directionsRenderer.getDirections());
-            const loc = this.getLocations(this.directionsRenderer.getDirections());
+            const dir = this.directionsRenderer.getDirections();
+            //
+            const res = this.computeTotalDistance(dir);
+            const loc = this.getLocations(dir);
+            const time = this.getTime(dir);
             // debugger
-            if(this.handleCoordChange) this.handleCoordChange(res,loc);
+            if(this.handleCoordChange) this.handleCoordChange(res,loc,time);
         });
     }
     getLocations(result) {
@@ -51,8 +54,9 @@ class MapUtil {
         for (let i = 0; i < myroute.legs.length; i++) {
             total += myroute.legs[i].distance.value;
         }
-        total = total / 1000 / 1.609;
-        return total + " mi";
+        return total / 1000 / 1.609;
+        // total = total / 1000 / 1.609;
+        // return total + " mi";
         // document.getElementById("total").innerHTML = total + " mi";
     }
     placeMarkerAndPanTo(latLng) {

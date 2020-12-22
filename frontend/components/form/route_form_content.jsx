@@ -1,13 +1,11 @@
 import React from 'react';
 import { calcTime } from '../../util/calc_util'
-import { Redirect } from 'react-router-dom';
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';
-import Map from '../map/map'
 
 import RouteErrorContainer from './route_form_error_container'
 
-class RouteForm extends React.Component {
+class RouteFormContent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -76,4 +74,4 @@ class RouteForm extends React.Component {
     }
 }
 
-export default RouteForm;
+export default RouteFormContent;
