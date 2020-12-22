@@ -4,7 +4,7 @@
 #
 #  id                 :bigint           not null, primary key
 #  description        :string           not null
-#  distance           :integer          not null
+#  distance           :float            not null
 #  estimated_duration :time             not null
 #  name               :string           not null
 #  created_at         :datetime         not null
