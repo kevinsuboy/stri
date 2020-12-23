@@ -1,10 +1,13 @@
 @parentId_arr.each do |parentId|
     json.set! parentId do
-        @locations.each do |location|
+        pLoc = @locations.select{|loc| loc.route_id == parentId}
+        pLoc.each do |location|
             json.set! location.id do
                 json.partial! 'location', location: location
             end
         end
-        json.order @locations.order(:order).pluck(:id)
+        # debugger
+        json.order pLoc.sort_by{|ar| ar.order}.map{|ar| ar.id}
     end
 end
+# debugger

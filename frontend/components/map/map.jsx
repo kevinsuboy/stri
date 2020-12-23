@@ -62,7 +62,7 @@ class Map extends React.Component {
     componentWillUpdate(nextProps) {
         if(this.state.init && this.props.locations !== nextProps.locations){
             const coord = this.convertLocations(nextProps.locations);
-            debugger
+            // debugger
             this.setState({
                 init: false,
                 orDest: {
@@ -90,9 +90,9 @@ class Map extends React.Component {
         });
     }
     render() {
-        debugger
+        // debugger
         if ((this.init && !this.state.init) && this.maputil){ 
-            debugger
+            // debugger
             this.init = false;
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
         }

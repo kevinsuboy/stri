@@ -8,7 +8,8 @@ class Routes extends React.Component {
     componentDidMount() {
         // this.props.fetchUserRoutes(this.props.userId);
         this.props.changeRoutesFilter("recentDays", 30);
-        this.props.fetchFilteredUserRoutes(this.props.userId);
+        this.props.fetchFilteredUserRoutes(this.props.userId)
+            .then(el => this.props.fetchAllLocations(Object.keys(el.routes)));
     }
     componentWillUpdate() {
         this.props.clearRoutesFilter();

@@ -2,11 +2,10 @@ class Api::RouteController < ApplicationController
     def index
         # debugger
         if params[:user_id] != "undefined"
-            @routes = Route.where(user_id: params[:user_id])
+            @routes = Route.where(user_id: params[:user_id]).order("created_at desc")
         else
-            @routes = Route.all
+            @routes = Route.all.order("created_at desc")
         end
-        @routes = @routes.order("created_at desc")
         if params[:recentDays] && params[:recentDays] != ""
             start_date = Date.today - params[:recentDays].to_i
             # debugger
