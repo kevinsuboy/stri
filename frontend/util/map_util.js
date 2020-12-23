@@ -22,6 +22,13 @@ class MapUtil {
             this.placeMarkerAndPanTo(e.latLng);
         });
     }
+    placeMarkerAndPanTo(latLng) {
+        new google.maps.Marker({
+            position: latLng,
+            map: this.map,
+        });
+        this.map.panTo(latLng);
+    }
     directionsChanged(){
         this.directionsRenderer.addListener("directions_changed", (e) => {
             const dir = this.directionsRenderer.getDirections();
@@ -35,12 +42,12 @@ class MapUtil {
     }
     getLocations(result) {
         const coord = [];
-        const myleg = result.routes[0].legs[0];
-        coord.push({ lat: myleg.start_location.lat(), lng: myleg.start_location.lng()})
-        myleg.via_waypoints.forEach(el => 
-            coord.push({ lat: el.lat(), lng: el.lng() })
-        )
-        coord.push({ lat: myleg.end_location.lat(), lng: myleg.end_location.lng() })
+        const mylegs = result.routes[0].legs;
+        mylegs.forEach(leg => {
+            coord.push({ lat: leg.start_location.lat(), lng: leg.start_location.lng()})
+        })
+        const dest = mylegs.pop();
+        coord.push({ lat: dest.end_location.lat(), lng: dest.end_location.lng()})
         return coord;
     }
     getTime(result) {
@@ -58,13 +65,6 @@ class MapUtil {
         // total = total / 1000 / 1.609;
         // return total + " mi";
         // document.getElementById("total").innerHTML = total + " mi";
-    }
-    placeMarkerAndPanTo(latLng) {
-        new google.maps.Marker({
-            position: latLng,
-            map: this.map,
-        });
-        this.map.panTo(latLng);
     }
     calculateAndDisplayRoute(orDest, waypoints, travelMode = google.maps.TravelMode.WALKING) {
         if(orDest.origin && orDest.destination){

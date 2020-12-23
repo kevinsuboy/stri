@@ -25,13 +25,14 @@ export const fetchUserRoute = (userId, id) => (
         url: `api/user/${userId}/route/${id}`
     })
 );
-export const updateRoute = (data, id) => (
-    $.ajax({
+export const updateRoute = (data, id) => {
+    debugger
+    return $.ajax({
         method: 'PATCH',
         url: `api/route/${id}`,
         data
     })
-)
+}
 export const deleteRoute = routeId => (
     $.ajax({
         method: 'DELETE',

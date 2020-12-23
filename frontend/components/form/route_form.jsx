@@ -20,8 +20,8 @@ class RouteForm extends React.Component {
         this.handleCoordChange = this.handleCoordChange.bind(this)
     }
     handleCoordChange(distance, locations, time) {
-        console.log("coord changed!")
-        debugger
+        // console.log("coord changed!")
+        // debugger
         this.setState({
             distance,
             locations,
@@ -73,7 +73,7 @@ class RouteForm extends React.Component {
         h = h ? h : "0";
         m = m ? m : "0";
         s = s ? s : "0";
-        if(this.state.locations) debugger
+        // if(this.state.locations) debugger
         // debugger
         return (
             <div className={`activity-edit-form route-form`}>

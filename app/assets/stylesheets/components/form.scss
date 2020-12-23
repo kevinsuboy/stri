@@ -62,6 +62,7 @@
     display: inline-block;
 }
 .dur-input-group p, .dist-input-group p {
+    font-size: 36px;
     margin-top: 10px;
     margin-right: 10px;
 }
@@ -69,6 +70,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+    color: $secondary-gray;
+}
+.dur-input-group {
+    justify-content: space-between;
 }
 .dur-input {
     width: 10%;
