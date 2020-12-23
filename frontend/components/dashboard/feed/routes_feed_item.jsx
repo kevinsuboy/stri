@@ -31,6 +31,7 @@ export default ({ route, username, descr, userId, active=true, locations}) => {
                 <p className="feed-stat-value stat-value">{dur.hours}{dur.minutes}{dur.seconds}</p>
             </div>
         </div>
+        debugger
     return (
         <FeedItem
             username={username}

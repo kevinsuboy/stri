@@ -16,7 +16,7 @@ class Routes extends React.Component {
     }
     render() {
         // debugger
-        const routeItems = this.props.routes.map(el => <RoutesFeedItem key={el.id} route={el} userId={this.props.userId} username={this.props.username}/>);
+        const routeItems = this.props.routes.map(el => <RoutesFeedItem key={el.id} route={el} userId={this.props.userId} username={this.props.username} locations={this.props.locations[el.id]}/>);
         return (
             <div className="feed-body-container feed-body-scroll">
                 {/* <h1>I am the activities</h1> */}
