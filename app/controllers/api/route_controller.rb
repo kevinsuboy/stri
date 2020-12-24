@@ -31,7 +31,11 @@ class Api::RouteController < ApplicationController
         @locations = Location.where(route_id: params[:id]).order(:order)
         @locations.each do |loc|
             pLoc = params[:locations][loc[:order].to_s];
-            if !loc.update(loc_params(pLoc))
+            if !pLoc
+                #! handle deletes
+                loc.destroy
+                # debugger
+            elsif !loc.update(loc_params(pLoc))
                 render json: loc.errors.full_messages, status: 422
             end
         end
