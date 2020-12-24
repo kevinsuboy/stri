@@ -37,7 +37,6 @@ class MapUtil {
             const res = this.computeTotalDistance(dir);
             const loc = this.getLocations(dir);
             const time = this.getTime(dir);
-            const eve = e;
             debugger
             if(this.handleCoordChange) this.handleCoordChange(res,loc,time);
         });
@@ -48,7 +47,7 @@ class MapUtil {
         mylegs.forEach(leg => {
             coord.push({ lat: leg.start_location.lat(), lng: leg.start_location.lng()})
         })
-        const dest = mylegs.pop();
+        const dest = mylegs[mylegs.length - 1];
         coord.push({ lat: dest.end_location.lat(), lng: dest.end_location.lng()})
         return coord;
     }
@@ -73,14 +72,15 @@ class MapUtil {
             let req = {
                 origin: orDest.origin,
                 waypoints,
+                optimizeWaypoints: true,
                 destination: orDest.destination,
                 travelMode: travelMode,
-                // travelMode: google.maps.TravelMode.WALKING,
+                // travelMode: google.maps.TravelMode.DRIVING,
             };
-            // debugger
             this.directionsService.route(req,
                 (response, status) => {
                     if (status === "OK") {
+                        debugger
                         this.directionsRenderer.setDirections(response);
                     } else {
                         window.alert("Directions request failed due to " + status);

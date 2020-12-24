@@ -50,7 +50,7 @@ class Map extends React.Component {
                     origin: coord[0],
                     destination: coord[coord.length - 1]
                 },
-                waypoints: coord.slice(1,coord.length-1).map(el => ({
+                waypoints: coord.slice(1,coord.length - 1).map(el => ({
                     location: el,
                     stopover: true
                 }))
