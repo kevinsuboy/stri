@@ -19,7 +19,8 @@ class MapUtil {
 
     dropMarkerListener(){
         this.map.addListener("click", (e) => {
-            this.placeMarkerAndPanTo(e.latLng);
+            // this.placeMarkerAndPanTo(e.latLng);
+            console.log("marker dropped")
         });
     }
     placeMarkerAndPanTo(latLng) {
@@ -36,7 +37,8 @@ class MapUtil {
             const res = this.computeTotalDistance(dir);
             const loc = this.getLocations(dir);
             const time = this.getTime(dir);
-            // debugger
+            const eve = e;
+            debugger
             if(this.handleCoordChange) this.handleCoordChange(res,loc,time);
         });
     }

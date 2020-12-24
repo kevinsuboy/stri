@@ -40,3 +40,8 @@ export const calcTime = (activity) => {
         pace
     }
 }
+export const convertLocations = (locations)=>{
+    return locations.order.map(id =>
+        Object.assign({}, { lat: parseFloat(locations[id].lat), lng: parseFloat(locations[id].lng) })
+    );
+}

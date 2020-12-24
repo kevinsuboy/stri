@@ -1,8 +1,9 @@
 import React from 'react';
 import Map from '../map/map'
-import { calcTime } from '../../util/calc_util'
+import { calcTime, convertLocations } from '../../util/calc_util'
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';
+import _ from "lodash"
 
 import RouteErrorContainer from './route_form_error_container'
 
@@ -18,14 +19,38 @@ class RouteForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleCoordChange = this.handleCoordChange.bind(this)
+        this.handleCoordAdd = this.handleCoordAdd.bind(this)
+        this.handleCoordDel = this.handleCoordDel.bind(this)
+    }
+    componentWillReceiveProps(nextProps){
+        if(nextProps.locations){
+            // debugger
+            this.setState({
+                locations: convertLocations(nextProps.locations)
+            })
+        }
+    }
+    handleCoordAdd(location) {
+        const newLoc = this.state.locations;
+        newLoc.push(location);
+        this.setState({
+            locations: newLoc
+        })
+    }
+    handleCoordDel() {
+        debugger
+        this.setState({
+            delta: "del"
+        })
     }
     handleCoordChange(distance, locations, time) {
         // console.log("coord changed!")
-        // debugger
+        debugger
         this.setState({
             distance,
             locations,
             estimated_duration: { hours: Math.floor(time/3600)+"h ", minutes: Math.floor((time/60)%60)+"m ", seconds: time%60+"s " },
+            delta: false
         })
     }
     componentDidUpdate(ownProps) {
@@ -73,20 +98,25 @@ class RouteForm extends React.Component {
         h = h ? h : "0";
         m = m ? m : "0";
         s = s ? s : "0";
+        // if(this.props.locations) debugger
         // if(this.state.locations) debugger
-        // debugger
+        debugger
         return (
             <div className={`activity-edit-form route-form`}>
                 <div className="activity-edit-form-body">
                     <form className="activity-edit-form-content" onSubmit={this.handleSubmit}>
                         <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
                         <TitleDescr title={this.state.name} description={this.state.description} handleChange={this.handleChange} activity={false} />
+                        <button className={`session-submit link session-link`} type="button" onClick={this.handleCoordDel}> Delete Last Location</button>
                         <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
                         <RouteErrorContainer />
                     </form>
-                    <Map locations={this.props.locations}
+                    <Map
+                        locations={this.state.locations}
+                        delta={this.state.delta}
                         draggable={true}
                         handleCoordChange={this.handleCoordChange}
+                        handleCoordAdd={this.handleCoordAdd}
                     />
                 </div>
             </div>

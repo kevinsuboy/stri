@@ -1,45 +1,23 @@
 import React from 'react';
+import {convertLocations} from '../../util/calc_util'
+import _ from "lodash"
 
 const getCoordsObj = latLng => ({
     lat: latLng.lat(),
     lng: latLng.lng()
 });
-import MapUtil from '../../util/map_util'
-
 const mapOptions = {
     center: {
         lat: 33.6861,
         lng: -117.8263
     }, // Irvine coords
-    // center: {
+   // center: {
     //     lat: 37.773972,
     //     lng: -122.431297
     // }, // San Francisco coords
     zoom: 13
 };
-
-//! Testing coords
-const orDest =
-{
-    origin: { // Civic Center
-        lat: 33.6861,
-        lng: -117.8263
-    },
-    destination: { // Heritage Park
-        lat: 33.7002,
-        lng: -117.7797
-    }
-}
-const waypoints =
-[
-    {
-        location: { // In n Out
-            lat: 33.69516851340369, 
-            lng: -117.82704364411289
-        },
-        stopover: false
-    },
-]
+import MapUtil from '../../util/map_util'
 
 class Map extends React.Component {
     constructor(props){
@@ -54,15 +32,18 @@ class Map extends React.Component {
         }
         this.init = true;
     }
-    convertLocations(locations){
-        return locations.order.map(id => 
-            Object.assign({}, { lat: parseFloat(locations[id].lat), lng: parseFloat(locations[id].lng)})
-        );
-    }
     componentWillUpdate(nextProps) {
-        if(this.state.init && this.props.locations !== nextProps.locations){
-            const coord = this.convertLocations(nextProps.locations);
-            // debugger
+        const baseCond = this.props !== nextProps;
+        const baseCondA = this.props.locations !== nextProps.locations;
+        // const condA = this.props.locations && (this.props.locations.length !== nextProps.locations.length);
+        this.delta = nextProps.delta;
+        if(baseCond && (baseCondA && (this.state.init) || nextProps.delta)){
+            // if(baseCond && (this.state.init || condA)){
+            let coord = undefined;
+            if (!Array.isArray(nextProps.locations)) coord = convertLocations(nextProps.locations);
+            else coord = _.cloneDeep(nextProps.locations);
+            if(nextProps.delta === "del") coord.pop();
+            debugger
             this.setState({
                 init: false,
                 orDest: {
@@ -84,16 +65,18 @@ class Map extends React.Component {
         this.registerListeners();
     }
     registerListeners() {
-        google.maps.event.addListener(this.map, 'click', (event) => {
-            const coords = getCoordsObj(event.latLng);
-            // debugger
-        });
+        // google.maps.event.addListener(this.map, 'click', (event) => {
+        //     const coords = getCoordsObj(event.latLng);
+        //     debugger
+        // });
     }
     render() {
         // debugger
-        if ((this.init && !this.state.init) && this.maputil){ 
-            // debugger
+        const init = this.init && !this.state.init;
+        if (this.maputil && (init || this.delta)){ 
             this.init = false;
+            this.delta = false;
+            debugger
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
         }
         return (
