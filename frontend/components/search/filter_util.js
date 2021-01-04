@@ -5,7 +5,7 @@ export const sportBlock = (handleChange) => <div className="filter-group filter-
     <select className="filter-select session-input" name="sport"
         onChange={handleChange("sport")}
     >
-        <option value="" defaultValue>All Sport Types</option>
+        <option value="" defaultValue>Select a Sport</option>
         <option value="Ride">Ride</option>
         <option value="Run">Run</option>
         <option value="Swim">Swim</option>

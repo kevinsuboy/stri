@@ -113,6 +113,10 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.feed-route {
+    position: absolute;
+    bottom: 0px;
+}
 .feed-route * {
     font-size: 18px;
     font-weight: normal;

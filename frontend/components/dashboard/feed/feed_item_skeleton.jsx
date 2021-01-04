@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Map from '../../map/map'
 
-export default ({username, date, body,activityId,userId, locations}) => (
+export default ({username, date, body,activityId,userId, locations, map=true}) => (
 <li key={activityId} className="feed-item">
-    <div className="feed-item-left">
+    <div className={map ? `feed-item-left` : `feed-item-whole`}>
     <Link to={`/athlete/${userId}`} key={activityId} className="feed-item-header profile-nav">
         <img className="feed-pic profile-pic" alt="" />
         <div className="feed-header-body">
@@ -18,8 +18,8 @@ export default ({username, date, body,activityId,userId, locations}) => (
     {body[2]}
     {body[3]}
     </div>
-    <div className="feed-item-right">
+    {map ? <div className="feed-item-right">
         <Map locations={locations}/>
-    </div>
+    </div> : null}
 </li>
 )

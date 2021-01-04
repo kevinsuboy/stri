@@ -32,6 +32,6 @@ export default ({ activity, username, descr, route, userId, active = true}) => {
             </div>
         </div>
     return (
-        <FeedItem activityId={activity.id} username={username} date={date} body={[title, stats, descr, route]} userId={userId} />
+        <FeedItem activityId={activity.id} username={username} date={date} body={[title, stats, descr, route]} userId={userId} map={false}/>
     )
 }
