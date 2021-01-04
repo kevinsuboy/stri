@@ -4,7 +4,7 @@ export default ({ title, description, handleChange, activity=true }) => {
     return (
         <div>
         <div className="r3">
-            <label>Title
+            <label>{activity ? "Title" : "Name"}
         <input
                     type="text"
                     className="filter-input session-input"

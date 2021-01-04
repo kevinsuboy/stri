@@ -11,6 +11,7 @@ class MapUtil {
         this.directionsRenderer.setMap(map);
         
         this.initListeners();
+        this.markers = [];
     }
     initListeners(){
         this.dropMarkerListener();
@@ -19,12 +20,32 @@ class MapUtil {
 
     dropMarkerListener(){
         this.map.addListener("click", (e) => {
-            // this.placeMarkerAndPanTo(e.latLng);
+            this.markers.push({lat: e.latLng.lat(), lng: e.latLng.lng()})
+            if(this.markers.length > 1){
+                this.calculateAndDisplayRoute(
+                    {
+                        origin: this.markers[0],
+                        destination: this.markers[this.markers.length-1]
+                    },
+                    this.markers.slice(1, this.markers.length - 1).map(el => ({
+                        location: el,
+                        stopover: true
+                    })),
+                    google.maps.TravelMode.WALKING
+                )
+                this.orig.setMap(null);
+                this.orig = null;
+            }
+            else{
+                this.placeMarkerAndPanTo(e.latLng);
+            }
+            // this.calculateAndDisplayRoute({origin: this.markers[0], destination: this.markers[0]}, [], google.maps.TravelMode.WALKING)
             console.log("marker dropped")
         });
     }
     placeMarkerAndPanTo(latLng) {
-        new google.maps.Marker({
+        debugger
+        this.orig = new google.maps.Marker({
             position: latLng,
             map: this.map,
         });

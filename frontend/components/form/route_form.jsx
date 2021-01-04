@@ -12,7 +12,7 @@ class RouteForm extends React.Component {
         super(props)
         this.state = {
             distance: "",
-            estimated_duration: { hours: "0h ", minutes: "0m ", seconds: "1s " },
+            estimated_duration: { hours: "0h ", minutes: "0m ", seconds: "0s " },
             name: "",
             description: "",
         }
@@ -100,7 +100,7 @@ class RouteForm extends React.Component {
         s = s ? s : "0";
         // if(this.props.locations) debugger
         // if(this.state.locations) debugger
-        debugger
+        // debugger
         return (
             <div className={`activity-edit-form route-form`}>
                 <div className="activity-edit-form-body">
