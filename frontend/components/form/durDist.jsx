@@ -16,7 +16,7 @@ export default ({ duration, distance, handleChange }) => {
                             value={distance !== "" ? Math.round(distance*100)/100:null}
                             onChange={handleChange("distance")}
                         /> */}
-                    </div><p>{distance !== "" ? Math.round(distance * 100) / 100 : "0 "} mi</p>
+                    </div><p>{distance !== "" ? Math.round(distance * 100) / 100 : "0"} mi</p>
                 </div>
             </label>
             <div className="dur-group">

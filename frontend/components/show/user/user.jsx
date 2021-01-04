@@ -12,8 +12,8 @@ class User extends React.Component {
         }
     }
     componentDidMount(){
-        const startDate = new Date(new Date().getFullYear(), 0, 1)
-        const endDate = new Date()
+        const endDate = new Date();
+        const startDate = new Date(); startDate.setFullYear(endDate.getFullYear() - 1);
         const days = Math.ceil(endDate - startDate)/( 1000 * 3600 * 24);
         
         this.props.clearActivitiesFilter();

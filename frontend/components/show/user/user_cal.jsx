@@ -29,11 +29,13 @@ class UserCal extends React.Component {
         if(this.props.dated[this.state.dateFilter] === undefined) debugger;
         const dateActivities = (this.state.dateFilter && this.props.dated[this.state.dateFilter]) ? this.props.dated[this.state.dateFilter].map(id => this.props.allActivities[id]) : this.props.activities;
         if(n_dated.length !== 0) debugger
+        const today = new Date();
+        const yearAgo = new Date(); yearAgo.setFullYear(today.getFullYear() - 1);
         return (
             <div className="user-show-header-stats container">
                 <CalendarHeatmap
-                    startDate={new Date(new Date().getFullYear(), 0, 1)}
-                    endDate={new Date()}
+                    startDate={yearAgo}
+                    endDate={today}
                     showWeekdayLabels={true}
                     // weekdayLabels={["M", "T", "W", "T", "F"]}
                     onMouseOver={(e, v) => {

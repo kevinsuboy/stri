@@ -16,6 +16,7 @@ class Api::ActivityController < ApplicationController
             # debugger
             @activities = @activities.where("date > (?)", start_date)
         end
+        # debugger
         if params[:sport] && params[:sport] != ""
             @activities = @activities.where("sport = (?)", params[:sport])
         end
