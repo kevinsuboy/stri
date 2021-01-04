@@ -11,6 +11,7 @@ const mapOptions = {
         lat: 33.6861,
         lng: -117.8263
     }, // Irvine coords
+    draggableCursor: "pointer",
    // center: {
     //     lat: 37.773972,
     //     lng: -122.431297
@@ -59,6 +60,7 @@ class Map extends React.Component {
     }
     componentDidMount() {
         const map = this.refs.map;
+        mapOptions.draggableCursor = this.props.newForm ? "pointer" : "grab";
         this.map = new google.maps.Map(map, mapOptions);
         this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange);
         // debugger

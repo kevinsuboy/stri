@@ -117,6 +117,7 @@ class RouteForm extends React.Component {
                         draggable={true}
                         handleCoordChange={this.handleCoordChange}
                         handleCoordAdd={this.handleCoordAdd}
+                        newForm={this.props.newForm}
                     />
                 </div>
             </div>

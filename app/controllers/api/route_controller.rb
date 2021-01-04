@@ -57,9 +57,18 @@ class Api::RouteController < ApplicationController
     def create
         @route = Route.new(route_params)
         user = User.find_by(id:params[:userId])
-        # debugger
         @route.user_id = user.id
         if @route.save
+            locations = params[:locations]
+            locations.each do |idx, loc|
+                newLoc = Location.new(loc_params(loc))
+                newLoc.order = idx;
+                newLoc.route_id = @route.id;
+                # debugger
+                if !newLoc.save
+                    render json: newLoc.errors.full_messages, status: 422
+                end
+            end
             render :show
         else
             render json: @route.errors.full_messages, status: 422
