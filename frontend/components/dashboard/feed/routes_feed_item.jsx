@@ -40,6 +40,7 @@ export default ({ route, username, descr, userId, active=true, locations, routeI
             userId={userId}
             locations={locations}
             routeId={route.id}
+            loading={active}
         />
     )
 }

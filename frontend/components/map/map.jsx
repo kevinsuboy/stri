@@ -75,8 +75,9 @@ class Map extends React.Component {
         const {routeLoading} = this.props;
         const condA = routeLoading[0] && parseInt(routeLoading[0][0]) === this.props.routeId;
         if (
+            // false
             (init || this.delta) &&
-            condA
+            (condA || !this.props.loading)
         ){ 
             this.init = false;
             this.delta = false;
@@ -92,7 +93,7 @@ class Map extends React.Component {
         }
         return (
             <div className="map" ref="map">
-                Map
+                <img className="feed-pic profile-pic" alt="" />
             </div>
         );
     }

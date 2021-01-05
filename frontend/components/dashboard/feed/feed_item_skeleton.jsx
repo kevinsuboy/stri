@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Map from '../../map/map_container'
 
-export default ({username, date, body,activityId,userId, locations, map=true, routeId}) => {
+export default ({username, date, body,activityId,userId, locations, map=true, routeId, loading}) => {
     // debugger
     return (
 <li key={activityId} className="feed-item">
@@ -21,7 +21,7 @@ export default ({username, date, body,activityId,userId, locations, map=true, ro
     {body[3]}
     </div>
     {map ? <div className="feed-item-right">
-        <Map locations={locations} routeId={routeId}/>
+        <Map locations={locations} routeId={routeId} loading={loading}/>
     </div> : null}
 </li>
 )}

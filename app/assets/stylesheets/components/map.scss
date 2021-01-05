@@ -4,4 +4,24 @@
     width: 1300px;
     height: 700px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.map .feed-pic {
+    position: relative;
+    bottom: 15px;
+    width: 60%;
+    height: 60%;
+    animation: rotation 15s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
