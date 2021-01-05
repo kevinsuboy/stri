@@ -13,7 +13,7 @@ class UserStats extends React.Component {
     }
     handleChange(field){
         return e => {
-            debugger
+            // debugger
             this.setState({[field]: e.currentTarget.value})
         }
     }

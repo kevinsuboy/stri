@@ -29,7 +29,8 @@ class Map extends React.Component {
                 destination: undefined
             },
             waypoints: undefined,
-            init: true
+            init: true,
+            dir: true
         }
         this.init = true;
     }
@@ -44,18 +45,29 @@ class Map extends React.Component {
             if (!Array.isArray(nextProps.locations)) coord = convertLocations(nextProps.locations);
             else coord = _.cloneDeep(nextProps.locations);
             if(nextProps.delta === "del") coord.pop();
-            // debugger
-            this.setState({
-                init: false,
-                orDest: {
-                    origin: coord[0],
-                    destination: coord[coord.length - 1]
-                },
-                waypoints: coord.slice(1,coord.length - 1).map(el => ({
-                    location: el,
-                    stopover: true
-                }))
-            })
+            debugger
+            if(coord.length > 1){
+                this.setState({
+                    init: false,
+                    orDest: {
+                        origin: coord[0],
+                        destination: coord[coord.length - 1]
+                    },
+                    waypoints: coord.slice(1,coord.length - 1).map(el => ({
+                        location: el,
+                        stopover: true
+                    })),
+                    dir: true
+                })
+            }else if(coord.length === 1){
+                this.setState({
+                    lastMarker: true
+                })
+            }else{
+                this.setState({
+                    dir: false
+                })
+            }
         }
     }
     componentDidMount() {
@@ -93,7 +105,13 @@ class Map extends React.Component {
                 this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
             }
 
-            this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
+            if(this.state.dir && !this.state.lastMarker) this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
+            else{
+                this.maputil.clearRoute();
+            }
+            if(this.state.lastMarker){
+                this.maputil.placeMarkerAndPanTo(this.state.orDest.origin)
+            }
             if(this.props.loading)
                 setTimeout(() => {
                     this.props.deleteRoutesLoading(this.props.routeId);

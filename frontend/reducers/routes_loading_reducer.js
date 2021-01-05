@@ -13,7 +13,7 @@ const routesFilterReducer = (state = {}, action) => {
         return Object.assign({}, state, newFilter);
     case DELETE_ROUTES_LOADING:
         newFilter = Object.assign({}, state);
-        debugger
+        // debugger
         delete newFilter[action.routeId];
         return Object.assign({}, newFilter);
     default:

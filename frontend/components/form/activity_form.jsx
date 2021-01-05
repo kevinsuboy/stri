@@ -94,7 +94,7 @@ class ActivityForm extends React.Component{
         }
     }
     selectRoute(routeId) {
-        debugger
+        // debugger
         this.setState({
             routeId
         })

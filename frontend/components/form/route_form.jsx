@@ -38,14 +38,14 @@ class RouteForm extends React.Component {
         })
     }
     handleCoordDel() {
-        debugger
+        // debugger
         this.setState({
             delta: "del"
         })
     }
     handleCoordChange(distance, locations, time) {
         // console.log("coord changed!")
-        debugger
+        // debugger
         this.setState({
             distance,
             locations,

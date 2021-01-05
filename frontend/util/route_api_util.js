@@ -26,7 +26,7 @@ export const fetchUserRoute = (userId, id) => (
     })
 );
 export const updateRoute = (data, id) => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'PATCH',
         url: `api/route/${id}`,

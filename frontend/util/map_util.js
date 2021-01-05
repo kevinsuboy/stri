@@ -11,7 +11,7 @@ class MapUtil {
         this.directionsRenderer.setMap(map);
         
         this.initListeners();
-        debugger
+        // debugger
         if(orDest && waypoints) this.markers = [orDest.origin, ...waypoints.map(el=>el.location), orDest.destination];
         else this.markers = [];
     }
@@ -22,7 +22,7 @@ class MapUtil {
 
     dropMarkerListener(){
         this.map.addListener("click", (e) => {
-            debugger
+            // debugger
             this.markers.push({lat: e.latLng.lat(), lng: e.latLng.lng()})
             console.log(this.markers)
             if(this.markers.length > 1){
@@ -50,7 +50,7 @@ class MapUtil {
         });
     }
     placeMarkerAndPanTo(latLng) {
-        debugger
+        // debugger
         this.orig = new google.maps.Marker({
             position: latLng,
             map: this.map,
@@ -64,7 +64,7 @@ class MapUtil {
             const res = this.computeTotalDistance(dir);
             const loc = this.getLocations(dir);
             const time = this.getTime(dir);
-            debugger
+            // debugger
             if(this.handleCoordChange) this.handleCoordChange(res,loc,time);
         });
     }
@@ -94,6 +94,9 @@ class MapUtil {
         // return total + " mi";
         // document.getElementById("total").innerHTML = total + " mi";
     }
+    clearRoute(){
+        this.directionsRenderer.setMap(null)
+    }
     calculateAndDisplayRoute(orDest, waypoints, travelMode = google.maps.TravelMode.WALKING) {
         if(orDest.origin && orDest.destination){
             let req = {
@@ -107,7 +110,7 @@ class MapUtil {
             this.directionsService.route(req,
                 (response, status) => {
                     if (status === "OK") {
-                        debugger
+                        // debugger
                         this.directionsRenderer.setDirections(response);
                     } else {
                         window.alert("Directions request failed due to " + status);
