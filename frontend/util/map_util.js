@@ -65,6 +65,11 @@ class MapUtil {
             const loc = this.getLocations(dir);
             const time = this.getTime(dir);
             // debugger
+            // console.log(`markers:`)
+            // console.log(this.markers)
+            // console.log(`loc:`)
+            // console.log(loc)
+            this.markers = loc;
             if(this.handleCoordChange) this.handleCoordChange(res,loc,time);
         });
     }
