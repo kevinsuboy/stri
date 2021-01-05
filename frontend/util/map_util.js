@@ -12,7 +12,8 @@ class MapUtil {
         
         this.initListeners();
         debugger
-        this.markers = [orDest.origin, ...waypoints.map(el=>el.location), orDest.destination];
+        if(orDest && waypoints) this.markers = [orDest.origin, ...waypoints.map(el=>el.location), orDest.destination];
+        else this.markers = [];
     }
     initListeners(){
         this.dropMarkerListener();

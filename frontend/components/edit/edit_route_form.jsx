@@ -15,7 +15,7 @@ class EditActivityForm extends React.Component {
             <RouteForm
                 {...this.props}
                 type="Change"
-                newForm={true}
+                newForm={false}
             />
         )
     }

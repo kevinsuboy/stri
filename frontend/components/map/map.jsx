@@ -61,6 +61,11 @@ class Map extends React.Component {
     componentDidMount() {
         mapOptions.draggableCursor = this.props.newForm ? "pointer" : "grab";
         // debugger
+        if(this.props.newForm){
+            const map = this.refs.map;
+            this.map = new google.maps.Map(map, mapOptions);
+            this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
+        }
         this.registerListeners();
     }
     registerListeners() {
