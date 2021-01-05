@@ -107,7 +107,7 @@ class RouteForm extends React.Component {
                     <form className="activity-edit-form-content" onSubmit={this.handleSubmit}>
                         <DurDist duration={this.state.estimated_duration} distance={this.state.distance} handleChange={this.handleChange} />
                         <TitleDescr title={this.state.name} description={this.state.description} handleChange={this.handleChange} activity={false} />
-                        <button className={`session-submit link session-link`} type="button" onClick={this.handleCoordDel}> Delete Last Location</button>
+                        <button className={`session-submit link session-link delete-location`} type="button" onClick={this.handleCoordDel}> Delete Last Location</button>
                         <input className={`session-submit link session-link`} type="submit" value={`Submit ${this.props.type}`} />
                         <RouteErrorContainer />
                     </form>

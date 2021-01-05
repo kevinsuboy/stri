@@ -36,6 +36,9 @@
     width: 70%;
     margin-left: 35px;
 }
+.delete-location {
+    background-color: $secondary-gray;
+}
 .activity-edit-form-content {
     width: 30%;
 }
@@ -103,6 +106,7 @@
 }
 .dur-group {
     margin-left: 50px;
+    width: 50%;
 }
 .activity-edit-form .session-submit {
     height: 50px;

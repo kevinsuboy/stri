@@ -137,7 +137,7 @@ class ActivityForm extends React.Component{
         return(
             <div className="activity-form-container">
     <form className={`activity-edit-form`} onSubmit={this.handleSubmit}>
-        <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange}/>
+        <DurDist duration={this.state.duration} distance={this.state.distance} handleChange={this.handleChange} activity={true}/>
         <div className="r2">
         {sport(this.handleChange("sport"), this.state.sport)}
         <label>Date
