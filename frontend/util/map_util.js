@@ -1,7 +1,7 @@
 /* global google:false */
 
 class MapUtil {
-    constructor(map, draggable=false, handleCoordChange=()=>{}) {
+    constructor(map, draggable=false, handleCoordChange=()=>{}, orDest, waypoints) {
         this.map = map;
         this.handleCoordChange = handleCoordChange;
         this.directionsService = new google.maps.DirectionsService();
@@ -11,7 +11,8 @@ class MapUtil {
         this.directionsRenderer.setMap(map);
         
         this.initListeners();
-        this.markers = [];
+        debugger
+        this.markers = [orDest.origin, ...waypoints.map(el=>el.location), orDest.destination];
     }
     initListeners(){
         this.dropMarkerListener();
@@ -20,7 +21,9 @@ class MapUtil {
 
     dropMarkerListener(){
         this.map.addListener("click", (e) => {
+            debugger
             this.markers.push({lat: e.latLng.lat(), lng: e.latLng.lng()})
+            console.log(this.markers)
             if(this.markers.length > 1){
                 this.calculateAndDisplayRoute(
                     {
@@ -33,8 +36,10 @@ class MapUtil {
                     })),
                     google.maps.TravelMode.WALKING
                 )
-                this.orig.setMap(null);
-                this.orig = null;
+                if(this.orig){
+                    this.orig.setMap(null);
+                    this.orig = null;
+                }
             }
             else{
                 this.placeMarkerAndPanTo(e.latLng);

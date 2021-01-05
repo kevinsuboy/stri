@@ -84,7 +84,7 @@ class Map extends React.Component {
             // debugger
             const map = this.refs.map;
             this.map = new google.maps.Map(map, mapOptions);
-            this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange);
+            this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
 
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
             setTimeout(() => {

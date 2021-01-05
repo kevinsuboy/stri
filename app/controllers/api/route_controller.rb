@@ -29,6 +29,7 @@ class Api::RouteController < ApplicationController
     def update
         @route = Route.find_by(id:params[:id])
         @locations = Location.where(route_id: params[:id]).order(:order)
+        # debugger
         @locations.each do |loc|
             pLoc = params[:locations][loc[:order].to_s];
             if !pLoc
@@ -39,6 +40,20 @@ class Api::RouteController < ApplicationController
                 render json: loc.errors.full_messages, status: 422
             end
         end
+
+        ll = params[:locations]
+        ll.each do |idx, loc|
+            if(idx.to_i >= @locations.length) 
+                newLoc = Location.new(loc_params(loc))
+                newLoc.order = idx;
+                newLoc.route_id = @route.id;
+                # debugger
+                if !newLoc.save
+                    render json: newLoc.errors.full_messages, status: 422
+                end
+            end
+        end
+
         # debugger
         if @route.update(route_params)
             render :show
