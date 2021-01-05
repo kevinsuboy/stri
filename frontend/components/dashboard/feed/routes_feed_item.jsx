@@ -4,7 +4,7 @@ import SportLogo from '../sport_logo'
 import { calcTime } from '../../../util/calc_util'
 import { Link } from 'react-router-dom';
 
-export default ({ route, username, descr, userId, active=true, locations}) => {
+export default ({ route, username, descr, userId, active=true, locations, routeId}) => {
     // debugger
     const d = new Date(route.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     const date = <p className="feed-item-date">{d}</p>
@@ -39,6 +39,7 @@ export default ({ route, username, descr, userId, active=true, locations}) => {
             body={[title, stats, descr]}
             userId={userId}
             locations={locations}
+            routeId={route.id}
         />
     )
 }

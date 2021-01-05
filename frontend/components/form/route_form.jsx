@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../map/map'
+import Map from '../map/map_container'
 import { calcTime, convertLocations } from '../../util/calc_util'
 import DurDist from './durDist';
 import TitleDescr from './titleDescr';

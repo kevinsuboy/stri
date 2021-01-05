@@ -5,24 +5,36 @@ class Routes extends React.Component {
     constructor(props) {
         super(props)
     }
+    componentWillUnmount() {
+        this.props.clearRoutesLoading();
+    }
     componentDidMount() {
         // this.props.fetchUserRoutes(this.props.userId);
+        // debugger
         this.props.changeRoutesFilter("recentDays", 30);
         this.props.fetchFilteredUserRoutes(this.props.userId)
-            .then(el => this.props.fetchAllLocations(Object.keys(el.routes)));
+            .then(el => {
+                // console.log(el);
+                for (const [key, value] of Object.entries(el.routes)) {
+                    if(key !== "totalCnt") this.props.changeRoutesLoading(key,true)
+                }
+                return this.props.fetchAllLocations(Object.keys(el.routes))
+            }
+            );
     }
     componentWillUpdate() {
         this.props.clearRoutesFilter();
     }
     render() {
         // debugger
-        const routeItems = this.props.routes.map(el =>
+        const routeItems = this.props.routes.map((el, idx) =>
             <RoutesFeedItem
                 key={el.id}
                 route={el}
                 userId={this.props.userId}
                 username={this.props.username}
                 locations={this.props.locations[el.id]}
+                loadingId={idx}
             />
         );
         return (

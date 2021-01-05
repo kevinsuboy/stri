@@ -44,7 +44,7 @@ class Map extends React.Component {
             if (!Array.isArray(nextProps.locations)) coord = convertLocations(nextProps.locations);
             else coord = _.cloneDeep(nextProps.locations);
             if(nextProps.delta === "del") coord.pop();
-            debugger
+            // debugger
             this.setState({
                 init: false,
                 orDest: {
@@ -59,10 +59,7 @@ class Map extends React.Component {
         }
     }
     componentDidMount() {
-        const map = this.refs.map;
         mapOptions.draggableCursor = this.props.newForm ? "pointer" : "grab";
-        this.map = new google.maps.Map(map, mapOptions);
-        this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange);
         // debugger
         this.registerListeners();
     }
@@ -75,11 +72,23 @@ class Map extends React.Component {
     render() {
         // debugger
         const init = this.init && !this.state.init;
-        if (this.maputil && (init || this.delta)){ 
+        const {routeLoading} = this.props;
+        const condA = routeLoading[0] && parseInt(routeLoading[0][0]) === this.props.routeId;
+        if (
+            (init || this.delta) &&
+            condA
+        ){ 
             this.init = false;
             this.delta = false;
-            debugger
+            // debugger
+            const map = this.refs.map;
+            this.map = new google.maps.Map(map, mapOptions);
+            this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange);
+
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
+            setTimeout(() => {
+                this.props.deleteRoutesLoading(this.props.routeId);
+            }, 700);
         }
         return (
             <div className="map" ref="map">
