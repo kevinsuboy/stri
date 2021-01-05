@@ -87,14 +87,17 @@ class Map extends React.Component {
             this.init = false;
             this.delta = false;
             // debugger
-            const map = this.refs.map;
-            this.map = new google.maps.Map(map, mapOptions);
-            this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
+            if(!this.map){
+                const map = this.refs.map;
+                this.map = new google.maps.Map(map, mapOptions);
+                this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
+            }
 
             this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
-            setTimeout(() => {
-                this.props.deleteRoutesLoading(this.props.routeId);
-            }, 700);
+            if(this.props.loading)
+                setTimeout(() => {
+                    this.props.deleteRoutesLoading(this.props.routeId);
+                }, 700);
         }
         return (
             <div className="map" ref="map">
