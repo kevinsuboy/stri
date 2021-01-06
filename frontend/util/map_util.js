@@ -54,7 +54,17 @@ class MapUtil {
         this.orig = new google.maps.Marker({
             position: latLng,
             map: this.map,
+            draggable: true
         });
+        this.orig.addListener("dragend", (e) => {
+            // console.log(this.markers)
+            // console.log("DRAGEND")
+            // debugger
+            this.markers = [{ lat: e.latLng.lat(), lng: e.latLng.lng()}]
+            // const tmp = { lat: this.orig.position.lat(), lng: this.orig.position.lng()}
+            // console.log(tmp)
+            // console.log(this.markers)
+        })
         this.map.panTo(latLng);
     }
     manDirectionsChanged(type){

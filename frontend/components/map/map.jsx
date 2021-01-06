@@ -140,6 +140,7 @@ class Map extends React.Component {
                 this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
             }
             else{
+                debugger
                 if(!this.state.dir){
                     debugger
                     this.maputil.manDirectionsChanged(null)
