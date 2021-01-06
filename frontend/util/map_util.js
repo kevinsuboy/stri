@@ -62,7 +62,7 @@ class MapUtil {
         this.manual = type;
     }
     clearOrig(){
-        // debugger
+        debugger
         if (this.orig) {
             this.orig.setMap(null);
             this.orig = null;
@@ -77,15 +77,16 @@ class MapUtil {
             const time = this.getTime(dir);
             if(!loc) debugger
             debugger
+            console.log("manual:")
+            console.log(this.manual)
             this.markers = loc;
             if(this.handleCoordChange){
                 if(!this.manual) this.handleCoordChange(res,loc,time);
-                // else if(this.manual === "none"){
-                //     debugger
-                //     this.orig.setMap(null);
-                //     this.orig = null;
-                //     this.handleCoordChange(0,[],0);
-                // }
+                else if(this.manual === "none"){
+                    debugger
+                    this.markers = [];
+                    this.handleCoordChange(0,[],0);
+                }
                 else if(this.manual === "single"){
                     debugger
                     this.markers = [loc[0]];

@@ -73,10 +73,30 @@ class Map extends React.Component {
                         lastMarker: true
                     })
                 }else{
-                    if (this.maputil) this.maputil.clearOrig();
+                    this.setState({
+                        dir: false,
+                        lastMarker: false
+                    })
+                    if (this.maputil){
+                        debugger
+                        // this.maputil.manDirectionsChanged(null)
+                        this.maputil.markers = [];
+                        this.props.handleCoordChange(0, [], 0);
+                        // this.maputil.manDirectionsChanged("none")
+                        this.maputil.clearOrig();
+                    }
                 }
             }else{
-                if (this.maputil) this.maputil.clearOrig();
+                this.setState({
+                    dir: false,
+                    lastMarker: false
+                })
+                if (this.maputil){
+                    this.maputil.markers = [];
+                    // this.props.handleCoordChange(0, [], 0);
+                    // this.maputil.manDirectionsChanged(null)
+                    this.maputil.clearOrig();
+                }
             }
         }
     }
@@ -115,13 +135,14 @@ class Map extends React.Component {
                 this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
             }
             if(this.state.dir && !this.state.lastMarker){
+                debugger
                 this.maputil.manDirectionsChanged(null)
                 this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
             }
             else{
                 if(!this.state.dir){
                     debugger
-                    // this.maputil.manDirectionsChanged("none")
+                    this.maputil.manDirectionsChanged(null)
                     this.maputil.clearOrig();
                 }
                 if(this.state.lastMarker){
