@@ -37,36 +37,46 @@ class Map extends React.Component {
     componentWillUpdate(nextProps) {
         const baseCond = this.props !== nextProps;
         const baseCondA = this.props.locations !== nextProps.locations;
+        debugger
         // const condA = this.props.locations && (this.props.locations.length !== nextProps.locations.length);
         this.delta = nextProps.delta;
-        if(baseCond && (baseCondA && (this.state.init) || nextProps.delta)){
+        // debugger
+        if(baseCond && ((baseCondA && this.state.init) || nextProps.delta)){
             // if(baseCond && (this.state.init || condA)){
             let coord = undefined;
-            if (!Array.isArray(nextProps.locations)) coord = convertLocations(nextProps.locations);
-            else coord = _.cloneDeep(nextProps.locations);
-            if(nextProps.delta === "del") coord.pop();
             debugger
-            if(coord.length > 1){
-                this.setState({
-                    init: false,
-                    orDest: {
-                        origin: coord[0],
-                        destination: coord[coord.length - 1]
-                    },
-                    waypoints: coord.slice(1,coord.length - 1).map(el => ({
-                        location: el,
-                        stopover: true
-                    })),
-                    dir: true
-                })
-            }else if(coord.length === 1){
-                this.setState({
-                    lastMarker: true
-                })
+            if(nextProps.locations){
+                if (!Array.isArray(nextProps.locations)) coord = convertLocations(nextProps.locations);
+                else coord = _.cloneDeep(nextProps.locations);
+                if(nextProps.delta === "del"){
+                    debugger
+                    coord.pop();
+                }
+                if(coord.length > 1){
+                    this.setState({
+                        init: false,
+                        orDest: {
+                            origin: coord[0],
+                            destination: coord[coord.length - 1]
+                        },
+                        waypoints: coord.slice(1,coord.length - 1).map(el => ({
+                            location: el,
+                            stopover: true
+                        })),
+                        dir: true,
+                        lastMarker: false
+                    })
+                }else if(coord.length === 1){
+                    // debugger
+                    this.setState({
+                        // dir: false,
+                        lastMarker: true
+                    })
+                }else{
+                    if (this.maputil) this.maputil.clearOrig();
+                }
             }else{
-                this.setState({
-                    dir: false
-                })
+                if (this.maputil) this.maputil.clearOrig();
             }
         }
     }
@@ -104,13 +114,22 @@ class Map extends React.Component {
                 this.map = new google.maps.Map(map, mapOptions);
                 this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
             }
-
-            if(this.state.dir && !this.state.lastMarker) this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
-            else{
-                this.maputil.clearRoute();
+            if(this.state.dir && !this.state.lastMarker){
+                this.maputil.manDirectionsChanged(null)
+                this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
             }
-            if(this.state.lastMarker){
-                this.maputil.placeMarkerAndPanTo(this.state.orDest.origin)
+            else{
+                if(!this.state.dir){
+                    debugger
+                    // this.maputil.manDirectionsChanged("none")
+                    this.maputil.clearOrig();
+                }
+                if(this.state.lastMarker){
+                    this.maputil.manDirectionsChanged("single")
+                    this.maputil.placeMarkerAndPanTo(this.state.orDest.origin)
+                }
+                this.maputil.clearRoute();
+                // debugger
             }
             if(this.props.loading)
                 setTimeout(() => {

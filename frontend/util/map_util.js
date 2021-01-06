@@ -22,7 +22,11 @@ class MapUtil {
 
     dropMarkerListener(){
         this.map.addListener("click", (e) => {
-            // debugger
+            if(!this.markers.push){
+                console.log(this.markers)
+                debugger
+            }
+            this.manual = null;
             this.markers.push({lat: e.latLng.lat(), lng: e.latLng.lng()})
             console.log(this.markers)
             if(this.markers.length > 1){
@@ -37,12 +41,8 @@ class MapUtil {
                     })),
                     google.maps.TravelMode.WALKING
                 )
-                if(this.orig){
-                    this.orig.setMap(null);
-                    this.orig = null;
-                }
-            }
-            else{
+                this.clearOrig();
+            }else{
                 this.placeMarkerAndPanTo(e.latLng);
             }
             // this.calculateAndDisplayRoute({origin: this.markers[0], destination: this.markers[0]}, [], google.maps.TravelMode.WALKING)
@@ -57,20 +57,41 @@ class MapUtil {
         });
         this.map.panTo(latLng);
     }
+    manDirectionsChanged(type){
+        debugger
+        this.manual = type;
+    }
+    clearOrig(){
+        // debugger
+        if (this.orig) {
+            this.orig.setMap(null);
+            this.orig = null;
+        }
+    }
     directionsChanged(){
-        this.directionsRenderer.addListener("directions_changed", (e) => {
+        this.directionsRenderer.addListener("directions_changed", () => {
             const dir = this.directionsRenderer.getDirections();
             //
             const res = this.computeTotalDistance(dir);
             const loc = this.getLocations(dir);
             const time = this.getTime(dir);
-            // debugger
-            // console.log(`markers:`)
-            // console.log(this.markers)
-            // console.log(`loc:`)
-            // console.log(loc)
+            if(!loc) debugger
+            debugger
             this.markers = loc;
-            if(this.handleCoordChange) this.handleCoordChange(res,loc,time);
+            if(this.handleCoordChange){
+                if(!this.manual) this.handleCoordChange(res,loc,time);
+                // else if(this.manual === "none"){
+                //     debugger
+                //     this.orig.setMap(null);
+                //     this.orig = null;
+                //     this.handleCoordChange(0,[],0);
+                // }
+                else if(this.manual === "single"){
+                    debugger
+                    this.markers = [loc[0]];
+                    this.handleCoordChange(0,[loc[0]],0);
+                }
+            }
         });
     }
     getLocations(result) {
@@ -84,8 +105,12 @@ class MapUtil {
         return coord;
     }
     getTime(result) {
-        const myleg = result.routes[0].legs[0];
-        return myleg.duration.value;
+        let total = 0;
+        const myroute = result.routes[0];
+        for (let i = 0; i < myroute.legs.length; i++) {
+            total += myroute.legs[i].duration.value;
+        }
+        return total;
     }
     computeTotalDistance(result) {
         let total = 0;
@@ -100,9 +125,11 @@ class MapUtil {
         // document.getElementById("total").innerHTML = total + " mi";
     }
     clearRoute(){
+        // console.log(this.directionsRenderer)
         this.directionsRenderer.setMap(null)
     }
     calculateAndDisplayRoute(orDest, waypoints, travelMode = google.maps.TravelMode.WALKING) {
+        if(!this.directionsRenderer.map) this.directionsRenderer.setMap(this.map);
         if(orDest.origin && orDest.destination){
             let req = {
                 origin: orDest.origin,
