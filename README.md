@@ -1,4 +1,4 @@
-# README
+# README 
 
 Stri, a Strava clone, is an internet service for tracking exercise and incorporates social networking features. It is mostly used for cycling and running using GPS data.
 
