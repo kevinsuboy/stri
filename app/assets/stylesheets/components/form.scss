@@ -3,6 +3,21 @@
 .form-submit {
     height: 40px;
 }
+.activity-form-route .feed-item-left, .activity-form-route .feed-item-right{
+    width: 100% !important;
+}
+.activity-form-route .map {
+    min-height: 270px;
+}
+.activity-form-route .feed-item{
+    flex-direction: column;
+    min-height: unset;
+    margin-bottom: 0;
+}
+.activity-form-route .show-body, .activity-form-route .show-container, .activity-form-route .feed-item{
+    width: 100%;
+    padding: 0;
+}
 .activity-form-route {
     width: 35%;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterForm from '../search/filter_form';
 import RoutesTable from '../index/routes_table';
+import ActivityRouteItem from './activity_route_item_container';
 
 class ActivityFormRoute extends React.Component {
     constructor(props) {
@@ -12,11 +13,12 @@ class ActivityFormRoute extends React.Component {
         this.updateChosen = this.updateChosen.bind(this)
         this.firstMount = true;
     }
-    updateChosen(val, title) {
+    updateChosen(val, title, routeId) {
         // debugger
         this.setState({
             chosen: val,
-            title
+            title,
+            routeId
         })
     }
     componentDidUpdate(ownProps) {
@@ -25,14 +27,14 @@ class ActivityFormRoute extends React.Component {
             const oR = ownProps.route(this.props.activity[0].route_id);
             // debugger
             if (r && r[0] && r[0] !== oR[0]) {
-                this.updateChosen(true,r[0].name)
+                this.updateChosen(true,r[0].name,r[0].id)
                 this.firstMount = false;
             }
         }
 
     }
     render() {
-        if(this.state.chosen) debugger
+        // if(this.state.chosen) debugger
         return(
             <div className="activity-form-route">
         <FilterForm userId={this.props.userId}
@@ -54,7 +56,9 @@ class ActivityFormRoute extends React.Component {
                         }}
                         selectRoute={this.props.selectRoute}
                         updateChosen={this.updateChosen}
-        /> : null}
+                // /> : null
+                /> : <ActivityRouteItem routeId={this.state.routeId}/>
+        }
             </div>
         )
     }

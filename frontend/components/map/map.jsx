@@ -35,19 +35,24 @@ class Map extends React.Component {
         this.init = true;
     }
     componentWillUpdate(nextProps) {
+        let {locations: oL} = this.props; let {locations: nL} = nextProps;
+        if( typeof oL === 'function' ){
+            oL = oL(this.props.routeId);
+            nL = nL(this.props.routeId);
+        }
         const baseCond = this.props !== nextProps;
-        const baseCondA = this.props.locations !== nextProps.locations;
-        debugger
-        // const condA = this.props.locations && (this.props.locations.length !== nextProps.locations.length);
+        const baseCondA = oL !== nL;
+        // debugger
+        // const condA = oL && (oL.length !== nL.length);
         this.delta = nextProps.delta;
         // debugger
         if(baseCond && ((baseCondA && this.state.init) || nextProps.delta)){
             // if(baseCond && (this.state.init || condA)){
             let coord = undefined;
             debugger
-            if(nextProps.locations){
-                if (!Array.isArray(nextProps.locations)) coord = convertLocations(nextProps.locations);
-                else coord = _.cloneDeep(nextProps.locations);
+            if(nL){
+                if (!Array.isArray(nL)) coord = convertLocations(nL);
+                else coord = _.cloneDeep(nL);
                 if(nextProps.delta === "del"){
                     debugger
                     coord.pop();

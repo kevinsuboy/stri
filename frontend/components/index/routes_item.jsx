@@ -27,7 +27,7 @@ export default ({ route,deleteRoute, options, selectRoute, updateChosen }) => {
         l1 = <li className="index-link index-item-edit index-item-select session-link link"
         onClick={() => {
             selectRoute(route.id)
-            updateChosen(true, route.name)
+            updateChosen(true, route.name, route.id)
         }}>Select</li>
     }
     return (
