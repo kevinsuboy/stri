@@ -12,10 +12,13 @@ https://stri-app.herokuapp.com/#/
 
 ![Feed Image](./app/assets/images/Feed.png)
 
-Their activities are displayed on the activities index page.
+Their routes are displayed on the routes index page.
 
-![Activity Index Image](./app/assets/images/activity_index.png)
+![Route Show Image](./app/assets/images/route_index.png)
 
+Custom routes are displayed on route show pages.
+
+![Route Show Image](./app/assets/images/Route_Show.png)
 
 ## Technologies
 
@@ -23,9 +26,46 @@ Their activities are displayed on the activities index page.
 * Backend: Ruby on Rails
 * Database: Postgres
 
+* Other: Google Maps API, Directions Service API
+
 ## Features
 
+### Creating Routes
+Google Maps Javascript API, and Google Maps Directions API was utilized to render the map for viewing and creating routes. Users can click anywhere on the map to create new waypoints. The app will dynamically recalculate the distance and estimated duration of the route. Users can delete most recently placed waypoints as needed. Waypoints may also be clicked and dragged for easy editing.
+
+![Route Edit](./app/assets/images/Route_Edit.gif)
+
+Route waypoints are stored as latitude and longitude columns in separate table in the database.
+
 ### Searching Activities and Routes
-Filter activities and routes by keyword search bar, and by sport type
+Users can filter activities and routes by keyword search bar, and by sport type. A debouncing feature was used to allow users to dynamically search without the need to hit submit buttons.
+
+```javascript
+    debounce(fn, wait) {
+        let timeout;
+
+        return (...args) => {
+            const later = () => {
+                clearTimeout(timeout);
+                fn(...args);
+            };
+
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    };
+```
+
+Everytime a user types, the closure is executed with new arguments. The outer function variable (the older asynchronous setTimeout) ```timeout``` is cleared and a new asynchronous method is created. ```fn``` is only executed if the user stops typing after the given ```wait``` time.
 
 ![Search Gif](./app/assets/images/Search.gif)
+
+The search feature is utilized in the activity edit and create feature, allowing users to look up routes to associate an activity with.
+
+![Activity Edit Gif](./app/assets/images/Activity_Edit.gif)
+
+
+### User Show
+A user's profile page contains a react-heatmap calendar showcasing all of the user's activities in the past year. The heatmap 
+
+![User Show Gif](./app/assets/images/User_Show.gif)
