@@ -69,3 +69,10 @@ The search feature is utilized in the activity edit and create feature, allowing
 A user's profile page contains a react-heatmap calendar showcasing all of the user's activities in the past year. The heatmap 
 
 ![User Show Gif](./app/assets/images/User_Show.gif)
+
+## Future Implementations
+Future features that have been considered are:
+
+- Friending other users
+- Showing friends' completed activities on the feed
+- Using friends' routes
