@@ -13,8 +13,8 @@ class UserCal extends React.Component {
         this.handleCalClick = this.handleCalClick.bind(this);
     }
     handleCalClick(v) {
-        console.log('I am the cal click')
-        console.log(v)
+        // console.log('I am the cal click')
+        // console.log(v)
         this.setState({ dateFilter: v.date })
     }
     render() {
@@ -26,9 +26,9 @@ class UserCal extends React.Component {
                 activities: v
             })
         }
-        if(this.props.dated[this.state.dateFilter] === undefined) debugger;
+        // if(this.props.dated[this.state.dateFilter] === undefined) debugger;
         const dateActivities = (this.state.dateFilter && this.props.dated[this.state.dateFilter]) ? this.props.dated[this.state.dateFilter].map(id => this.props.allActivities[id]) : this.props.activities;
-        if(n_dated.length !== 0) debugger
+        // if(n_dated.length !== 0) debugger
         const today = new Date();
         const yearAgo = new Date(); yearAgo.setFullYear(today.getFullYear() - 1);
         return (

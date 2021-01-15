@@ -19,7 +19,8 @@ class Activity extends React.Component {
     render() {
         // debugger
         const activityItems = this.props.activity.map(el => 
-        { if(!el) debugger;
+        {
+            // if(!el) debugger;
         const r = this.props.route(el.route_id)[0];
         // if(xxx(el.route_id)[0] === undefined) debugger;
         return <ActivitiesFeedItem key={el.id} active={false} userId={this.props.userId} activity={el} username={this.props.username} descr={

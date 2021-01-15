@@ -22,13 +22,13 @@ class MapUtil {
 
     dropMarkerListener(){
         this.map.addListener("click", (e) => {
-            if(!this.markers.push){
-                console.log(this.markers)
-                debugger
-            }
+            // if(!this.markers.push){
+            //     console.log(this.markers)
+            //     debugger
+            // }
             this.manual = null;
             this.markers.push({lat: e.latLng.lat(), lng: e.latLng.lng()})
-            console.log(this.markers)
+            // console.log(this.markers)
             if(this.markers.length > 1){
                 this.calculateAndDisplayRoute(
                     {
@@ -46,7 +46,7 @@ class MapUtil {
                 this.placeMarkerAndPanTo(e.latLng);
             }
             // this.calculateAndDisplayRoute({origin: this.markers[0], destination: this.markers[0]}, [], google.maps.TravelMode.WALKING)
-            console.log("marker dropped")
+            // console.log("marker dropped")
         });
     }
     placeMarkerAndPanTo(latLng) {
@@ -68,11 +68,11 @@ class MapUtil {
         this.map.panTo(latLng);
     }
     manDirectionsChanged(type){
-        debugger
+        // debugger
         this.manual = type;
     }
     clearOrig(){
-        debugger
+        // debugger
         if (this.orig) {
             this.orig.setMap(null);
             this.orig = null;
@@ -85,20 +85,20 @@ class MapUtil {
             const res = this.computeTotalDistance(dir);
             const loc = this.getLocations(dir);
             const time = this.getTime(dir);
-            if(!loc) debugger
-            debugger
-            console.log("manual:")
-            console.log(this.manual)
+            // if(!loc) debugger
+            // debugger
+            // console.log("manual:")
+            // console.log(this.manual)
             this.markers = loc;
             if(this.handleCoordChange){
                 if(!this.manual) this.handleCoordChange(res,loc,time);
                 else if(this.manual === "none"){
-                    debugger
+                    // debugger
                     this.markers = [];
                     this.handleCoordChange(0,[],0);
                 }
                 else if(this.manual === "single"){
-                    debugger
+                    // debugger
                     this.markers = [loc[0]];
                     this.handleCoordChange(0,[loc[0]],0);
                 }

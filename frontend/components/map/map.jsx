@@ -49,12 +49,12 @@ class Map extends React.Component {
         if(baseCond && ((baseCondA && this.state.init) || nextProps.delta)){
             // if(baseCond && (this.state.init || condA)){
             let coord = undefined;
-            debugger
+            // debugger
             if(nL){
                 if (!Array.isArray(nL)) coord = convertLocations(nL);
                 else coord = _.cloneDeep(nL);
                 if(nextProps.delta === "del"){
-                    debugger
+                    // debugger
                     coord.pop();
                 }
                 if(coord.length > 1){
@@ -83,7 +83,7 @@ class Map extends React.Component {
                         lastMarker: false
                     })
                     if (this.maputil){
-                        debugger
+                        // debugger
                         // this.maputil.manDirectionsChanged(null)
                         this.maputil.markers = [];
                         this.props.handleCoordChange(0, [], 0);
@@ -140,14 +140,14 @@ class Map extends React.Component {
                 this.maputil = new MapUtil(this.map, this.props.draggable, this.props.handleCoordChange, this.state.orDest, this.state.waypoints);
             }
             if(this.state.dir && !this.state.lastMarker){
-                debugger
+                // debugger
                 this.maputil.manDirectionsChanged(null)
                 this.maputil.calculateAndDisplayRoute(this.state.orDest, this.state.waypoints, this.props.travelMode);
             }
             else{
-                debugger
+                // debugger
                 if(!this.state.dir){
-                    debugger
+                    // debugger
                     this.maputil.manDirectionsChanged(null)
                     this.maputil.clearOrig();
                 }
